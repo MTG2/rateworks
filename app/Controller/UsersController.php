@@ -66,20 +66,20 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         }
-   
-			
-
+  
 		}
 
     public function edit($id = null) {
         $this->User->id = $id;
+				
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
+
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
+                $this->redirect(array('controller' => 'entries', 'action' => 'index'));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
