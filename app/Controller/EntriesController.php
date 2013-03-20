@@ -86,9 +86,9 @@ public function isAuthorized($user) {
 }
 
 	//ab hier martins kram
-	public function a_edit_rates($lol) {
+	public function a_edit_rates() {
 		$this->set('entries', $this->paginate());
-		$this->set('frameworkid', $lol); //in controller
+
 	}	
 	
 

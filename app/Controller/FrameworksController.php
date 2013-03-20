@@ -91,7 +91,8 @@ public function isAuthorized($user) {
 	}
 
 	public function sentDataToEC($id){
-		$this->redirect(array('controller' => 'EntriesController', 'action' => 'a_edit_rates', $id));
+		
+
 	}
 
 }

@@ -16,7 +16,7 @@
 
     <!-- Here is where we loop trough our $ausgabes array, printing out entries info -->
 
-	<?php echo $frameworkid ?> 
+
 	
     <?php foreach ($entries as $ausgabe): //var $entries kommt aus dem Controller ?> 
 	
