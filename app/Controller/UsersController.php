@@ -3,6 +3,7 @@
 // app/Controller/UsersController.php
 class UsersController extends AppController {
 
+
  public function beforeFilter() {
         $this->Auth->allow('login','add');
     }

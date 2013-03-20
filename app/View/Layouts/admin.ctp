@@ -46,6 +46,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			Adminnavigation
 			<?php echo $this->Html->link('Adminindex', '/users/a_main'); ?>
 			<?php echo $this->Html->link('Logout', '/users/logout'); ?>
+
 			</div>
 			<?php echo $this->Session->flash(); ?>
 			

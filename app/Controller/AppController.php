@@ -54,4 +54,6 @@ public function isAuthorized($user) {
     // Default deny
     return false;
 }
+
+
 }
