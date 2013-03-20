@@ -1,9 +1,7 @@
 <!-- File: /app/View/Posts/index.ctp -->
 
 <h1>Frameworks</h1>
-<p><?php echo $this->Html->link('Add Entry', array('action' => 'add')); ?></p>
-<p><?php echo $this->Html->link('Log out', array('controller' => 'users', 'action' => 'logout')); ?></p>
-<p><?php  echo $this->Session->read('Auth.User.username');?></p>
+<p>Username: <?php  echo $this->Session->read('Auth.User.username');?></p>
 <table>
     <tr>
         <th>Id</th>

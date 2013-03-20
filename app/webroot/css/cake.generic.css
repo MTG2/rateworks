@@ -73,6 +73,14 @@ p {
 }
 
 /** Layout **/
+
+#navigation{
+border:solid;
+background:#ADD8E6;
+width:auto;
+height:100px;
+}
+
 #container {
 	text-align: left;
 }
