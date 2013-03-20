@@ -47,12 +47,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?php echo $this->Html->link('Index', '/entries/index'); ?>
 			<?php echo $this->Html->link('Add Entry', '/entries/add'); ?>
 			<?php echo $this->Html->link('Logout', '/users/logout'); ?>
-			<?php echo $this->Html->link('Profil', '/users/edit/');?>
-						<?php
-						if (isset($id)) {
-						 echo $id;
-						}else echo "NEIN";
-						?>
+			<?php echo $this->Html->link('Profil', '/users/edit/20');?>
 			
 			</div>
 			<?php echo $this->Session->flash(); ?>
