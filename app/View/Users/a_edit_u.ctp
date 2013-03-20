@@ -31,7 +31,7 @@
 		<td>
 			<?php echo $this->Form->PostLink(
                 'Delete',
-                array('action' => 'delete', $ausgabe['User']['id']),
+                array('action' => 'delete', $ausgabe['User']['id'], "a_edit_u"),
                 array('confirm' => 'Are you sure?'));
             ?>
 		</td>

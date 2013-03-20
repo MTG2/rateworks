@@ -84,7 +84,7 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
         }
     }
 
-    public function delete($id = null) {
+    public function delete($id = null, $page) {
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }
@@ -94,10 +94,10 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
         }
         if ($this->User->delete()) {
             $this->Session->setFlash(__('User deleted'));
-            $this->redirect(array('action' => 'aEditU'));
+            $this->redirect(array('action' => $page));
         }
         $this->Session->setFlash(__('User was not deleted'));
-        $this->redirect(array('action' => 'aEditU'));
+        $this->redirect(array('action' => $page));
     }
 	
 	//Ab hier martins kram
@@ -107,8 +107,10 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 	
 	public function a_edit_u() {
 		$this->set('users', $this->paginate());
-		
-		
+	}
+	
+	public function a_edit_rates() {
+		$this->set('users', $this->paginate());
 	}
 }
 	
