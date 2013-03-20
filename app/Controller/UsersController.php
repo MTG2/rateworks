@@ -41,9 +41,13 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-
-
-                $this->redirect(array('controller' => 'entries' , 'action' => 'index'));
+	
+	
+			//	$this->data['User']['password'] = $this->Auth->password($this->data['User']['password']);
+				//$this->Auth->login($this->data);
+				//$this->redirect($this->Auth->redirect());
+				  $this->redirect(array('action' => 'login'));
+				
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
@@ -108,10 +112,7 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 	public function a_edit_u() {
 		$this->set('users', $this->paginate());
 	}
-	
-	public function a_edit_rates() {
-		$this->set('users', $this->paginate());
-	}
+
 }
 	
 ?>
