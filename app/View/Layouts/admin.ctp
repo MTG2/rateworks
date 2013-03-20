@@ -43,9 +43,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		</div>
 		<div id="content">
 			<div id="navigation">
-			Usernavigation
-			<?php echo $this->Html->link('Index', '/entries/index'); ?>
-			<?php echo $this->Html->link('Add Entry', '/entries/add'); ?>
 			<?php echo $this->Html->link('Logout', '/users/logout'); ?>
 			</div>
 			<?php echo $this->Session->flash(); ?>
