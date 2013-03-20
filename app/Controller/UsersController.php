@@ -41,12 +41,13 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-	
-	
-			//	$this->data['User']['password'] = $this->Auth->password($this->data['User']['password']);
-				//$this->Auth->login($this->data);
-				//$this->redirect($this->Auth->redirect());
-				  $this->redirect(array('action' => 'login'));
+
+				//$this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
+				// if ($this->Auth->login($this->request->data)) {
+				//   $this->Session->setFlash(__('eingeloggt'));  //nur um zu sehn obs geklappt hat
+				// }
+				
+				$this->redirect(array('action' => 'login'));
 				
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
