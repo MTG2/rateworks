@@ -1,4 +1,5 @@
 <!-- File: /app/View/Users/a_edit_rates.ctp -->
+<?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
 <h1>Table Rates</h1>
 <table>
@@ -15,7 +16,10 @@
 
     <!-- Here is where we loop trough our $ausgabes array, printing out entries info -->
 
+	<?php echo $frameworkid ?> 
+	
     <?php foreach ($entries as $ausgabe): //var $entries kommt aus dem Controller ?> 
+	
     <tr>
         <td><?php echo $ausgabe['Entry']['id']; ?></td>
         <td><?php echo $ausgabe['Entry']['name']; ?></td>
@@ -35,7 +39,6 @@
     <?php endforeach; ?>
     <?php unset($ausgabe); ?>
 </table>
-
 
 
 

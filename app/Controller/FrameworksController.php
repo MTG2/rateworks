@@ -89,6 +89,11 @@ public function isAuthorized($user) {
 	public function a_edit_frameworks() {
 		$this->set('frameworks', $this->paginate());
 	}	
+	
+	public function searchEntries($id) {
+		$this->set('frameworkid', $id); //in controller
+		
+	}
 }
 
 ?>

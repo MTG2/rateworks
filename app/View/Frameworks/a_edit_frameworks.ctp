@@ -1,4 +1,5 @@
 <!-- File: /app/View/Users/a_edit_frameworks.ctp -->
+<?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
 <h1>Table Rates</h1>
 <table>
@@ -14,7 +15,7 @@
 
     <?php foreach ($frameworks as $ausgabe): //var $entries kommt aus dem Controller ?> 
     <tr>
-        //<td><?php echo $this->Html->link($ausgabe['Framework']['name'], '/entries/a_edit_rates', $ausgabe['Framework']['id']); ?></td>
+        <td><?php echo $this->Html->link($ausgabe['Framework']['name'], '/entries/a_edit_rates', array('action' => 'searchEntries', $ausgabe['Framework']['id'])); ?></td>
 		<td><?php echo $ausgabe['Framework']['id']; ?></td>
 		<td><?php echo $ausgabe['Framework']['rating']; ?></td>
 		<td><?php echo $ausgabe['Framework']['created']; ?></td>

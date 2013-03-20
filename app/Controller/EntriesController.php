@@ -89,6 +89,8 @@ public function isAuthorized($user) {
 	public function a_edit_rates() {
 		$this->set('entries', $this->paginate());
 	}	
+	
+
 }
 
 ?>

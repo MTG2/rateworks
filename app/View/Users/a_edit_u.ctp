@@ -1,4 +1,5 @@
 <!-- File: /app/View/Users/a_edit_u.ctp -->
+<?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
 <h1>Table users</h1>
 <table>
