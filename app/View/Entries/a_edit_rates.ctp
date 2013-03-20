@@ -16,7 +16,7 @@
 
     <?php foreach ($entries as $ausgabe): //var $entries kommt aus dem Controller ?> 
     <tr>
-        <td><?php echo $ausgabe['entry']['id']; ?></td>
+        <td><?php echo $ausgabe['Entry']['id']; ?></td>
         <td><?php echo $ausgabe['Entry']['name']; ?></td>
 		<td><?php echo $ausgabe['Entry']['text']; ?></td>
 		<td><?php echo $ausgabe['Entry']['created']; ?></td>
@@ -26,7 +26,7 @@
 		<td>
 			<?php echo $this->Form->PostLink(
                 'Delete',
-                array('action' => 'delete', $ausgabe['User']['id'], "a_edit_rates"),
+                array('action' => 'delete', $ausgabe['Entry']['id'], "a_edit_rates"),
                 array('confirm' => 'Are you sure?'));
             ?>
 		</td>

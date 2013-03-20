@@ -1,10 +1,10 @@
 <?php
 
-class EntriesController extends AppController {
+class FrameworksController extends AppController {
 
 
     public function index() {
-         $this->set('entries', $this->Entry->find('all'));
+         $this->set('frameworks', $this->Framework->find('all'));
     }
 
     public function view($id = null) {
@@ -12,17 +12,17 @@ class EntriesController extends AppController {
             throw new NotFoundException(__('Invalid post'));
         }
 
-        $entry = $this->Entry->findById($id);
-        if (!$entry) {
+        $framework = $this->Framework->findById($id);
+        if (!$framework) {
             throw new NotFoundException(__('Invalid post'));
         }
-        $this->set('entry', $entry);
+        $this->set('framework', $framework);
     }
 	
 	public function add() {
     if ($this->request->is('post')) {
-        $this->request->data['Entry']['user_id'] = $this->Auth->user('id'); //Added this line
-        if ($this->Entry->save($this->request->data)) {
+        $this->request->data['Framework']['user_id'] = $this->Auth->user('id'); //Added this line
+        if ($this->Framework->save($this->request->data)) {
             $this->Session->setFlash('Your post has been saved.');
             $this->redirect(array('action' => 'index'));
         }
@@ -34,14 +34,14 @@ class EntriesController extends AppController {
         throw new NotFoundException(__('Invalid post'));
     }
 
-    $entry = $this->Entry->findById($id);
-    if (!$entry) {
+    $framework = $this->Framework->findById($id);
+    if (!$framework) {
         throw new NotFoundException(__('Invalid post'));
     }
 
     if ($this->request->is('post') || $this->request->is('put')) {
-        $this->Entry->id = $id;
-        if ($this->Entry->save($this->request->data)) {
+        $this->Framework->id = $id;
+        if ($this->Framework->save($this->request->data)) {
             $this->Session->setFlash('Your post has been updated.');
             $this->redirect(array('action' => 'index'));
         } else {
@@ -50,7 +50,7 @@ class EntriesController extends AppController {
     }
 
     if (!$this->request->data) {
-        $this->request->data = $entry;
+        $this->request->data = $framework;
     }
 }
 
@@ -59,7 +59,7 @@ public function delete($id, $page) {
         throw new MethodNotAllowedException();
     }
 
-    if ($this->Entry->delete($id)) {
+    if ($this->Framework->delete($id)) {
         $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
         $this->redirect(array('action' => $page));
     }
@@ -73,7 +73,7 @@ public function isAuthorized($user) {
     // The owner of a post can edit and delete it
     if (in_array($this->action, array('edit', 'delete'))) {
         $entryId = $this->request->params['pass'][0];
-        if ($this->Entry->isOwnedBy($entryId, $user['id'])) {
+        if ($this->Framework->isOwnedBy($entryId, $user['id'])) {
             return true;
         }
     }
