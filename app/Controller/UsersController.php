@@ -94,18 +94,18 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
         }
         if ($this->User->delete()) {
             $this->Session->setFlash(__('User deleted'));
-            $this->redirect(array('action' => 'test'));
+            $this->redirect(array('action' => 'aEditU'));
         }
         $this->Session->setFlash(__('User was not deleted'));
-        $this->redirect(array('action' => 'test'));
+        $this->redirect(array('action' => 'aEditU'));
     }
 	
 	//Ab hier martins kram
 
-	public function adminIndex($id = null) {
+	public function a_main($id = null) {
 	}
 	
-	public function test() {
+	public function a_edit_u() {
 		$this->set('users', $this->paginate());
 		
 		
