@@ -14,7 +14,7 @@
 
     <?php foreach ($frameworks as $ausgabe): //var $entries kommt aus dem Controller ?> 
     <tr>
-        //<td><?php echo $this->Html->link($ausgabe['Framework']['name'], '/entries/a_edit_rates'); ?></td>
+        //<td><?php echo $this->Html->link($ausgabe['Framework']['name'], '/entries/a_edit_rates', $ausgabe['Framework']['id']); ?></td>
 		<td><?php echo $ausgabe['Framework']['id']; ?></td>
 		<td><?php echo $ausgabe['Framework']['rating']; ?></td>
 		<td><?php echo $ausgabe['Framework']['created']; ?></td>

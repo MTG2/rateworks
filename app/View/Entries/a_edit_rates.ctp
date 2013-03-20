@@ -10,6 +10,7 @@
 		<th>Rating</th>
         <th>Framework</th>
 		<th>Created from</th>
+		<th>Delete</th>
     </tr>
 
     <!-- Here is where we loop trough our $ausgabes array, printing out entries info -->
