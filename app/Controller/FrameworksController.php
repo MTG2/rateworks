@@ -86,8 +86,8 @@ public function isAuthorized($user) {
 }
 
 	//ab hier martins kram
-	public function a_edit_rates() {
-		$this->set('entries', $this->paginate());
+	public function a_edit_frameworks() {
+		$this->set('frameworks', $this->paginate());
 	}	
 }
 
