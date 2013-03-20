@@ -47,8 +47,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?php echo $this->Html->link('Index', '/entries/index'); ?>
 			<?php echo $this->Html->link('Add Entry', '/entries/add'); ?>
 			<?php echo $this->Html->link('Logout', '/users/logout'); ?>
-			<?php echo $this->Html->link('Profil', '/users/edit/20');?>
-			
+			<?php echo $this->Html->link('Profil', array(
+								   		'controller' => 'users',
+										'action' => 'edit',
+										$id));?>
 			</div>
 			<?php echo $this->Session->flash(); ?>
 			

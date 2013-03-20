@@ -56,4 +56,11 @@ public function isAuthorized($user) {
 }
 
 
+
+public function beforeRender(){
+$this->set('id', $this->Session->read('Auth.User.id')); 
+}	
+
+
+
 }
