@@ -88,12 +88,12 @@ public function isAuthorized($user) {
 	//ab hier martins kram
 	public function a_edit_frameworks() {
 		$this->set('frameworks', $this->paginate());
-	}	
-	
-	public function searchEntries($id) {
-		$this->set('frameworkid', $id); //in controller
-		
 	}
+
+	public function sentDataToEC($id){
+		$this->redirect(array('controller' => 'EntriesController', 'action' => 'a_edit_rates', $id));
+	}
+
 }
 
 ?>
