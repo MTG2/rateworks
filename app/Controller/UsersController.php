@@ -7,6 +7,9 @@ class UsersController extends AppController {
  public function beforeFilter() {
         $this->Auth->allow('login','add');
     }
+public function beforeRender(){
+
+}	
 
 public function login() {
     if ($this->request->is('post')) {
