@@ -87,10 +87,6 @@ public function isAuthorized($user) {
 		$this->set('frameworks', $this->paginate());
 	}
 
-	public function sentDataToEC($id){
-		
-
-	}
 
 }
 

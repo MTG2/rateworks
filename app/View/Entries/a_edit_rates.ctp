@@ -27,7 +27,7 @@
 		<td><?php echo $ausgabe['Entry']['created']; ?></td>
 		<td><?php echo $ausgabe['Entry']['rating']; ?></td>
 		<td><?php echo $ausgabe['Entry']['framework_id']; ?></td>
-		<td><?php echo $ausgabe['Entry']['user_id']; ?></td>
+		<td><?php echo $ausgabe['User']['username']; ?></td>
 		<td>
 			<?php echo $this->Form->PostLink(
                 'Delete',
