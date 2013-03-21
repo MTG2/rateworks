@@ -15,10 +15,10 @@
     </tr>
 
     <!-- Here is where we loop trough our $ausgabes array, printing out entries info -->
-
-
 	
     <?php foreach ($entries as $ausgabe): //var $entries kommt aus dem Controller ?> 
+	
+	
 	
     <tr>
         <td><?php echo $ausgabe['Entry']['id']; ?></td>

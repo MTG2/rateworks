@@ -30,6 +30,3 @@
     <?php endforeach; ?>
     <?php unset($ausgabe); ?>
 </table>
-
-
-
