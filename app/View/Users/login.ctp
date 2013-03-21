@@ -1,6 +1,6 @@
 
 <!-- File: /app/View/Users/login.ctp -->
-
+<?php $this->layout = 'login'; ?>  <!-- login Layout laden -->
 
 <div class="users form">
 <?php echo $this->Session->flash('auth'); ?>
