@@ -112,8 +112,15 @@ public function isAuthorized($user) {
 }
 
 	//ab hier martins kram
-	public function a_edit_rates() {
-		$this->set('entries', $this->paginate());
+	public function a_edit_rates($id) {
+	//	$this->set('entries', $this->paginate());
+
+	$entry = $this->Entry->find('all', array(
+		'contain' => array('Entry'),
+		'conditions' => array('Entry.framework_id = '.$id)	
+		));
+		
+		$this->set('entries', $entry);
 
 	}	
 	
