@@ -6,6 +6,11 @@ class UsersController extends AppController {
 
  public function beforeFilter() {
         $this->Auth->allow('login','add', 'logout');
+		
+		if($this->Auth->loggedIn()){
+			$this->Auth->allow('edit');
+		}	
+		
     }
 
 
