@@ -5,10 +5,10 @@ class UsersController extends AppController {
 
 
  public function beforeFilter() {
-        $this->Auth->allow('login','add', 'logout');
+        $this->Auth->allow('login','add');
 		
 		if($this->Auth->loggedIn()){
-			$this->Auth->allow('edit');
+			$this->Auth->allow('edit','logout');
 		}	
 		
     }
