@@ -81,6 +81,10 @@ public function isAuthorized($user) {
         if ($this->Entry->isOwnedBy($entryId, $user['id'])) {
             return true;
         }
+		else
+		{
+		    $this->Session->setFlash('Not Allowed.');
+		}
     }
 
     return parent::isAuthorized($user);
