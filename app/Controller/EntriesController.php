@@ -67,6 +67,7 @@ public function delete($id) {
     if ($this->Entry->delete($id)) {
         $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
     }
+	 $this->redirect(array('action' => 'index'));
 }
 public function isAuthorized($user) {
     // All registered users can add posts
