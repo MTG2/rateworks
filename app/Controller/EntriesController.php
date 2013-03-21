@@ -59,6 +59,21 @@ class EntriesController extends AppController {
     }
 }
 
+	
+	public function show_entries($id)
+	{
+	
+		$entry = $this->Entry->find('all', array(
+		'contain' => array('Entry'),
+		'conditions' => array('Entry.framework_id = '.$id)	
+		));
+		
+		$this->set('entries', $entry);
+	
+	
+	}
+	
+	
 public function delete($id) {
     if ($this->request->is('get')) {
         throw new MethodNotAllowedException();
@@ -75,6 +90,10 @@ public function isAuthorized($user) {
         return true;
     }
 
+
+	
+	
+	
     // The owner of a post can edit and delete it
     if (in_array($this->action, array('edit', 'delete'))) {
         $entryId = $this->request->params['pass'][0];

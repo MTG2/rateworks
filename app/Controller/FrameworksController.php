@@ -12,11 +12,8 @@ class FrameworksController extends AppController {
             throw new NotFoundException(__('Invalid post'));
         }
 
-        $framework = $this->Framework->findById($id);
-        if (!$framework) {
-            throw new NotFoundException(__('Invalid post'));
-        }
-        $this->set('framework', $framework);
+		$framework = $this->Framework->findById($id);
+		$this->set('framework', $framework);
     }
 	
 	public function add() {

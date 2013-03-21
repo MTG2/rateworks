@@ -18,7 +18,7 @@
     <tr>
         <td><?php echo $framework['Framework']['id']; ?></td>
         <td>
-            <?php echo $this->Html->link($framework['Framework']['name'], array('action' => 'view', $framework['Framework']['id'])); ?>
+            <?php echo $this->Html->link($framework['Framework']['name'], array('controller' => 'entries', 'action' => 'show_entries', $framework['Framework']['id'])); ?>
         </td>
         <td>
             <?php echo $this->Form->postLink(

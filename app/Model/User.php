@@ -1,6 +1,8 @@
 <?php
 App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
+	public $hasMany = 'Entry';
+	
     public $validate = array(
         'username' => array(
             'required' => array(

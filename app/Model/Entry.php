@@ -1,7 +1,7 @@
 <?php
 
 class Entry extends AppModel {
-
+public $belongsTo = array('User','Framework');
  public $validate = array(
         'title' => array(
             'rule' => 'notEmpty'
