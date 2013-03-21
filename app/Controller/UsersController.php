@@ -5,7 +5,7 @@ class UsersController extends AppController {
 
 
  public function beforeFilter() {
-        $this->Auth->allow('login','add');
+        $this->Auth->allow('login','add', 'logout');
     }
 
 
@@ -18,7 +18,6 @@ public function login() {
         }
     }
 }
-
 
 public function logout() {
 $this->Session->setFlash('Sie wurden ausgeloggt');

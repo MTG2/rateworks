@@ -2,6 +2,11 @@
 
 class EntriesController extends AppController {
 
+	public function beforeFilter() {
+		if($this->Auth->loggedIn()){
+			$this->Auth->allow('index', 'view');
+		}	
+    }
 
     public function index() {
          $this->set('entries', $this->Entry->find('all'));
@@ -54,14 +59,13 @@ class EntriesController extends AppController {
     }
 }
 
-public function delete($id, $page) {
+public function delete($id) {
     if ($this->request->is('get')) {
         throw new MethodNotAllowedException();
     }
 
     if ($this->Entry->delete($id)) {
         $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
-        $this->redirect(array('action' => $page));
     }
 }
 public function isAuthorized($user) {
@@ -78,10 +82,7 @@ public function isAuthorized($user) {
         }
     }
 
-
-	
     return parent::isAuthorized($user);
-	
 
 }
 
