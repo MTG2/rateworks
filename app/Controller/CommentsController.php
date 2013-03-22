@@ -10,8 +10,9 @@ public function view($id) {
 		'conditions' => array('Comment.entry_id = '.$id)	
 		));
 		
-		$entry = $comment[0];
-
+		$this->loadModel('Entry');
+		$entry = $this->Entry->find('first', array('conditions' => array('Entry.id' => $id)));
+		
 		$this->set('comments', $comment); 
 		$this->set('entry', $entry); 
 		
@@ -28,10 +29,5 @@ public function view($id) {
 		
 	
     }
-	
-public function add($id){
-
-
-}
-	
+		
 }
