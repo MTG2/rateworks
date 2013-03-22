@@ -12,5 +12,5 @@
     ?>
     </fieldset>
 <?php echo $this->Form->end(__('Login')); ?>
-<p><?php echo $this->Html->link('Registrieren', array('controller' => 'users', 'action' => 'add')); ?></p>
+<p><?php echo $this->Html->link('Registrieren', array('controller' => 'users', 'action' => 'register')); ?></p>
 </div>

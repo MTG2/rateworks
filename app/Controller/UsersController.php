@@ -5,7 +5,7 @@ class UsersController extends AppController {
 
 
  public function beforeFilter() {
-        $this->Auth->allow('login','add');
+        $this->Auth->allow('login','register');
 		
 		if($this->Auth->loggedIn()){
 			$this->Auth->allow('edit','logout');
@@ -42,7 +42,7 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
         $this->set('user', $this->User->read(null, $id));
     }
 
-    public function add() {
+    public function register() {
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
@@ -61,19 +61,6 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
         }
     }
 	
-	    public function register() {
-       
-        if ($this->request->is('post')) {
-            $this->User->create();
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'login'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-            }
-        }
-  
-		}
 
     public function edit($id = null) {
         $this->User->id = $id;
