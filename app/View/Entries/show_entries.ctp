@@ -12,7 +12,7 @@
     <?php foreach ($entries as $entry): ?>
     <tr>
         <td>
-            <?php echo $this->Html->link($entry['Entry']['name'], array('action' => 'view', $entry['Entry']['id'])); ?>
+            <?php echo $this->Html->link($entry['Entry']['name'], array('controller' => 'comments', 'action' => 'view', $entry['Entry']['id'])); ?>
         </td>
         <td>
             <?php echo $entry['User']['username']; ?>
