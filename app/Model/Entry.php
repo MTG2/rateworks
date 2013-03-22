@@ -1,7 +1,10 @@
 <?php
 
 class Entry extends AppModel {
+
 public $belongsTo = array('User','Framework');
+public $hasMany = 'Comment';
+
  public $validate = array(
         'title' => array(
             'rule' => 'notEmpty'
