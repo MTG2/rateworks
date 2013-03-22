@@ -46,8 +46,7 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
         if ($this->request->is('post')) {
 		
 		$username=$this->request->data['User']['username'];
-		$test=$this->User->find('all');
-		if($username==$this->User->find('first', array('username' => $username)))
+		if($username=$this->User->find('first', array('conditions' => array('User.username' => $username))))
 		 $this->Session->setFlash(__('User bereits vorhanden'));
 		 else {
 				$this->User->create();
@@ -59,7 +58,7 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 					//   $this->Session->setFlash(__('eingeloggt'));  //nur um zu sehn obs geklappt hat
 					// }
 					
-				//	$this->redirect(array('action' => 'login'));
+					$this->redirect(array('action' => 'login'));
 					
 				} else {
 					$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
