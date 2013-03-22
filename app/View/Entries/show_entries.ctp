@@ -1,6 +1,6 @@
 
 <h1>Entries</h1>
-<p>Framework: <?php  echo $entries[0]['Framework']['name']; ?></p>
+<p>Framework: <?php  echo $framework['Framework']['name']; ?></p>
 
 <table>
     <tr>

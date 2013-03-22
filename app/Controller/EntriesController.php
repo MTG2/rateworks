@@ -69,8 +69,12 @@ class EntriesController extends AppController {
 		'conditions' => array('Entry.framework_id = '.$id)	
 		));
 		
+		
+		$this->loadModel('Framework');
+		$framework = $this->Framework->find('first', array('conditions' => array('Framework.id' => $id)));
+		
 		$this->set('entries', $entry);
-	
+		$this->set('framework', $framework);
 	
 	}
 	
