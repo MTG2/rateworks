@@ -52,31 +52,30 @@ class FrameworksController extends AppController {
 }
 
 public function delete($id, $page) {
+
     if ($this->request->is('get')) {
         throw new MethodNotAllowedException();
     }
 
     if ($this->Framework->delete($id)) {
         $this->Session->setFlash('The Framework with id: ' . $id . ' has been deleted.');
-        $this->redirect(array('action' => $page));
-    }
+        
+    }else{
+		 $this->Session->setFlash('Something went wrong');
+	}
+
+	
+	$this->redirect(array('action' => $page));
 }
 public function isAuthorized($user) {
-    // All registered users can add posts
-    if ($this->action === 'add') {
-        return true;
-    }
 
-    // The owner of a post can edit and delete it
+    // Only admin can edit Frameworks
     if (in_array($this->action, array('edit', 'delete'))) {
-        $entryId = $this->request->params['pass'][0];
-        if ($this->Framework->isOwnedBy($entryId, $user['id'])) {
+        if ($user['role'] == "admin") {
             return true;
         }
     }
 
-
-	
     return parent::isAuthorized($user);
 	
 
@@ -84,7 +83,9 @@ public function isAuthorized($user) {
 
 	//ab hier martins kram
 	public function a_edit_frameworks() {
-		$this->set('frameworks', $this->paginate());
+		//$this->set('frameworks', $this->paginate());
+		$allFrameworks = $this->Framework->find('all');
+		$this->set('frameworks', $allFrameworks);
 	}
 
 

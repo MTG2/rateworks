@@ -85,7 +85,7 @@ public function delete($id, $page, $frameworkid) {
     }
 
     if ($this->Entry->delete($id)) {
-        $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
+        $this->Session->setFlash('The Entry with id: ' . $id . ' has been deleted.');
     }
 		
 	$this->redirect(array('action' => $page, $frameworkid));
@@ -128,6 +128,21 @@ public function isAuthorized($user) {
 		));
 			
 		$this->set('entries', $entry);
+
+	}
+
+	public function a_delete_all($id){
+	
+		$entry = $this->Entry->find('all', array(
+			'contain' => array('Entry'),
+			'conditions' => array('Entry.framework_id = '.$id)	
+		));
+	
+		foreach($entry as $item) { 
+
+		$this->Entry->delete($item); 
+
+} 
 
 	}	
 	

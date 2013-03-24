@@ -22,8 +22,8 @@
 		<td>
 			<?php echo $this->Form->PostLink(
                 'Delete',
-                array('action' => 'delete', $ausgabe['Framework']['id'], "a_edit_frameworks"),
-                array('confirm' => 'Beim Löschen eines Frameworks werden die dazugehörigen Einträge auch gelöscht. Sind '));
+                array('action' => 'delete', $ausgabe['Framework']['id'], "a_edit_frameworks", ),
+                array('confirm' => 'Beim Löschen eines Frameworks werden die dazugehörigen Einträge ebenfalls gelöscht. Sind sie sicher?'));
             ?>
 		</td>
     </tr>
