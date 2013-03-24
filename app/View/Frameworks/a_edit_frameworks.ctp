@@ -1,7 +1,7 @@
 <!-- File: /app/View/Users/a_edit_frameworks.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
-<h1>Table Rates</h1>
+<h1>Edit Frameworks</h1>
 <table>
     <tr>
         <th>Name</th>
@@ -23,7 +23,7 @@
 			<?php echo $this->Form->PostLink(
                 'Delete',
                 array('action' => 'delete', $ausgabe['Framework']['id'], "a_edit_frameworks"),
-                array('confirm' => 'Are you sure?'));
+                array('confirm' => 'Beim Löschen eines Frameworks werden die dazugehörigen Einträge auch gelöscht. Sind '));
             ?>
 		</td>
     </tr>

@@ -79,7 +79,7 @@ class EntriesController extends AppController {
 	}
 	
 	
-public function delete($id, $page) {
+public function delete($id, $page, $frameworkid) {
     if ($this->request->is('get')) {
         throw new MethodNotAllowedException();
     }
@@ -87,8 +87,11 @@ public function delete($id, $page) {
     if ($this->Entry->delete($id)) {
         $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
     }
-	 $this->redirect(array('action' => $page));
+		
+	$this->redirect(array('action' => $page, $frameworkid));
 }
+
+
 public function isAuthorized($user) {
     // All registered users can add posts
     if ($this->action === 'add') {
@@ -119,14 +122,15 @@ public function isAuthorized($user) {
 	public function a_edit_rates($id) {
 	//	$this->set('entries', $this->paginate());
 
-	$entry = $this->Entry->find('all', array(
-		'contain' => array('Entry'),
-		'conditions' => array('Entry.framework_id = '.$id)	
+		$entry = $this->Entry->find('all', array(
+			'contain' => array('Entry'),
+			'conditions' => array('Entry.framework_id = '.$id)	
 		));
-		
+			
 		$this->set('entries', $entry);
 
 	}	
+	
 	
 
 }

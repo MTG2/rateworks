@@ -57,7 +57,7 @@ public function delete($id, $page) {
     }
 
     if ($this->Framework->delete($id)) {
-        $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
+        $this->Session->setFlash('The Framework with id: ' . $id . ' has been deleted.');
         $this->redirect(array('action' => $page));
     }
 }
