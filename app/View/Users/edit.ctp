@@ -1,5 +1,5 @@
 <!-- File: /app/View/Users/edit.ctp -->
-
+<?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1>Edit Profile</h1>
 <?php
 

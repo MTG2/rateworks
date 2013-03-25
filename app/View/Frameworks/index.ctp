@@ -1,5 +1,5 @@
 <!-- File: /app/View/Frameworks/index.ctp -->
-
+<?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1>Frameworks</h1>
 <p><?php echo $this->Html->link('Add Framework', array('action' => 'add')); ?></p>
 <p><?php echo $this->Html->link('Log out', array('controller' => 'users', 'action' => 'logout')); ?></p>

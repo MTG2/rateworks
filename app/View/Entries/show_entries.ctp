@@ -1,4 +1,4 @@
-
+<?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1>Entries</h1>
 <p>Framework: <?php  echo $framework['Framework']['name']; ?></p>
 

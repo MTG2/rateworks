@@ -1,5 +1,5 @@
 <!-- File: /app/View/Comments/view.ctp -->
-
+<?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 
 <h1><?php echo h($entry['Entry']['name']); ?></h1>
 <p><?php echo h($entry['Entry']['description']); ?></p>
