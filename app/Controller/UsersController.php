@@ -5,7 +5,7 @@ class UsersController extends AppController {
 
 
  public function beforeFilter() {
-        $this->Auth->allow('login','register');
+        $this->Auth->allow('login','register','index');
 		
 		if($this->Auth->loggedIn()){
 			$this->Auth->allow('edit','logout', 'login');
@@ -98,7 +98,7 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 		}
 		$this->User->pic = (string)$result['urls'][0];
 
-		$data = $this->request->data['pic'] = (string)$result['urls'][0];
+		$data = $this->request->data['user']['pic'] = (string)$result['urls'][0];
 
 		echo print_r($this->request->data);
 		
