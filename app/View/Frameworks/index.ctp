@@ -8,7 +8,6 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Actions</th>
         <th>Created</th>
     </tr>
 
@@ -20,14 +19,7 @@
         <td>
             <?php echo $this->Html->link($framework['Framework']['name'], array('controller' => 'entries', 'action' => 'show_entries', $framework['Framework']['id'])); ?>
         </td>
-        <td>
-            <?php echo $this->Form->postLink(
-                'Delete',
-                array('action' => 'delete', $framework['Framework']['id']),
-                array('confirm' => 'Are you sure?'));
-            ?>
-            <?php echo $this->Html->link('Edit', array('action' => 'edit', $framework['Framework']['id'])); ?>
-        </td>
+
         <td>
             <?php echo $framework['Framework']['created']; ?>
         </td>
