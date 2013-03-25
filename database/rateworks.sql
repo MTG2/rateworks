@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2013 at 03:55 PM
+-- Generation Time: Mar 25, 2013 at 06:17 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `entry_count` int(10) NOT NULL,
   `comment_count` int(10) NOT NULL,
   `created` datetime NOT NULL,
-  `pic` varchar(20) NOT NULL,
+  `pic` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
@@ -148,7 +148,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `semester`, 
 (28, 'senf', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:35:19', ''),
 (29, 'krass', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:35:28', ''),
 (30, 'testomat', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:35:36', ''),
-(31, 'jan', '', 'd2e5d33a7126d87ecee5b2bac0f46467d07f07e0', 'admin', 0, 0, '', 0, 0, '2013-03-21 13:25:44', ''),
+(31, 'jan', '', 'd2e5d33a7126d87ecee5b2bac0f46467d07f07e0', 'admin', 0, 0, 'sdf222ffff', 0, 0, '2013-03-21 13:25:44', 'uploads/2013-03-25-171507xDDD_eulenmensch.jpg'),
 (32, 'user', '', 'd2e5d33a7126d87ecee5b2bac0f46467d07f07e0', 'author', 0, 0, '', 0, 0, '2013-03-21 13:42:16', ''),
 (33, 'zz', '', 'd5bf4b80b28df017a6fe451eae9ceba0d0f1b2bb', 'admin', 0, 0, '', 0, 0, '2013-03-22 14:51:51', ''),
 (34, 'asd', '', 'd2e5d33a7126d87ecee5b2bac0f46467d07f07e0', 'author', 0, 0, '', 0, 0, '2013-03-25 14:03:14', '');
