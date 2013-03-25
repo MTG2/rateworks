@@ -39,7 +39,7 @@
 
 		
 			<div id="navigation">
-			<?php echo $this->Html->link('Index', '/entries/index'); ?>
+			<?php echo $this->Html->link('Index', '/users/index'); ?>
 			<?php echo $this->Html->link('Frameworks', ''); ?>
 			<?php echo $this->Html->link('Logout', '/users/logout'); ?>
 			<?php echo $this->Html->link('Profil', array(
@@ -50,10 +50,10 @@
 			
 			
 			<?php echo $this->Session->flash(); ?>
-			<?php echo $this->fetch('content'); ?>
+			
 			
 		<div id="content">
-			<?php echo 'test' ?>
+		<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
 		<?php echo $this->Html->link('Impressum', array(
