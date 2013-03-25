@@ -2,9 +2,15 @@
 
 class CommentsController extends AppController {
 
+
+	public function beforeFilter() {
+		if($this->Auth->loggedIn()){
+			$this->Auth->allow('index', 'view');
+		}	
+    }
+	
 public function view($id) {
 
-		
       $comment = $this->Comment->find('all', array(
 		'contain' => array('Comment'),
 		'conditions' => array('Comment.entry_id = '.$id)	

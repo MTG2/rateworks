@@ -2,6 +2,11 @@
 
 class FrameworksController extends AppController {
 
+	public function beforeFilter() {
+		if($this->Auth->loggedIn()){
+			$this->Auth->allow('index', 'view','add');
+		}	
+    }
 
     public function index() {
          $this->set('frameworks', $this->Framework->find('all'));

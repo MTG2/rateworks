@@ -4,7 +4,7 @@ class EntriesController extends AppController {
 
 	public function beforeFilter() {
 		if($this->Auth->loggedIn()){
-			$this->Auth->allow('index', 'view');
+			$this->Auth->allow('index', 'view', 'show_entries');
 		}	
     }
 
@@ -97,10 +97,6 @@ public function isAuthorized($user) {
     if ($this->action === 'add') {
         return true;
     }
-
-
-	
-	
 	
     // The owner of a post can edit and delete it
     if (in_array($this->action, array('edit', 'delete'))) {

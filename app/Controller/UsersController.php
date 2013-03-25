@@ -8,7 +8,7 @@ class UsersController extends AppController {
         $this->Auth->allow('login','register');
 		
 		if($this->Auth->loggedIn()){
-			$this->Auth->allow('edit','logout');
+			$this->Auth->allow('edit','logout', 'login');
 		}	
 		
     }
@@ -16,11 +16,13 @@ class UsersController extends AppController {
 
 public function login() {
     if ($this->request->is('post')) {
-        if ($this->Auth->login()) {
+		if(!$this->Auth->loggedIn()){
+			if ($this->Auth->login()) {
             $this->redirect($this->Auth->redirect());
         } else {
             $this->Session->setFlash(__('Invalid username or password, try again'));
         }
+		}
     }
 }
 
