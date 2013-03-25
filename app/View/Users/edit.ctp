@@ -6,14 +6,11 @@
 
 	echo "Username: ".$this->request->data['User']['username']."</br>";
 	echo "Role: ".$this->request->data['User']['role']."</br></br>";
-    echo $this->Form->create('User');
+    echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));
     echo $this->Form->input('semester', array('maxlength' => '2'));
     echo $this->Form->input('matnr',array('maxlength' => '6'));
 	echo $this->Form->input('course');
-	echo $this->Form->input('pic', array('type' => 'file'));
+	echo $this->form->file('file');
     echo $this->Form->end('Save User');
 	?>
 	
-
-    <?php echo $this->Html->link("Bild hochladen", array('action' => 'upload')); ?>
-     

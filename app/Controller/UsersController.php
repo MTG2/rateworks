@@ -91,12 +91,24 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {
+		
+		if (isset($this->request->data['file'])) {
+			$files = array(0 => $this->request->data['file']);
+			$result = $this->uploadFiles('img/uploads', $files);
+		}
+		$this->User->pic = (string)$result['urls'][0];
+
+		$data = $this->request->data['pic'] = (string)$result['urls'][0];
+
+		echo print_r($this->request->data);
+		
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-               // $this->redirect(array('controller' => 'entries', 'action' => 'index'));
+              //  $this->redirect(array('controller' => 'entries', 'action' => 'index'));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
+		
         } else {
             $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
