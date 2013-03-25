@@ -5,10 +5,10 @@ class UsersController extends AppController {
 
 
  public function beforeFilter() {
-        $this->Auth->allow('login','register','index');
+        $this->Auth->allow('login','register');
 		
 		if($this->Auth->loggedIn()){
-			$this->Auth->allow('edit','logout', 'login');
+			$this->Auth->allow('edit','logout', 'login', 'index');
 		}	
 		
     }
@@ -96,12 +96,8 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 			$files = array(0 => $this->request->data['file']);
 			$result = $this->uploadFiles('img/uploads', $files);
 		}
-		$this->User->pic = (string)$result['urls'][0];
 
-		$data = $this->request->data['user']['pic'] = (string)$result['urls'][0];
-
-		echo print_r($this->request->data);
-		
+			$data = $this->request->data['User']['pic'] = (string)$result['urls'][0];
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
               //  $this->redirect(array('controller' => 'entries', 'action' => 'index'));
