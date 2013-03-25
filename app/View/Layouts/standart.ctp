@@ -36,28 +36,29 @@
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
 
-		</div>
-		<div id="content">
+		
 			<div id="navigation">
-			Usernavigation
 			<?php echo $this->Html->link('Index', '/entries/index'); ?>
-			<?php echo $this->Html->link('Add Entry', '/entries/add'); ?>
+			<?php echo $this->Html->link('Frameworks', ''); ?>
 			<?php echo $this->Html->link('Logout', '/users/logout'); ?>
 			<?php echo $this->Html->link('Profil', array(
 								   		'controller' => 'users',
 										'action' => 'edit',
 										$id));?>
 			</div>
-			<?php echo $this->Session->flash(); ?>
 			
+			
+			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 			
-			
+		<div id="content">
+			<?php echo 'test' ?>
 		</div>
 		<div id="footer">
+		<?php echo $this->Html->link('Impressum', array(
+								   		'controller' => 'users',
+										'action' => 'impressum')) ?>
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => 'Cakephp', 'border' => '0')),
 					'http://www.cakephp.org/',
@@ -65,6 +66,6 @@
 				);
 			?>
 		</div>
-	</div>
+
 </body>
 </html>
