@@ -2,7 +2,7 @@
 
 
 <h1><?php echo h($entry['Entry']['name']); ?></h1>
-<p><?php echo h($entry['Entry']['text']); ?></p>
+<p><?php echo h($entry['Entry']['description']); ?></p>
 <table>
  <?php foreach ($comments as $comment): ?>
     <tr>
