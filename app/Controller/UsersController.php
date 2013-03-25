@@ -71,12 +71,13 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 	
 
 	public function upload(){
-	
-	 if (isset($this->params['form']['save'])) {
+	 if ($this->request->is('post') || $this->request->is('put')) {
+	 if (isset($this->request->data['Files'])) {
 	 $this->Session->setFlash(__('The user has been saved'));
        // $result = $this->uploadFiles('img/uploads', $this->data['Files']);
         // TODO: $result verarbeiten
     }
+	}
 	
 	}
 	
