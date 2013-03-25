@@ -90,17 +90,22 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
             throw new NotFoundException(__('Invalid user'));
         }
 
+		$entry = $this->User->find('first', array('conditions' => array('User.id' => $id)));
+
+		$this->set('entry', $entry);
+		
+		
         if ($this->request->is('post') || $this->request->is('put')) {
 		
 		if (isset($this->request->data['file'])) {
 			$files = array(0 => $this->request->data['file']);
 			$result = $this->uploadFiles('img/uploads', $files);
 		}
-
-			$data = $this->request->data['User']['pic'] = (string)$result['urls'][0];
+		
+			$data = $this->request->data['User']['pic'] = substr($result['urls'][0],4);
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-              //  $this->redirect(array('controller' => 'entries', 'action' => 'index'));
+               $this->redirect(array('controller' => 'users', 'action' => 'edit', $id));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }

@@ -3,9 +3,10 @@
 <h1>Edit Profile</h1>
 <?php
 
+echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0'))."</br>";
 
-	echo "Username: ".$this->request->data['User']['username']."</br>";
-	echo "Role: ".$this->request->data['User']['role']."</br></br>";
+	echo "Username: ".$entry['User']['username']."</br>";
+	echo "Role: ".$entry['User']['role']."</br></br>";
     echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));
     echo $this->Form->input('semester', array('maxlength' => '2'));
     echo $this->Form->input('matnr',array('maxlength' => '6'));
