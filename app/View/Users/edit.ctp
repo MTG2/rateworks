@@ -14,3 +14,6 @@
     echo $this->Form->end('Save User');
 	?>
 	
+
+    <?php echo $this->Html->link("Bild hochladen", array('action' => 'upload')); ?>
+     
