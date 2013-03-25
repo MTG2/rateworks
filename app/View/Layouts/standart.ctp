@@ -38,15 +38,18 @@
 <body>
 
 		
-			<div id="navigation">
-			<?php echo $this->Html->link('Index', '/users/index'); ?>
-			<?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?>
-			<?php echo $this->Html->link('Logout', '/users/logout'); ?>
-			<?php echo $this->Html->link('Profil', array(
-								   		'controller' => 'users',
-										'action' => 'edit',
-										$id));?>
-			</div>
+	<div id="navigation">
+	<?php echo $this->Html->link('Index', '/users/index'); ?>
+	<?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?>
+										
+		<div id="usernav">
+				<?php echo $this->Html->link('Logout', '/users/logout'); ?>
+				<?php echo $this->Html->link('Profil', array(
+				'controller' => 'users',
+				'action' => 'edit',
+				$id));?>
+		</div>
+	</div>
 			
 			
 			
