@@ -1,12 +1,23 @@
 <!-- app/View/Users/add.ctp -->
 <?php $this->layout = 'login'; ?>  <!-- login Layout laden -->
-<div class="users form">
+
+<div class="container">
+	<section id="formular">
 <?php echo $this->Form->create('User'); ?>
-    <fieldset>
-        <legend><?php echo __('Add User'); ?></legend>
-        <?php echo $this->Form->input('username');
-        echo $this->Form->input('password');
-    ?>
-    </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
+			<h1>Register</h1>
+			<div>
+				<?php echo $this->Form->input('username', array(
+				'placeholder' => 'Username',
+				'label' => ''));?>
+			</div>
+			<div>
+				<?php echo $this->Form->input('password', array(
+				'placeholder' => 'Passwort',
+				'label' => ''));?>
+			</div>
+			<div>
+				<?php echo $this->Form->end(__('Register')); ?>
+			</div>
+		</form><!-- form -->
+	</section><!-- content -->
+</div><!-- container -->
