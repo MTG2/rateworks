@@ -7,10 +7,14 @@
 <?php echo $this->Form->create('User'); ?>
 			<h1>Login Form</h1>
 			<div>
-				<?php echo $this->Form->input('username');?>
+				<?php echo $this->Form->input('username', array(
+				'placeholder' => 'Username',
+				'label' => ''));?>
 			</div>
 			<div>
-				<?php echo $this->Form->input('password');?>
+				<?php echo $this->Form->input('password', array(
+				'placeholder' => 'Passwort',
+				'label' => ''));?>
 			</div>
 			<div>
 				<?php echo $this->Form->end(__('Login')); ?>
