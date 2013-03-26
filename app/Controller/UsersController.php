@@ -59,9 +59,9 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 				$this->User->create();
 				if ($this->User->save($this->request->data)) {
 					$this->Session->setFlash(__('The user has been saved'));
+					$user = $this->User->read();
 
-					$this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
-					 if ($this->Auth->login($this->request->data)) {
+					 if ($this->Auth->login($user['User'])) {
 					    $this->redirect($this->Auth->redirect());
 					 }
 					
