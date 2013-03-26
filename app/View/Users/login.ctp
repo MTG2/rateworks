@@ -9,12 +9,14 @@
 			<div>
 				<?php echo $this->Form->input('username', array(
 				'placeholder' => 'Username',
-				'label' => ''));?>
+				'label' => '',
+				'id' => 'username'));?>
 			</div>
 			<div>
 				<?php echo $this->Form->input('password', array(
 				'placeholder' => 'Passwort',
-				'label' => ''));?>
+				'label' => '',
+				'id' => 'password'));?>
 			</div>
 			<div>
 				<?php echo $this->Form->end(__('Login')); ?>
