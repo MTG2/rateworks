@@ -3,7 +3,7 @@
 <h1>Edit Profile</h1>
 <?php
 
-echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0'))."</br>";
+echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0', 'width' => '15%', 'height' => '15%'))."</br>";
 
 	echo "Username: ".$entry['User']['username']."</br>";
 	echo "Role: ".$entry['User']['role']."</br></br>";

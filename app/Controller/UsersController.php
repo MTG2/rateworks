@@ -85,24 +85,40 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 	
     public function edit($id = null) {
         $this->User->id = $id;
-				
+		$result = null;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
 
 		$entry = $this->User->find('first', array('conditions' => array('User.id' => $id)));
-
-		$this->set('entry', $entry);
 		
+		if($entry['User']['pic'] == null)
+		{
+			$entry['User']['pic'] = 'default.jpg';
+		}
+		
+		$this->set('entry', $entry);
 		
         if ($this->request->is('post') || $this->request->is('put')) {
 		
 		if (isset($this->request->data['file'])) {
+	
 			$files = array(0 => $this->request->data['file']);
-			$result = $this->uploadFiles('img/uploads', $files);
+			
+			if($files[0]['size'] <= 128000 && strpos($files[0]['type'],'image') !== false)
+			{
+				$result = $this->uploadFiles('img/uploads', $files);
+			}
+			else
+			{
+				$this->Session->setFlash(__('Wrong size or file type'));
+			}
 		}
 		
-			$data = $this->request->data['User']['pic'] = substr($result['urls'][0],4);
+			if($result != null)
+			{
+				$data = $this->request->data['User']['pic'] = substr($result['urls'][0],4);
+			}
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
                $this->redirect(array('controller' => 'users', 'action' => 'edit', $id));
