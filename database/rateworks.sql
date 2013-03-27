@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2013 at 06:17 PM
+-- Generation Time: Mar 27, 2013 at 02:15 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -33,22 +33,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `downvote` int(11) NOT NULL,
   `user_id` int(10) NOT NULL,
   `entry_id` int(11) NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
-
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`id`, `text`, `upvote`, `downvote`, `user_id`, `entry_id`) VALUES
-(1, 'ok ok', 0, 0, 31, 1),
-(8, 'fasdasda', 0, 0, 31, 2),
-(9, 'gut gut', 0, 0, 31, 9),
-(10, 'njk', 0, 0, 31, 11),
-(11, '5', 0, 0, 31, 1),
-(12, 'gfgf', 0, 0, 34, 4),
-(13, 'ghg', 0, 0, 34, 2),
-(14, 'fgfgfgd', 0, 0, 31, 2);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -79,16 +67,7 @@ CREATE TABLE IF NOT EXISTS `entries` (
 --
 
 INSERT INTO `entries` (`id`, `name`, `description`, `degree`, `rdegree`, `usability`, `rusability`, `highlights`, `links`, `domain`, `created`, `rtotal`, `framework_id`, `user_id`) VALUES
-(1, 'cakephp', 'Sau gut ey', '', 0, '', 0, '', '', '', '2013-03-20', 0, 1, 22),
-(2, 'sadf', 'qwerfqwr', '', 0, '', 0, '', '', '', '2013-03-20', 0, 0, 23),
-(4, 'wqeq323', 'ewrffff', '', 0, '', 0, '', '', '', '2013-03-20', 0, 0, 25),
-(5, 'r3423ws', '23frw23rf', '', 0, '', 0, '', '', '', '2013-03-20', 0, 3, 26),
-(6, '453dd', 'dddddd', '', 0, '', 0, '', '', '', '2013-03-20', 0, 0, 28),
-(9, '1325', '56', '', 0, '', 0, '', '', '', '2013-03-21', 0, 0, 32),
-(10, 'er', 'er', '', 0, '', 0, '', '', '', '2013-03-21', 0, 0, 31),
-(11, '123', '123', '', 0, '', 0, '', '', '', '2013-03-21', 0, 0, 31),
-(12, 'hgj', '', '', 0, '', 0, '', '', '', '2013-03-25', 0, 0, 31),
-(13, 'b', 'b', '', 0, '', 0, '', '', '', '2013-03-25', 0, 0, 31);
+(1, 'cakephp', 'Sau gut ey', '', 0, '', 0, '', '', '', '2013-03-20', 0, 1, 22);
 
 -- --------------------------------------------------------
 
@@ -102,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `frameworks` (
   `rating` int(11) NOT NULL,
   `created` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `frameworks`
@@ -131,27 +110,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created` datetime NOT NULL,
   `pic` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `semester`, `matnr`, `course`, `entry_count`, `comment_count`, `created`, `pic`) VALUES
-(1, 'wbg', 'wbg@wbg.de', '1234', 'admin', 5, 111111, 'Medieninformatik', 0, 0, '2013-03-20 00:00:00', ''),
-(22, 'troll', '', 'ea34a6c180f572f242e5544c7e6d7947fd4c9561', 'admin', 0, 0, '', 0, 0, '2013-03-20 14:39:26', ''),
-(23, '123', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 14:39:40', ''),
-(24, 'terz', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:34:28', ''),
-(25, 'pole', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:34:38', ''),
-(26, 'lol', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:34:50', 'HGichT3.jpg.4842135.'),
-(27, 'goldfisch', '', 'ecce0f70665e3c897cbec06ddddf0eb9b6f4fc21', 'admin', 5, 5, 'ew', 0, 0, '2013-03-20 15:35:09', 'test.jpg'),
-(28, 'senf', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:35:19', ''),
-(29, 'krass', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:35:28', ''),
-(30, 'testomat', '', '8b3d1caf9d5a03979d9da6cf05f1a5f7e998c93c', 'admin', 0, 0, '', 0, 0, '2013-03-20 15:35:36', ''),
-(31, 'jan', '', 'd2e5d33a7126d87ecee5b2bac0f46467d07f07e0', 'admin', 0, 0, 'sdf222ffff', 0, 0, '2013-03-21 13:25:44', 'uploads/2013-03-25-171507xDDD_eulenmensch.jpg'),
-(32, 'user', '', 'd2e5d33a7126d87ecee5b2bac0f46467d07f07e0', 'author', 0, 0, '', 0, 0, '2013-03-21 13:42:16', ''),
-(33, 'zz', '', 'd5bf4b80b28df017a6fe451eae9ceba0d0f1b2bb', 'admin', 0, 0, '', 0, 0, '2013-03-22 14:51:51', ''),
-(34, 'asd', '', 'd2e5d33a7126d87ecee5b2bac0f46467d07f07e0', 'author', 0, 0, '', 0, 0, '2013-03-25 14:03:14', '');
+(59, 'admin', '', '1008812820791a6e7a936ea0c5e186eb3e2dc94b', 'admin', 0, 0, '', 0, 0, '2013-03-27 14:14:44', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
