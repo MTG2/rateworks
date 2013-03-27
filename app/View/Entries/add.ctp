@@ -3,7 +3,7 @@
 <h1>Add Entry</h1>
 <div id="entry">
 
-<?php echo $this->Form->input('Verwendetes Framework',array('type'=>'select','options'=>$frameworks));?>
+<?php echo $this->Form->input('framework',array('type'=>'select','options'=>$frameworks));?>
 
 <?php echo $this->Form->create('Entry'); ?>
 <?php echo $this->Form->input('name'); ?>
