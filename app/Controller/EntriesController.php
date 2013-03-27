@@ -25,12 +25,13 @@ class EntriesController extends AppController {
     }
 	
 	public function add() {
+	$this->loadModel('Framework');
+		$frameworks =  $this->Framework->find('list', array('fields' => 'Framework.name'));
+		$this->set('frameworks',$frameworks);
+		
     if ($this->request->is('post')) {
         $this->request->data['Entry']['user_id'] = $this->Auth->user('id'); //Added this line
-		
-		$frameworks =  $this->Framework->find('all');
-		$this->set('frameworks',$frameworks);
-				
+	
         if ($this->Entry->save($this->request->data)) {
             $this->Session->setFlash('Your post has been saved.');
             $this->redirect(array('action' => 'index'));
