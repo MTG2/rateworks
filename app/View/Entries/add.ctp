@@ -1,5 +1,5 @@
 <!-- File: /app/View/Entries/add.ctp -->
-
+<?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1>Add Entry</h1>
 <?php
 echo $this->Form->create('Entry');

@@ -41,6 +41,7 @@
 	<div id="navigation">
 	<?php echo $this->Html->link('Index', '/users/index'); ?>
 	<?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?>
+	<?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?>
 										
 		<div id="usernav">
 				<?php echo $this->Html->link('Logout', '/users/logout'); ?>
