@@ -28,6 +28,9 @@ class EntriesController extends AppController {
     if ($this->request->is('post')) {
         $this->request->data['Entry']['user_id'] = $this->Auth->user('id'); //Added this line
 		
+		$frameworks =  $this->Framework->find('all');
+		$this->set('frameworks',$frameworks);
+				
         if ($this->Entry->save($this->request->data)) {
             $this->Session->setFlash('Your post has been saved.');
             $this->redirect(array('action' => 'index'));
