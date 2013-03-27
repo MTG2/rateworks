@@ -30,15 +30,13 @@ class EntriesController extends AppController {
 		$this->set('frameworks',$frameworks);
 		
     if ($this->request->is('post')) {
-        $this->request->data['Entry']['user_id'] = $this->Auth->user('id'); //Added this line
-	
-		$framework =  $this->Framework->find('first', array('fields' => array('Framework.id'), 'conditions' => array('Framework.name' => 'CakePHP')));
-		$this->request->data['Entry']['framework_id'] = $framework['Framework']['id'];
-
+        $this->request->data['Entry']['user_id'] = $this->Auth->user('id'); 
+		$this->request->data['Entry']['framework_id'] = $this->request->data['Entry']['framework'];
 		
         if ($this->Entry->save($this->request->data)) {
             $this->Session->setFlash('Your post has been saved.');
-         //   $this->redirect(array('action' => 'index'));
+            $this->redirect(array('controller' => 'comments', 'action' => 'view',$this->Entry->id));
+
         }
     }
 	}
