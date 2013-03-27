@@ -210,6 +210,17 @@ border:solid;
  
  
  
+ /* Add Entry */
+ 
+ #entry{
+ background:#ABABAB;
+ border:solid;
+ width:550px;
+ height:auto;
+ }
+ 
+ 
+ 
  /* Login Form */
  
 
