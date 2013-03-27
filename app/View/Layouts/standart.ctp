@@ -31,23 +31,16 @@
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.site');
-		echo $this->Html->css('rateit');
+		echo $this->Html->css('jRating.jquery');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>	
-	
-	<script type="text/javascript">
-        $(document).ready(function () {
-                alert('JQuery is succesfully included');
-        });
-</script>
 
  <?php
  echo $scripts_for_layout;
  ?>
 
-	
 </head>
 <body>
 
