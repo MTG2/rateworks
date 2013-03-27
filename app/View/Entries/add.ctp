@@ -1,7 +1,9 @@
 <!-- File: /app/View/Entries/add.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1>Add Entry</h1>
-<div id="entry">
+
+<div class="profilcontainer">
+<section id="profil">
 
 
 

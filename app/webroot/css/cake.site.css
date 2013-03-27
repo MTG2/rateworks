@@ -41,7 +41,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
  body{
 margin:0;
 padding:0;
-text-align:center; /* Für IE */
 color: #000;
 font: 14px Arial;
 margin: 0 auto;
@@ -83,45 +82,9 @@ border:solid;
  
  
  /* Profil Form */
-.profilcontainer { margin: 25px auto; position: relative; width: 400px;border:solid; }
-#profil h1 {
-	color: #7E7E7E;
-	font: bold 25px Helvetica, Arial, sans-serif;
-	letter-spacing: -0.05em;
-	line-height: 20px;
-	margin: 10px 0 30px;
-}
-#profil h1:before,
-#profil h1:after {
-	content: "";
-	height: 1px;
-	position: absolute;
-	top: 10px;
-	width: 27%;
-}
-#profil h1:after {
-	background: rgb(126,126,126);
-	background: -moz-linear-gradient(left,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
-	background: -webkit-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: -o-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: -ms-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    right: 0;
-}
-#profil h1:before {
-	background: rgb(126,126,126);
-	background: -moz-linear-gradient(right,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
-	background: -webkit-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: -o-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: -ms-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    left: 0;
-}
-
-
+.profilcontainer {padding:15px; position: relative; width: 400px; border:solid; }
 #profil form { margin: 0 20px; position: relative }
-
-
+#profil form textarea,
 #profil form input[type="number"],
 #profil form input[type="text"],
 #profil form input[type="password"] {
@@ -148,6 +111,7 @@ border:solid;
 	padding: 15px 10px 15px 40px;
 	width: 80%;
 }
+#profil form textarea:focus,
 #profil form input[type="file"]:focus,
 #profil form input[type="number"]:focus,
 #profil form input[type="text"]:focus,
