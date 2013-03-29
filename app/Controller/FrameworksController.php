@@ -66,7 +66,7 @@ public function delete($id, $page) {
         $this->Session->setFlash('The Framework with id: ' . $id . ' has been deleted.');
         
     }else{
-		 $this->Session->setFlash('Something went wrong');
+		 $this->Session->setFlash('ID: '.$id.' Page: '.$page);
 	}
 
 	
