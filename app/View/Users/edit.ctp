@@ -12,8 +12,7 @@ echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border
     echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));?>
 	
   <div> <?php echo $this->Form->input('semester', array('maxlength' => '2')); ?> </div>
-  <div> <?php echo $this->Form->input('matnr', array('maxlength' => '6'));?> </div>
-  <div> <?php echo $this->Form->input('course');?> </div>
+  <div> <?php echo $this->Form->input('course', array('maxlength' => '30')); ?> </div>
   <div> <?php echo $this->form->file('file');?>	   </div>
   <div> <?php echo $this->Form->end('Save User'); ?> </div>
 	
