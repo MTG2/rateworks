@@ -128,8 +128,9 @@ margin-right:auto;
 	color: #777;
 	font: 13px Helvetica, Arial, sans-serif;
 	margin: 0 0 10px;
-	padding: 15px 10px 15px 40px;
+	padding: 15px 10px 15px 5px;
 	width: 80%;
+	resize:vertical;
 }
 #profil form textarea:focus,
 #profil form input[type="file"]:focus,
