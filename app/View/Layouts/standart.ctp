@@ -54,8 +54,7 @@
 				<?php echo $this->Html->link('Logout', '/users/logout'); ?>
 				<?php echo $this->Html->link('Profil', array(
 				'controller' => 'users',
-				'action' => 'edit',
-				$id));?>
+				'action' => 'edit'));?>
 		</div>
 	</div>
 			

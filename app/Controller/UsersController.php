@@ -86,7 +86,8 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 	
 	}
 	
-    public function edit($id = null) {
+    public function edit() {
+		$id =  $this->Auth->user('id');
         $this->User->id = $id;
 		$result = null;
         if (!$this->User->exists()) {
