@@ -35,7 +35,7 @@ class EntriesController extends AppController {
 		
         if ($this->Entry->save($this->request->data)) {
             $this->Session->setFlash('Your post has been saved.');
-            $this->redirect(array('controller' => 'comments', 'action' => 'view',$this->Entry->id));
+           // $this->redirect(array('controller' => 'comments', 'action' => 'view',$this->Entry->id));
 
         }
     }

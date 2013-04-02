@@ -31,7 +31,7 @@
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.site');
-		echo $this->Html->css('jRating.jquery');
+		echo $this->Html->css('rateit');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
