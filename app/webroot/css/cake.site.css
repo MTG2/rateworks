@@ -34,9 +34,11 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-size: 100%;
 	vertical-align: baseline;
 	background: transparent;
-}
+} 
  
- 
+a{ text-decoration: none; }
+a:hover{ text-decoration: underline;}
+a:active{ text-decoration: none; color:black;}
  
  body{
 margin:0;
@@ -46,10 +48,6 @@ font: 16px Calibri;
 margin: 0 auto;
 padding: 0;
 position: relative;
- }
-
-#usernav{
-float:right;
 }
  
 #navigation{
@@ -63,13 +61,29 @@ padding-left:5px;
 padding-right:5px;
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
-
+font-size: 110%;
 -moz-box-shadow: 0px 0 1px #888;
 -webkit-box-shadow: 0px 0 1px #888;
 box-shadow: 0 0 1px #888;
 }
 
+#navigation a:hover{
+background:#FFFFFF;
+text-decoration:none;
+}
+
+#usernav{
+float:right;
+}
+
+#usernav a:hover{
+background:#FFFFFF;
+text-decoration:none;
+}
+
+
 #content{
+padding-top:10px;
 width:1024px;
 min-height:400px;
 height:auto;
@@ -203,8 +217,7 @@ h6{ font-size:12px;}
 h1,h2,h3,h4,h5,h6{ color:#563D64;}
 small{ font-size:10px;}
 b, strong{ font-weight:bold;}
-a{ text-decoration: none; }
-a:hover{ text-decoration: underline; }
+
 .left { float:left; }
 .right { float:right; }
 .alignleft { float: left; margin-right: 15px; }
