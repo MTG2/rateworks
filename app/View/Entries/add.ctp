@@ -17,16 +17,16 @@
 <?php echo $this->Form->input('name'); ?>
 <?php echo $this->Form->input('Projekt Link'); ?>
 <?php echo $this->Form->input('description', array('rows' => '3')); ?>
-<?php echo $this->Form->input('rdegree',array('type'=>'select', 'options'=>range(1,5,1)));?>
+<?php echo $this->Form->input('rdegree',array('type'=>'select', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRdegree" data-rateit-resetable="false" ></div>
 <?php echo $this->Form->input('degree', array('rows' => '3')); ?>
-<?php echo $this->Form->input('rusability',array('type'=>'select', 'options'=>range(1,5,1)));?>
+<?php echo $this->Form->input('rusability',array('type'=>'select', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRusability" data-rateit-resetable="false"></div>
 <?php echo $this->Form->input('usability', array('rows' => '3')); ?>
 <?php echo $this->Form->input('highlights', array('rows' => '3')); ?>
 <?php echo $this->Form->input('links', array('rows' => '3')); ?>
 <?php echo $this->Form->input('domain', array('rows' => '3')); ?>
-<?php echo $this->Form->input('rtotal',array('type'=>'select', 'options'=>range(1,5,1)));?>
+<?php echo $this->Form->input('rtotal',array('type'=>'select', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRtotal" data-rateit-resetable="false"></div>
 <?php echo $this->Form->end('Save Entry'); ?>
 </div>
