@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2013 at 06:49 PM
+-- Generation Time: Apr 03, 2013 at 01:56 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `text` varchar(200) NOT NULL,
+  `text` varchar(1000) NOT NULL,
   `upvote` int(11) NOT NULL,
   `downvote` int(11) NOT NULL,
   `user_id` int(10) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `comments`
@@ -50,7 +50,10 @@ INSERT INTO `comments` (`id`, `text`, `upvote`, `downvote`, `user_id`, `entry_id
 (21, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the gre', 0, 0, 61, 3, '2013-04-02 18:36:44', '2013-04-02 18:36:44'),
 (22, 'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of', 0, 0, 62, 1, '2013-04-02 18:40:20', '2013-04-02 18:40:20'),
 (23, 'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of', 0, 0, 62, 2, '2013-04-02 18:40:37', '2013-04-02 18:40:37'),
-(24, 'No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor ', 0, 0, 62, 2, '2013-04-02 18:40:50', '2013-04-02 18:40:50');
+(24, 'No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor ', 0, 0, 62, 2, '2013-04-02 18:40:50', '2013-04-02 18:40:50'),
+(25, 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores ', 0, 0, 62, 3, '2013-04-03 10:33:52', '2013-04-03 10:33:52'),
+(26, 'The role of the HtmlHelper in CakePHP is to make HTML-related options easier, faster, and more resilient to change. Using this helper will enable your application to be more light on its feet, and mor', 0, 0, 62, 1, '2013-04-03 11:07:25', '2013-04-03 11:07:25'),
+(27, 'The role of the HtmlHelper in CakePHP is to make HTML-related options easier, faster, and more resilient to change. Using this helper will enable your application to be more light on its feet, and more flexible on where it is placed in relation to the root of a domain.\r\n\r\nMany HtmlHelper methods include a $htmlAttributes parameter, that allow you to tack on any extra attributes on your tags. Here are a few examples of how to use the $htmlAttributes parameter:', 0, 0, 62, 1, '2013-04-03 11:12:10', '2013-04-03 11:12:10');
 
 -- --------------------------------------------------------
 
@@ -74,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `entries` (
   `framework_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `entries`
@@ -106,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `frameworks` (
 --
 
 INSERT INTO `frameworks` (`id`, `name`, `rating`, `created`, `link`, `pic`) VALUES
-(1, 'CakePHP', 0, '2013-04-02', 'http://www.cakephp.de/', 'frameworks/cakephp'),
-(2, 'Drupal', 0, '2013-04-02', 'http://drupal.org/', 'frameworks/drupal.jpg'),
+(1, 'CakePHP', 0, '2013-04-02', 'http://www.cakephp.de/', 'frameworks/cakephp.png'),
+(2, 'Drupal', 0, '2013-04-02', 'http://drupal.org/', 'frameworks/drupal.png'),
 (3, 'Grails', 0, '2013-04-02', 'http://grails.org/', 'frameworks/grails.jpg');
 
 -- --------------------------------------------------------
@@ -134,9 +137,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `semester`, `course`, `created`, `pic`) VALUES
-(1, 'admin', '', '1008812820791a6e7a936ea0c5e186eb3e2dc94b', 'admin', 0, '', '2013-03-27 14:14:44', ''),
-(61, 'Testuser1', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 5, 'Technische Informatik', '2013-04-02 18:31:44', ''),
-(62, 'Testuser2', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, 'Medieninformatik', '2013-04-02 18:37:16', '');
+(1, 'admin', '', '1008812820791a6e7a936ea0c5e186eb3e2dc94b', 'admin', 0, '', '2013-03-27 14:14:44', 'uploads/b15.png'),
+(61, 'Testuser1', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 5, 'Technische Informatik', '2013-04-02 18:31:44', 'uploads/catweazle.jpg'),
+(62, 'Testuser2', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, 'Medieninformatik', '2013-04-02 18:37:16', 'uploads/004_cycling_cartoon_2011.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
