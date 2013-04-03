@@ -8,8 +8,8 @@ class CommentsController extends AppController {
 			$this->Auth->allow('index', 'view');
 		}	
     }
-	
-public function view($id) {
+		
+	public function view($id) {
 
       $comment = $this->Comment->find('all', array(
 		'contain' => array('Comment'),
@@ -30,14 +30,35 @@ public function view($id) {
         $this->request->data['Comment']['user_id'] = $this->Auth->user('id'); 
 		$this->request->data['Comment']['entry_id'] = $entry['Entry']['id']; 
 		
-        if ($this->Comment->save($this->request->data)) {
-            $this->Session->setFlash('Your post has been saved.');
-            $this->redirect(array('action' => 'view', $id));
-        }
+			if ($this->Comment->save($this->request->data)) {
+				$this->Session->setFlash('Your post has been saved.');
+				$this->redirect(array('action' => 'view', $id));
+			}
+		}
     }
-		
-		
 	
-    }
+	
+	public function a_edit_comment($id){
+	
+		$comments = $this->Comment->find('all', array(
+			'contain' => array('Comment'),
+			'conditions' => array('Comment.entry_id = '.$id)	
+		));
 		
+		$this->set('allComments', $comments);	
+		
+	}
+	
+	
+	public function delete($id, $page, $entryID) {
+		if ($this->request->is('get')) {
+			throw new MethodNotAllowedException();
+		}
+
+		if ($this->Comment->delete($id)) {
+			$this->Session->setFlash('The Comment with id: ' . $id . ' has been deleted.');
+		}
+			
+		$this->redirect(array('action' => $page, $entryID));
+	}
 }

@@ -5,7 +5,7 @@
 <table>
     <tr>
         <th>Name</th>
-		<th>Framwork ID</th>
+		<th>ID</th>
 		<th>Rating</th>
         <th>Erstellt</th>
 		<th>Delete</th>

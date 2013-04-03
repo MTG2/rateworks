@@ -4,8 +4,8 @@
 <h1>Edit Frameworkentries</h1>
 <table>
     <tr>
-        <th>ID</th>
         <th>Name</th>
+        <th>ID</th>
 		<th>Description</th>
         <th>Degree</th>
 		<th>Usability</th>
@@ -28,8 +28,10 @@
 	
 	
     <tr>
+		<td>
+			<?php echo $this->Html->link($ausgabe['Entry']['name'], array('controller' => 'comments', 'action' => 'a_edit_comment', $ausgabe['Entry']['id']));?>
+		</td>
         <td><?php echo $ausgabe['Entry']['id']; ?></td>
-        <td><?php echo $ausgabe['Entry']['name']; ?></td>
 		<td><?php echo $ausgabe['Entry']['description']; ?></td>
 		<td><?php echo $ausgabe['Entry']['degree']; ?></td>
 		<td><?php echo $ausgabe['Entry']['usability']; ?></td>
