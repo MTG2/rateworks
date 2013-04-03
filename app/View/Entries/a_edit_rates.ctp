@@ -6,9 +6,13 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-		<th>Text</th>
-        <th>Datum</th>
-		<th>Rating</th>
+		<th>Description</th>
+        <th>Degree</th>
+		<th>Usability</th>
+		<th>Highlight</th>
+		<th>Links</th>
+		<th>Domain</th>
+		<th>Created</th>
 		<th>Framework</th>
         <th>Framework ID</th>
 		<th>Created from</th>
@@ -24,9 +28,13 @@
     <tr>
         <td><?php echo $ausgabe['Entry']['id']; ?></td>
         <td><?php echo $ausgabe['Entry']['name']; ?></td>
-		<td><?php echo $ausgabe['Entry']['text']; ?></td>
+		<td><?php echo $ausgabe['Entry']['description']; ?></td>
+		<td><?php echo $ausgabe['Entry']['degree']; ?></td>
+		<td><?php echo $ausgabe['Entry']['usability']; ?></td>
+		<td><?php echo $ausgabe['Entry']['highlights']; ?></td>
+		<td><?php echo $ausgabe['Entry']['links']; ?></td>
+		<td><?php echo $ausgabe['Entry']['domain']; ?></td>
 		<td><?php echo $ausgabe['Entry']['created']; ?></td>
-		<td><?php echo $ausgabe['Entry']['rating']; ?></td>
 		<td><?php echo $ausgabe['Framework']['name']; ?></td>
 		<td><?php echo $ausgabe['Entry']['framework_id']; ?></td>
 		<td><?php echo $ausgabe['User']['username']; ?></td>
