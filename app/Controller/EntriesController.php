@@ -183,13 +183,13 @@ public function isAuthorized($user) {
 		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->Entry->id = $id;
-        if ($this->Entry->save($this->request->data)) {
-            $this->Session->setFlash('Your post has been updated.');
-            $this->redirect(array('action' => 'a_edit_rates', $id));
-        } else {
-            $this->Session->setFlash('Unable to update your post.');
-        }
-	}
+			if ($this->Entry->save($this->request->data)) {
+				$this->Session->setFlash('Your post has been updated.');
+				$this->redirect(array('action' => 'a_edit_rates', $id));
+			} else {
+				$this->Session->setFlash('Unable to update your post.');
+			}
+		}
 	
 	
 	

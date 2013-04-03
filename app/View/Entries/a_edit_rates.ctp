@@ -42,11 +42,7 @@
 		<td><?php echo $ausgabe['Entry']['framework_id']; ?></td>
 		<td><?php echo $ausgabe['User']['username']; ?></td>
 		<td>
-			<?php echo $this->Form->PostLink(
-                'Edit',
-                array('action' => 'a_edit_entry', $ausgabe['Entry']['id']),								
-                array('confirm' => 'Are you sure to Edit?'));
-            ?>
+			<?php echo $this->Html->link('Edit', array('action' => 'a_edit_entry', $ausgabe['Entry']['id']));?>
 		</td>
 		<td>
 			<?php echo $this->Form->PostLink(
@@ -59,6 +55,8 @@
     <?php endforeach; ?>
     <?php unset($ausgabe); ?>
 </table>
+
+
 
 
 
