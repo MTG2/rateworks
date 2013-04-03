@@ -50,7 +50,7 @@
 			<?php echo $this->Form->PostLink(
                 'Delete',
                 array('controller' => 'comments', 'action' => 'deleteByEntry', $ausgabe['Entry']['id'], $ausgabe['Entry']['framework_id']),
-                array('confirm' => 'Are you sure?'));
+                array('confirm' => 'Alle dazugehoerigen Kommentare werden geloescht.'));
             ?>
 		</td>
     </tr>
