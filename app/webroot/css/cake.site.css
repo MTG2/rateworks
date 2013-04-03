@@ -114,7 +114,10 @@ margin-bottom:10px;
 padding-top:0px;
 margin-top:0px;
 padding-left:10px;
-vertical-align:top
+vertical-align:top;
+width:250px;
+table-layout:fixed;
+border:solid;
 }
 #comment table{
 margin-top:20px;
@@ -123,7 +126,6 @@ margin-top:20px;
 #comment img{
 width:75px;
 height:75px;
-float:left;
 } 
  
  /* Profil Form */
