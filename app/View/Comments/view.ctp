@@ -53,11 +53,17 @@
 
 		<?php endforeach; ?>
 
-</div>
+
 <section id="profil">
 <h2>Kommentar schreiben</h2>
 </br>
+
+
+
+	<?php echo $this->Html->image($comment['User']['pic']) ?>
 	<?php echo $this->Form->create('Comment'); ?>
 			<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '')); ?>
 	<?php echo $this->Form->end('Save Comment'); ?>
+
 </section>
+</div>

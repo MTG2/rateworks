@@ -107,6 +107,7 @@ margin-right:auto;
 padding-left:10px;
 background:#E0E0E0;
 width:600px;
+margin-bottom:10px;
 }
 
 #comment td{
@@ -122,6 +123,7 @@ margin-top:20px;
 #comment img{
 width:75px;
 height:75px;
+float:left;
 } 
  
  /* Profil Form */
@@ -152,7 +154,7 @@ height:75px;
 	font: 13px Helvetica, Arial, sans-serif;
 	margin: 0 0 10px;
 	padding: 15px 10px 15px 5px;
-	width: 500px;
+	width: 300px;
 	resize:vertical;
 }
 #profil form textarea:focus,
