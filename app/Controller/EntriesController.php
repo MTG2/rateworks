@@ -171,25 +171,29 @@ public function isAuthorized($user) {
 
 	}	
 	
-	public function a_edit_entry($name, $description, $degree, $usability, $highlights, $links, $domain, $framework_id, $id, $projectLink) {
+	public function a_edit_entry($id) {
 	
-	
-		$this->set('entryName', $name);
-		$this->set('entryDescription', $description);
-		$this->set('entryDegree', $degree);
-		$this->set('entryUsability', $usability);
-		$this->set('entryHighlights', $highlights);
-		$this->set('entryLinks', $links);
-		$this->set('entryDomain', $domain);
-		$this->set('entryFrameworkID', $framework_id);
-		$this->set('entryID', $id);
-		$this->set('entryProjectLink', $projectLink);
 		
+		$entry = $this->Entry->find('first', array(
+			'contain' => array('Entry'),
+			'conditions' => array('Entry.id = '.$id)	
+		));
+		
+		$this->set('thisEntry', $entry);	
+		
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$this->Entry->id = $id;
+        if ($this->Entry->save($this->request->data)) {
+            $this->Session->setFlash('Your post has been updated.');
+            $this->redirect(array('action' => 'a_edit_rates', $id));
+        } else {
+            $this->Session->setFlash('Unable to update your post.');
+        }
 	}
 	
-	public function a_save_entry(){}
 	
 	
+	}
 
 }
 

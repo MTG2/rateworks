@@ -44,11 +44,7 @@
 		<td>
 			<?php echo $this->Form->PostLink(
                 'Edit',
-                array('action' => 'a_edit_entry', 
-													$ausgabe['Entry']['name'], $ausgabe['Entry']['description'], $ausgabe['Entry']['degree'],
-													$ausgabe['Entry']['usability'], $ausgabe['Entry']['highlights'], $ausgabe['Entry']['links'],
-													$ausgabe['Entry']['domain'], $ausgabe['Entry']['framework_id'], $ausgabe['Entry']['id'], $ausgabe['Entry']['project_link']),
-													
+                array('action' => 'a_edit_entry', $ausgabe['Entry']['id']),								
                 array('confirm' => 'Are you sure to Edit?'));
             ?>
 		</td>
