@@ -167,9 +167,27 @@ public function isAuthorized($user) {
 
 		$this->Entry->delete($item); 
 
-} 
+		} 
 
 	}	
+	
+	public function a_edit_entry($name, $description, $degree, $usability, $highlights, $links, $domain, $framework_id, $id, $projectLink) {
+	
+	
+		$this->set('entryName', $name);
+		$this->set('entryDescription', $description);
+		$this->set('entryDegree', $degree);
+		$this->set('entryUsability', $usability);
+		$this->set('entryHighlights', $highlights);
+		$this->set('entryLinks', $links);
+		$this->set('entryDomain', $domain);
+		$this->set('entryFrameworkID', $framework_id);
+		$this->set('entryID', $id);
+		$this->set('entryProjectLink', $projectLink);
+		
+	}
+	
+	public function a_save_entry(){}
 	
 	
 
