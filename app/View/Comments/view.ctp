@@ -23,6 +23,7 @@
 
 
 <h3> Links </h3>
+<p><?php echo $this->html->link($entry['Entry']['links']); ?></p>
 <p><?php echo h($entry['Entry']['links']); ?></p>
 
 
@@ -43,7 +44,7 @@
 <p>	 
 <table>
 <?php	 echo $this->Html->tableCells(array(
-							array(array($this->Html->image($comment['User']['pic']), array('rowspan' => 2, 'colspan' => 2)),$comment['User']['username'], $comment['User']['created'] ),
+							array(array($this->Html->image($comment['User']['pic']), array('rowspan' => 2, 'colspan' => 2)),$comment['User']['username'], $comment['Comment']['created'] ),
 							array($comment['Comment']['text'])
 							)); 
 ?>
@@ -57,6 +58,6 @@
 <h2>Kommentar schreiben</h2>
 </br>
 	<?php echo $this->Form->create('Comment'); ?>
-			<?php echo $this->Form->input('text', array('rows' => '3')); ?>
+			<?php echo $this->Form->input('text', array('rows' => '3','type' => 'textarea')); ?>
 	<?php echo $this->Form->end('Save Comment'); ?>
 </section>
