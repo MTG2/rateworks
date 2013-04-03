@@ -22,7 +22,27 @@ class FrameworksController extends AppController {
     }
 	
 	public function add() {
+	$result = null;
     if ($this->request->is('post')) {
+	
+	if (isset($this->request->data['file'])) {
+	
+			$files = array(0 => $this->request->data['file']);
+			
+			if($files[0]['size'] <= 128000 && strpos($files[0]['type'],'image') !== false)
+			{
+				$result = $this->uploadFiles('img/frameworks', $files);
+			}
+			else
+			{
+				$this->Session->setFlash(__('Wrong size or file type'));
+			}
+		}
+		
+	if($result != null){
+			$data = $this->request->data['Framework']['pic'] = substr($result['urls'][0],4);
+		}
+	
         $this->request->data['Framework']['user_id'] = $this->Auth->user('id'); //Added this line
         if ($this->Framework->save($this->request->data)) {
             $this->Session->setFlash('Your post has been saved.');
