@@ -103,6 +103,8 @@ margin-right:auto;
 
 /* Comment */
 
+/* Comment */
+
 #comment{
 padding-left:10px;
 background:#E0E0E0;
@@ -115,13 +117,11 @@ padding-top:0px;
 margin-top:0px;
 padding-left:10px;
 vertical-align:top;
-width:250px;
+max-width:600px;
 border:solid;
-overflow: hidden;
 }
 #comment table{
 margin-top:20px;
-width:250px;
 table-layout:fixed;
 }
 

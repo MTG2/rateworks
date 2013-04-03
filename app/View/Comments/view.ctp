@@ -45,7 +45,7 @@
 <table>
 <?php	 echo $this->Html->tableCells(array(
 							array(array($this->Html->image($comment['User']['pic']), array('rowspan' => 2, 'colspan' => 2)),$comment['User']['username'], $comment['Comment']['created'] ),
-							array($comment['Comment']['text'])
+							array($comment['Comment']['text']),
 							)); 
 ?>
 </table>
@@ -62,7 +62,7 @@
 
 	<?php echo $this->Html->image($comment['User']['pic']) ?>
 	<?php echo $this->Form->create('Comment'); ?>
-			<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '')); ?>
+			<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '', 'rows' => 2, 'cols' => 10)); ?>
 	<?php echo $this->Form->end('Save Comment'); ?>
 
 </section>
