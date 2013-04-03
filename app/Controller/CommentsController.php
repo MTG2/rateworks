@@ -61,4 +61,10 @@ class CommentsController extends AppController {
 			
 		$this->redirect(array('action' => $page, $entryID));
 	}
+	
+	public function delbyframework($id) {
+		echo $id;
+	
+	$this->redirect(array('action' => ''));
+	}
 }

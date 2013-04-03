@@ -99,26 +99,6 @@ public function delete($id, $page, $frameworkid) {
 }
 
 
-public function deleteAll($id) {
-
-    if ($this->request->is('get')) {
-        throw new MethodNotAllowedException();
-    }
-	
-	$entry = $this->Entry->find('all', array(
-		'contain' => array('Entry'),
-		'conditions' => array('Entry.framework_id = '.$id)	
-	));
-
-	foreach($entry as $inhalt){
-		if ($this->Entry->delete($inhalt['Entry']['id'])) {
-		}
-	}
-	//$this->redirect(array('action' => $page, $frameworkid));
-	
-	$this->requestAction(array('controller' => 'frameworks', 'action' => 'delete', $id, "a_edit_frameworks"));
-	
-}
 
 
 public function isAuthorized($user) {
