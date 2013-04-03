@@ -82,16 +82,21 @@ public function delete($id, $page) {
         throw new MethodNotAllowedException();
     }
 
-    if ($this->Framework->delete($id)) {
+	$framework = $this->Framework->find('first', array('conditions' => array('Framework.id' => $id)));
+	
+   if ($this->Framework->delete($id)) {
         $this->Session->setFlash('The Framework with id: ' . $id . ' has been deleted.');
+		
+		$file = new File(WWW_ROOT.'img/'.$framework['Framework']['pic']);
+		$file->delete();
         
     }else{
 		 $this->Session->setFlash('ID: '.$id.' Page: '.$page);
-	}
+	} 
 
-	
 	$this->redirect(array('action' => $page));
 }
+
 public function isAuthorized($user) {
 
     // Only admin can edit Frameworks

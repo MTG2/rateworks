@@ -141,8 +141,15 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
+		
+		$user = $this->User->find('first', array('conditions' => array('User.id' => $id)));
+	
         if ($this->User->delete()) {
             $this->Session->setFlash(__('User deleted'));
+			
+			$file = new File(WWW_ROOT.'img/'.$user['User']['pic']);
+			$file->delete();
+			
             $this->redirect(array('action' => $page));
         }
         $this->Session->setFlash(__('User was not deleted'));
