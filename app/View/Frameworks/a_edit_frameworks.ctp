@@ -22,7 +22,7 @@
 		<td>
 			<?php echo $this->Form->PostLink(
                 'Delete',
-				array('controller' => 'comments', 'action' => 'delbyframework', $ausgabe['Framework']['id']),
+				array('controller' => 'comments', 'action' => 'deleteByFramework', $ausgabe['Framework']['id']),
                 array('confirm' => 'Beim Löschen eines Frameworks werden die dazugehörigen Einträge ebenfalls gelöscht. Sind sie sicher?'));
             ?>
 		</td>
