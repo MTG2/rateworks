@@ -36,7 +36,16 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>	
-
+		
+	<?php echo $this->html->script('jquery-1.9.1',true); ?>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+	
+		$("#flashMessage").fadeOut(2000);
+		});
+	</script>
+	
  <?php
  echo $scripts_for_layout;
  ?>
