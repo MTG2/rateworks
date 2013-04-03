@@ -61,15 +61,54 @@ class CommentsController extends AppController {
 			
 		$this->redirect(array('action' => $page, $entryID));
 	}
+		
+		
+	public function deleteByEntry($id, $frameworkID){
 	
-	public function delbyframework($id) {
-		echo $id;
-	
-	$this->redirect(array('action' => ''));
+		$comments = $this->Comment->find('all', array(
+			'contain' => array('Comment'),
+			'conditions' => array('Comment.entry_id = '.$id)	
+		));
+		
+		foreach($comments as $inhalt){
+			if ($this->Comment->delete($inhalt['Comment']['id'])) {
+			}
+		}
+		
+		$this->requestAction(array('controller' => 'entries', 'action' => 'delete', $id, 'a_edit_rates', $frameworkID));
+		
 	}
-	
+		
+		
+		
 	public function deleteByFramework($id){
-	echo $id;
+	
+		$this->loadModel('Entry');
+		
+		$entries = $this->Entry->find('all', array(
+			'contain' => array('Entry'),
+			'conditions' => array('Entry.framework_id = '.$id)	
+		));
+		
+		
+		foreach($entries as $inhalt){
+			
+			$comments = $this->Comment->find('all', array(
+				'contain' => array('Comment'),
+				'conditions' => array('Comment.entry_id = '.$inhalt['Entry']['id'])	
+			));
+			
+
+			foreach ($comments as $thisComment){
+				if ($this->Comment->delete($thisComment['Comment']['id'])) {
+				}
+			}
+			
+			if ($this->Entry->delete($inhalt['Entry']['id'])) {
+			}
+		}
+		
+		$this->requestAction(array('controller' => 'frameworks', 'action' => 'delete', $id, "a_edit_frameworks"));
 	}
 	
 	

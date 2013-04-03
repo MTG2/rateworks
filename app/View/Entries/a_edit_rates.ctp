@@ -49,7 +49,7 @@
 		<td>
 			<?php echo $this->Form->PostLink(
                 'Delete',
-                array('action' => 'delete', $ausgabe['Entry']['id'], "a_edit_rates", $ausgabe['Entry']['framework_id']),
+                array('controller' => 'comments', 'action' => 'deleteByEntry', $ausgabe['Entry']['id'], $ausgabe['Entry']['framework_id']),
                 array('confirm' => 'Are you sure?'));
             ?>
 		</td>

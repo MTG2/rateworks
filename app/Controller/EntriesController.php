@@ -87,6 +87,11 @@ class EntriesController extends AppController {
 	
 	
 public function delete($id, $page, $frameworkid) {
+
+	echo $id;
+	echo $page;
+	echo $frameworkid;
+	
     if ($this->request->is('get')) {
         throw new MethodNotAllowedException();
     }
@@ -136,21 +141,7 @@ public function isAuthorized($user) {
 
 	}
 
-	public function a_delete_all($id){
-	
-		$entry = $this->Entry->find('all', array(
-			'contain' => array('Entry'),
-			'conditions' => array('Entry.framework_id = '.$id)	
-		));
-	
-		foreach($entry as $item) { 
 
-		$this->Entry->delete($item); 
-
-		} 
-
-	}	
-	
 	public function a_edit_entry($id) {
 	
 		

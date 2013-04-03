@@ -23,7 +23,7 @@
 			<?php echo $this->Form->PostLink(
                 'Delete',
 				array('controller' => 'comments', 'action' => 'deleteByFramework', $ausgabe['Framework']['id']),
-                array('confirm' => 'Beim Löschen eines Frameworks werden die dazugehörigen Einträge ebenfalls gelöscht. Sind sie sicher?'));
+                array('confirm' => 'Beim Löschen eines Frameworks werden die dazugehörigen Einträge und Kommentare ebenfalls gelöscht. Sind sie sicher?'));
             ?>
 		</td>
     </tr>
