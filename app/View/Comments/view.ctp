@@ -58,6 +58,6 @@
 <h2>Kommentar schreiben</h2>
 </br>
 	<?php echo $this->Form->create('Comment'); ?>
-			<?php echo $this->Form->input('text', array('rows' => '3','type' => 'textarea')); ?>
+			<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '')); ?>
 	<?php echo $this->Form->end('Save Comment'); ?>
 </section>
