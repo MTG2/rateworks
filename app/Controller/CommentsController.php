@@ -67,4 +67,10 @@ class CommentsController extends AppController {
 	
 	$this->redirect(array('action' => ''));
 	}
+	
+	public function deleteByFramework($id){
+	echo $id;
+	}
+	
+	
 }
