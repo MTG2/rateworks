@@ -5,30 +5,30 @@
   echo $this->html->script('jquery.rateit',true); 
 ?>
 
-<?php echo $this->Html->image($framework['Framework']['pic']) ?>
-<h1><?php echo h($entry['Entry']['name']); ?></h1>
+<?php echo $this->Html->image($framework['Framework']['pic'], array('width' => '15%', 'height' => '15%')) ?>
+<h1><?php echo ($entry['Entry']['name']); ?></h1>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rtotal'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 <h3> Description </h3>
-<p><?php echo h($entry['Entry']['description']); ?></p>
+<p><?php echo ($entry['Entry']['description']); ?></p>
 <h3> Degree </h3>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rdegree'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
-<p><?php echo h($entry['Entry']['degree']); ?></p>
+<p><?php echo ($entry['Entry']['degree']); ?></p>
 <h3> Usability </h3>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rusability'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
-<p><?php echo h($entry['Entry']['usability']); ?></p>
+<p><?php echo ($entry['Entry']['usability']); ?></p>
 
 
 <h3> Highlights </h3>
-<p><?php echo h($entry['Entry']['highlights']); ?></p>
+<p><?php echo ($entry['Entry']['highlights']); ?></p>
 
 
 <h3> Links </h3>
 <p><?php echo $this->html->link($entry['Entry']['links']); ?></p>
-<p><?php echo h($entry['Entry']['links']); ?></p>
+<p><?php echo ($entry['Entry']['links']); ?></p>
 
 
 <h3> Domain </h3>
-<p><?php echo h($entry['Entry']['domain']); ?></p>
+<p><?php echo ($entry['Entry']['domain']); ?></p>
 
 
 
