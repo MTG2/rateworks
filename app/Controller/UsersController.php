@@ -56,6 +56,7 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 		 $this->Session->setFlash(__('User bereits vorhanden'));
 		 else {
 				$this->request->data['User']['role'] = 'author';
+				$this->request->data['User']['pic'] = 'default.jpg';
 				$this->User->create();
 				if ($this->User->save($this->request->data)) {
 					$this->Session->setFlash(__('The user has been saved'));
@@ -96,10 +97,6 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 
 		$entry = $this->User->find('first', array('conditions' => array('User.id' => $id)));
 		
-		if($entry['User']['pic'] == null)
-		{
-			$entry['User']['pic'] = 'default.jpg';
-		}
 		
 		$this->set('entry', $entry);
 		
