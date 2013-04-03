@@ -116,11 +116,13 @@ margin-top:0px;
 padding-left:10px;
 vertical-align:top;
 width:250px;
-table-layout:fixed;
 border:solid;
+overflow: hidden;
 }
 #comment table{
 margin-top:20px;
+width:250px;
+table-layout:fixed;
 }
 
 #comment img{
