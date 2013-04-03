@@ -19,8 +19,12 @@ public function view($id) {
 		$this->loadModel('Entry');
 		$entry = $this->Entry->find('first', array('conditions' => array('Entry.id' => $id)));
 		
+		$this->loadModel('Framework');
+		$framework = $this->Entry->find('first', array('conditions' => array('Framework.id' => $id)));
+		
 		$this->set('comments', $comment); 
 		$this->set('entry', $entry); 
+		$this->set('framework', $framework);
 		
 		if ($this->request->is('post')) {
         $this->request->data['Comment']['user_id'] = $this->Auth->user('id'); 

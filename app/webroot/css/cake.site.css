@@ -98,8 +98,31 @@ height:50px;
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
 
- }
- 
+}
+
+
+/* Comment */
+
+#comment{
+padding-left:10px;
+background:#E0E0E0;
+width:600px;
+}
+
+#comment td{
+padding-top:0px;
+margin-top:0px;
+padding-left:10px;
+vertical-align:top
+}
+#comment table{
+margin-top:20px;
+}
+
+#comment img{
+width:75px;
+height:75px;
+} 
  
  /* Profil Form */
 .profilcontainer {padding:15px; position: relative; width: 400px; border:solid; }

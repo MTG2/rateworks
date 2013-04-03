@@ -5,6 +5,7 @@
   echo $this->html->script('jquery.rateit',true); 
 ?>
 
+<?php echo $this->Html->image($framework['Framework']['pic']) ?>
 <h1><?php echo h($entry['Entry']['name']); ?></h1>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rtotal'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 <h3> Description </h3>
@@ -32,19 +33,30 @@
 
 
 
-</br></br></br></br>
-<table>
- <?php foreach ($comments as $comment): ?>
-    <tr>
-        <td><?php echo $comment['User']['username']; ?></td>
-        <td><?php echo $comment['User']['created']; ?></td>
-    </tr>
-	<tr>
-		<td><?php echo $comment['Comment']['text']; ?></td>
-	</tr>
-    <?php endforeach; ?>
-</table>
+</br>
+<div id="comment">
 
-<?php echo $this->Form->create('Comment'); ?>
-        <?php echo $this->Form->input('text'); ?>
-<?php echo $this->Form->end('Save Comment'); ?>
+<h1>Kommentare</h1>
+
+	 <?php foreach ($comments as $comment): ?>
+
+<p>	 
+<table>
+<?php	 echo $this->Html->tableCells(array(
+							array(array($this->Html->image($comment['User']['pic']), array('rowspan' => 2, 'colspan' => 2)),$comment['User']['username'], $comment['User']['created'] ),
+							array($comment['Comment']['text'])
+							)); 
+?>
+</table>
+</p>
+
+		<?php endforeach; ?>
+
+</div>
+<section id="profil">
+<h2>Kommentar schreiben</h2>
+</br>
+	<?php echo $this->Form->create('Comment'); ?>
+			<?php echo $this->Form->input('text', array('rows' => '3')); ?>
+	<?php echo $this->Form->end('Save Comment'); ?>
+</section>
