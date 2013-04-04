@@ -34,6 +34,7 @@
 
 
 
+
 </br>
 <div id="comment">
 
@@ -43,10 +44,11 @@
 
 <p>	 
 <table>
-<?php	 echo $this->Html->tableCells(array(
-							array(array($this->Html->image($comment['User']['pic']), array('rowspan' => 2, 'colspan' => 2)),$comment['User']['username'], $comment['Comment']['created'] ),
-							array(nl2br($comment['Comment']['text'])),
-							)); 
+<?php	
+	echo $this->Html->tableCells(array(array(array($this->Html->image($comment['User']['pic'], 
+								array("alt" => "User",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))), 
+								array('rowspan' => 2, 'colspan' => 2)),$comment['User']['username'], $comment['Comment']['created']),
+								array(nl2br($comment['Comment']['text'])))); 
 ?>
 </table>
 </p>
