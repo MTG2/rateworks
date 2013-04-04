@@ -15,6 +15,9 @@ Semester
   <div> <?php echo $this->Form->input('semester', array('maxlength' => '2', 'label' => '')); ?> </div>
 Studiengang
   <div> <?php echo $this->Form->input('course', array('maxlength' => '30', 'label' => '')); ?> </div>
+E-Mail
+  <div> <?php echo $this->Form->input('email', array('maxlength' => '30', 'label' => '')); ?> </div>
+Profilbild
   <div> <?php echo $this->form->file('file');?>	   </div>
   <div> <?php echo $this->Form->end('Save User'); ?> </div>
 	

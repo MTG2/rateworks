@@ -42,7 +42,7 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 	
-		$("#flashMessage").slideUp(2000);
+		$("#flashMessage").slideUp(3000);
 		});
 	</script>
 	
