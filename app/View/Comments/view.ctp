@@ -45,7 +45,7 @@
 <table>
 <?php	 echo $this->Html->tableCells(array(
 							array(array($this->Html->image($comment['User']['pic']), array('rowspan' => 2, 'colspan' => 2)),$comment['User']['username'], $comment['Comment']['created'] ),
-							array($comment['Comment']['text']),
+							array(nl2br($comment['Comment']['text'])),
 							)); 
 ?>
 </table>
