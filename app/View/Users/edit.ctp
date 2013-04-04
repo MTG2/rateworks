@@ -1,7 +1,7 @@
 <!-- File: /app/View/Users/edit.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1>Edit Profile</h1>
-<div class="profilcontainer">
+
 <section id="profil">
 <?php
 
@@ -17,4 +17,3 @@ echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border
   <div> <?php echo $this->Form->end('Save User'); ?> </div>
 	
 	</section>
-	</div>

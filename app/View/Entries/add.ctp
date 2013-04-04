@@ -9,7 +9,6 @@
 
 <h1>Projekt anlegen</h1>
 
-<div class="profilcontainer">
 <section id="profil">
 
 <?php echo $this->Form->create('Entry'); ?>
@@ -50,4 +49,4 @@
 
 
 <?php echo $this->Form->end('Save Entry'); ?>
-</div>
+
