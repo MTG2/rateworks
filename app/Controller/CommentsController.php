@@ -32,7 +32,7 @@ class CommentsController extends AppController {
 		
 			if ($this->Comment->save($this->request->data)) {
 				$this->Session->setFlash('Your post has been saved.');
-				$this->redirect(array('action' => 'view', $id));
+				//$this->redirect(array('action' => 'view', $id));
 			}
 		}
     }
