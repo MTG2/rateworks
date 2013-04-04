@@ -30,11 +30,6 @@
 <h3> Domain </h3>
 <p><?php echo ($entry['Entry']['domain']); ?></p>
 
-
-
-
-
-
 </br>
 <div id="comment">
 
@@ -47,7 +42,8 @@
 <?php	
 	echo $this->Html->tableCells(array(array(array($this->Html->image($comment['User']['pic'], 
 								array("alt" => "User",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))), 
-								array('rowspan' => 2, 'colspan' => 2)),$comment['User']['username'], $comment['Comment']['created']),
+								array('rowspan' => 2, 'colspan' => 2)),	$this->Html->link($comment['User']['username'], 
+								array('controller' => 'users', 'action' => 'view', $comment['User']['id'])), $comment['Comment']['created']),
 								array(nl2br($comment['Comment']['text'])))); 
 ?>
 </table>
