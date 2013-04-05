@@ -9,8 +9,6 @@
 		<th>password</th>
         <th>semester</th>
 		<th>course</th>
-        <th>entry_count</th>
-		<th>comment_count</th>
         <th>create_date</th>
 		<th>pic</th>
 		<th>delete</th>
@@ -25,8 +23,6 @@
 		<td><?php echo $ausgabe['User']['password']; ?></td>
 		<td><?php echo $ausgabe['User']['semester']; ?></td>
 		<td><?php echo $ausgabe['User']['course']; ?></td>
-		<td><?php echo $ausgabe['User']['entry_count']; ?></td>
-		<td><?php echo $ausgabe['User']['comment_count']; ?></td>
 		<td><?php echo $ausgabe['User']['created']; ?></td>
 		<td><?php echo $ausgabe['User']['pic']; ?></td>
 		<td>
