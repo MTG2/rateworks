@@ -60,10 +60,12 @@
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?></div>
 										
 		<div id="usernav">
-			<div id="naviLink"><?php echo $this->Html->link('Profil', array(
-				'controller' => 'users',
-				'action' => 'edit'),
-				array('class' => 'navigation'));?></div>
+			<div id="naviLink"><?php echo		
+				$this->Html->link(
+					$this->Html->image('profil_logo.png', array('border' => '0')),
+						array('controller' => 'users', 'action' => 'edit', 'class' => 'navigation'),
+						array('escape' => false));
+				?></div>
 			<div id="naviLink"><?php echo $this->Html->link('Logout', '/users/logout', array('class'=>'navigation')); ?></div>
 
 		</div>
@@ -87,6 +89,7 @@
 			);
 			?>
 		</div>
-
 </body>
 </html>
+
+
