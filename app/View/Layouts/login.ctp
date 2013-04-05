@@ -38,6 +38,9 @@
 <body>
 
 		<div id="content">
+			<?php echo $this->Html->image('zahnrad_hintergrund.png'
+			);
+			?>
 			<?php echo $this->fetch('content'); ?>
 			<?php echo $this->Session->flash(); ?>
 			
