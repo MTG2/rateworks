@@ -98,6 +98,12 @@ box-shadow: 0 0 2px #000;
 
 /* Navigation Links */
 
+#naviLink{
+background-image: url(zahnrad_klein.png);
+height:36px;
+
+}
+
 .navigation{
 color:#7b4d1c;
 padding-right:20px;

@@ -55,6 +55,7 @@
 		
 <div id="navigation">
 	<div id="navigationMitte">
+	<?php echo $this->Html->image('zahnrad_klein.png'); ?>
 	<?php echo $this->Html->link('Index', '/users/index', array('class'=>'navigation')); ?>
 	<?php echo $this->Html->link('Frameworks', '/frameworks/index', array('class'=>'navigation')); ?>
 	<?php echo $this->Html->link('Projekt anlegen', '/entries/add', array('class'=>'navigation')); ?>
