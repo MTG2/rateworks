@@ -99,11 +99,23 @@ box-shadow: 0 0 2px #000;
 
 #naviLink{
 color:#7b4d1c;
-height:34px;
+height:35px;
 float:left;
 width:auto;
 padding-right:20px;
 padding-top:15px;
+vertical-align:middle;
+}
+
+
+#navPic{
+color:#7b4d1c;
+height:35px;
+float:left;
+width:auto;
+padding-top:3px;
+padding-right:10px;
+padding-left:10px;
 vertical-align:middle;
 }
 
@@ -115,6 +127,12 @@ color:#7b4d1c;
 color:#7b4d1c;
 background:#ffebd6;
 text-decoration:none;
+}
+
+#navPic:hover{
+color:#7b4d1c;
+background:#ffebd6;
+padding-bottom:12px;
 }
 
 
