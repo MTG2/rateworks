@@ -5,7 +5,7 @@
   echo $this->html->script('jquery.rateit',true); 
 ?>
 
-<?php echo $this->Html->image($framework['Framework']['pic'], array('width' => '15%', 'height' => '15%')) ?>
+<?php echo $this->Html->image($framework['Framework']['pic'], array('width' => '15%', 'height' => '15%', 'class' => 'alignright')) ?>
 <h1><?php echo ($entry['Entry']['name']); ?></h1>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rtotal'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 <h3> Description </h3>
