@@ -3,9 +3,7 @@
 class Comment extends AppModel {
 
 public $belongsTo = array('User','Entry');
-public $validate = array(
-						'text' => array('allowEmpty' => false,
-										'required'   => true,));
+public $validate = array('text' => array('required' => true));
 
 
 }
