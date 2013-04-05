@@ -113,7 +113,7 @@ color:#7b4d1c;
 height:35px;
 float:left;
 width:auto;
-padding-top:3px;
+padding-top:10px;
 padding-right:10px;
 padding-left:10px;
 vertical-align:middle;
@@ -132,7 +132,7 @@ text-decoration:none;
 #navPic:hover{
 color:#7b4d1c;
 background:#ffebd6;
-padding-bottom:12px;
+padding-bottom:5px;
 }
 
 

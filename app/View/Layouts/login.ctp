@@ -37,7 +37,7 @@
 </head>
 <body>
 	<div id="logo">
-		<?php echo $this->Html->image('zahnrad_hintergrund.png');
+		<?php echo $this->Html->image('zahnrad_hintergrund2.png');
 		?>
 	</div>
 			<?php echo $this->fetch('content'); ?>

@@ -62,7 +62,7 @@
 		<div id="usernav">
 			<div id="navPic"><?php echo		
 				$this->Html->link(
-					$this->Html->image('profil_logo.png', array('border' => '0')),
+					$this->Html->image('profil_logo_kleiner.png', array('border' => '0')),
 						array('controller' => 'users', 'action' => 'edit', 'class' => 'navigation'),
 						array('escape' => false));
 				?></div>
