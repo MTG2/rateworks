@@ -107,6 +107,9 @@ padding-top:15px;
 vertical-align:middle;
 }
 
+#naviLink a{
+color:#7b4d1c;
+}
 
 #naviLink:hover{
 color:#7b4d1c;
