@@ -35,6 +35,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 	background: transparent;
 } 
+
+html { overflow-y: scroll;}
  
 h1{ 
 font-size:28px;
