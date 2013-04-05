@@ -5,7 +5,7 @@
 <div class="container">
 	<section id="formular">
 <?php echo $this->Form->create('User'); ?>
-			<h1>Login Form</h1>
+			<h1>Login</h1>
 			<div>
 				<?php echo $this->Form->input('username', array(
 				'placeholder' => 'Username',

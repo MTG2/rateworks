@@ -63,14 +63,12 @@
 				<?php echo $this->Html->link('Logout', '/users/logout', array('class'=>'navigation')); ?>
 				<?php echo $this->Html->link('Profil', array(
 				'controller' => 'users',
-				'action' => 'edit',
-				'class' => 'navigation'));?>
+				'action' => 'edit'),
+				array('class' => 'navigation'));?>
 		</div>
-		
 	</div>
-<div>		
-			
-			
+					
+</div>			
 			
 			
 		<div id="content">
@@ -82,10 +80,10 @@
 								   		'controller' => 'users',
 										'action' => 'impressum')) ?>
 			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => 'Cakephp', 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
+			$this->Html->image('powered_by_cake_logo_25.png', array('alt' => 'Cakephp', 'border' => '0', 'class' => 'floatleft')),
+			'http://www.cakephp.org/',
+			array('target' => '_blank', 'escape' => false)
+			);
 			?>
 		</div>
 

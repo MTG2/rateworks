@@ -38,18 +38,12 @@
 <body>
 
 		<div id="content">
-			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
-			
+			<?php echo $this->Session->flash(); ?>
 			
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => 'cakephp', 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+
 		</div>
 
 </body>
