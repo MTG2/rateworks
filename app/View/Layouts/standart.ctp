@@ -55,17 +55,17 @@
 		
 <div id="navigation">
 	<div id="navigationMitte">
-	<?php echo $this->Html->image('zahnrad_klein.png'); ?>
-	<?php echo $this->Html->link('Index', '/users/index', array('class'=>'navigation')); ?>
-	<?php echo $this->Html->link('Frameworks', '/frameworks/index', array('class'=>'navigation')); ?>
-	<?php echo $this->Html->link('Projekt anlegen', '/entries/add', array('class'=>'navigation')); ?>
+	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Index', '/users/index'); ?></div>
+	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?></div>
+	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?></div>
 										
 		<div id="usernav">
-				<?php echo $this->Html->link('Logout', '/users/logout', array('class'=>'navigation')); ?>
-				<?php echo $this->Html->link('Profil', array(
+			<div id="naviLink"><?php echo $this->Html->link('Profil', array(
 				'controller' => 'users',
 				'action' => 'edit'),
-				array('class' => 'navigation'));?>
+				array('class' => 'navigation'));?></div>
+			<div id="naviLink"><?php echo $this->Html->link('Logout', '/users/logout', array('class'=>'navigation')); ?></div>
+
 		</div>
 	</div>
 					

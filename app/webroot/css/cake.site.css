@@ -82,10 +82,9 @@ margin-right: auto;
 #navigation{
 background:#ffce99;
 width:auto;
-height:36px;
+height:50px;
 margin:0;
 padding:0;
-padding-top:15px;
 padding-left:5px;
 padding-right:5px;
 margin-left:auto; /* Firefox, Opera und so */
@@ -99,25 +98,19 @@ box-shadow: 0 0 2px #000;
 /* Navigation Links */
 
 #naviLink{
-background-image: url(zahnrad_klein.png);
-height:36px;
-
-}
-
-.navigation{
 color:#7b4d1c;
+height:34px;
+float:left;
+width:auto;
 padding-right:20px;
-text-align:center;
-}
-
-.navigation:visited{
-color:#7b4d1c;
-}
-
-.navigation:hover{
-background:#ffebd6;
 padding-top:15px;
-padding-bottom:14px;
+vertical-align:middle;
+}
+
+
+#naviLink:hover{
+color:#7b4d1c;
+background:#ffebd6;
 text-decoration:none;
 }
 
