@@ -52,21 +52,23 @@
 
 </head>
 <body>
-
 		
-	<div id="navigation">
-	<?php echo $this->Html->link('Index', '/users/index'); ?>
-	<?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?>
-	<?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?>
+<div id="navigation">
+	<div id="navigationMitte">
+	<?php echo $this->Html->link('Index', '/users/index', array('class'=>'navigation')); ?>
+	<?php echo $this->Html->link('Frameworks', '/frameworks/index', array('class'=>'navigation')); ?>
+	<?php echo $this->Html->link('Projekt anlegen', '/entries/add', array('class'=>'navigation')); ?>
 										
 		<div id="usernav">
-				<?php echo $this->Html->link('Logout', '/users/logout'); ?>
+				<?php echo $this->Html->link('Logout', '/users/logout', array('class'=>'navigation')); ?>
 				<?php echo $this->Html->link('Profil', array(
 				'controller' => 'users',
-				'action' => 'edit'));?>
+				'action' => 'edit',
+				'class' => 'navigation'));?>
 		</div>
+		
 	</div>
-			
+<div>		
 			
 			
 			

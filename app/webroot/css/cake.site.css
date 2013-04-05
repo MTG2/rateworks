@@ -39,21 +39,29 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 a{ text-decoration: none; }
 a:hover{ text-decoration: underline;}
 a:active{ text-decoration: none; color:black;}
+a:visited{ color:#000;}
  
- body{
+body{
 margin:0;
 padding:0;
 color: #000;
-font: 16px Calibri;
+font-family: Verdana;
+font-size: 16px;
 margin: 0 auto;
 padding: 0;
 position: relative;
 }
  
-#navigation{
-background:#ADD8E6;
+#navigationMitte{
 width:1024px;
-height:35px;
+margin-left: auto;
+margin-right: auto;
+}
+ 
+#navigation{
+background:#ffce99;
+width:auto;
+height:36px;
 margin:0;
 padding:0;
 padding-top:15px;
@@ -62,37 +70,55 @@ padding-right:5px;
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
 font-size: 110%;
--moz-box-shadow: 0px 0 1px #888;
--webkit-box-shadow: 0px 0 1px #888;
-box-shadow: 0 0 1px #888;
+-moz-box-shadow: 0px 0 2px #000;
+-webkit-box-shadow: 0px 0 2px #000;
+box-shadow: 0 0 2px #000;
 }
 
-#navigation a:hover{
-background:#FFFFFF;
+/* Navigation Links */
+
+.navigation{
+color:#7b4d1c;
+}
+
+.navigation:visited{
+color:#7b4d1c;
+}
+
+.navigation:hover{
+background:#ffebd6;
+padding-top:15px;
+padding-bottom:14px;
 text-decoration:none;
 }
+
+
+
 
 #usernav{
 float:right;
 }
 
 #usernav a:hover{
-background:#FFFFFF;
+background:#ffebd6;
+padding-top:15px;
+padding-bottom:14px;
 text-decoration:none;
 }
 
 
 #content{
-padding-top:10px;
+margin-top:20px;
 width:1024px;
 min-height:400px;
 height:auto;
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
-
+font-size: 90%;
 } 
+
  
- #footer{
+#footer{
 width:1024px;
 height:50px; 
 margin-left:auto; /* Firefox, Opera und so */
