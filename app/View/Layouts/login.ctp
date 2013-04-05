@@ -36,15 +36,13 @@
 	?>
 </head>
 <body>
-
-		<div id="content">
-			<?php echo $this->Html->image('zahnrad_hintergrund.png'
-			);
-			?>
+	<div id="logo">
+		<?php echo $this->Html->image('zahnrad_hintergrund.png');
+		?>
+	</div>
 			<?php echo $this->fetch('content'); ?>
 			<?php echo $this->Session->flash(); ?>
 			
-		</div>
 		<div id="footer">
 
 		</div>

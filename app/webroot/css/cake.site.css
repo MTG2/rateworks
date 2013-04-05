@@ -163,6 +163,13 @@ width:75px;
 height:75px;
 } 
 
+/*logo */
+
+#logo {
+width:800px;
+margin-left:auto; /* Firefox, Opera und so */
+margin-right:auto;
+}
  
  /* Profil Form */
 .profilcontainer {padding:15px; position: relative; width: 400px; border:solid; }
