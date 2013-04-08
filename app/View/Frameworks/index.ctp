@@ -5,8 +5,6 @@
 <p><?php echo $this->Html->link('Add Framework', array('action' => 'add')); ?></p>
 <p><?php  echo $this->Session->read('Auth.User.username');?></p>
 
-<?php  $check = 1?>
-
 
     <?php foreach ($frameworks as $framework): ?>
 		<div align="center" class="frameEntry"">
@@ -17,18 +15,18 @@
 						array('escape' => false));
 			?>
 						
-			<?php 			
-				echo "<div class='frameEntryName'>";
-			?>
 			
+			<div class='frameEntryName'>
 			<b>
 			<?php 
 				echo $this->Html->link($framework['Framework']['name'],
 						array('controller' => 'entries', 'action' => 'show_entries', $framework['Framework']['id']),
 						array('escape' => false));
-				echo "</div>";
 			?>
 			</b>	
+			</div>
 		</div>	
+		
+		
 		
     <?php endforeach; ?>
