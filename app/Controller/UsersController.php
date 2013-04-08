@@ -8,7 +8,7 @@ class UsersController extends AppController {
         $this->Auth->allow('login','register');
 		
 		if($this->Auth->loggedIn()){
-			$this->Auth->allow('edit','logout', 'login', 'index');
+			$this->Auth->allow('edit','logout', 'login', 'index', 'view');
 		}	
 		
     }

@@ -9,7 +9,7 @@
 <h1><?php echo ($entry['Entry']['name']); ?></h1>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rtotal'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 <h2> Projekt Link </h2>
-<p><?php echo ($entry['Entry']['projectlink']); ?></p>
+<p><?php echo $this->html->link($entry['Entry']['projectlink'], 'http://'.$entry['Entry']['projectlink'], array('class'=>'ext', 'target'=>'_blank')); ?></p>
 <h2> Beschreibung </h2>
 <p><?php echo ($entry['Entry']['description']); ?></p>
 <h2> Reifegrad / Bewertung </h2>
@@ -25,9 +25,7 @@
 
 
 <h2> Links </h2>
-<p><?php echo $this->html->link($entry['Entry']['links']); ?></p>
-<p><?php echo ($entry['Entry']['links']); ?></p>
-
+<p><?php echo $this->html->link($entry['Entry']['links'], 'http://'.$entry['Entry']['links'], array('class'=>'ext', 'target'=>'_blank')); ?></p>
 
 <h2> Einsatzgebiet </h2>
 <p><?php echo ($entry['Entry']['domain']); ?></p>
@@ -43,7 +41,7 @@
 <div id="commentText">
 	<?php echo $this->Form->create('Comment'); ?>
 	<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '', 'rows' => 2, 'cols' => 10)); ?>
-	<?php echo $this->Form->end('Save Comment'); ?>
+	<?php echo $this->Form->end('Post'); ?>
 </div>
 </section>
 
@@ -55,10 +53,12 @@
 <p>	 
 	<div id="comment">
 			
-	<?php echo $this->Html->image($comment['User']['pic']); ?>
+<?php	echo $this->Html->image($comment['User']['pic'], 
+								array("alt" => "User",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))) ?>
 						
 <div id="commentAuthor">
-<?php echo $comment['User']['username'];?> 
+<?php echo $this->Html->link($comment['User']['username'], 
+								array('controller' => 'users', 'action' => 'view', $comment['User']['id']))?> 
 	<div id="commentDate"> 
 	am <?php echo $comment['Comment']['created'];?></div>
 </div>
