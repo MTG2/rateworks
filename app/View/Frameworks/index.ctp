@@ -3,7 +3,7 @@
 
 <h1>Frameworks</h1>
 <p><?php echo $this->Html->link('Add Framework', array('action' => 'add')); ?></p>
-<p><?php  echo $this->Session->read('Auth.User.username');?></p>
+
 
 
 <table>
