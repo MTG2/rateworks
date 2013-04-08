@@ -44,10 +44,11 @@
 	<?php echo $this->Form->end('Save Comment'); ?>
 </div>
 </section>
-<hr>
+
 
 
 <h3>Kommentare anderer User</h3>
+
 <?php foreach ($comments as $comment): ?>
 <p>	 
 	<div id="comment">
