@@ -9,7 +9,7 @@
 
 
     <?php foreach ($frameworks as $framework): ?>
-		<div align="center" style="float:left; width: 250px; height: 250px; position: relative;">
+		<div align="center" class="frameEntry"">
 			<?php echo		
 				$this->Html->link(
 					$this->Html->image($framework['Framework']['pic'], array('border' => '0', 'width'=>'150px')),
@@ -18,7 +18,7 @@
 			?>
 						
 			<?php 			
-				echo "<div style='position:absolute; bottom:0; width:80%; background-color:#ffce99; margin-left:25px;'>";
+				echo "<div class='frameEntryName'>";
 			?>
 			
 			<b>
@@ -28,9 +28,7 @@
 						array('escape' => false));
 				echo "</div>";
 			?>
-			</b>
-			
-			
+			</b>	
 		</div>	
 		
     <?php endforeach; ?>

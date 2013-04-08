@@ -192,6 +192,22 @@ width:800px;
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
 }
+
+/* Framework tabelle */
+.frameEntry {
+	float:left; 
+	width: 250px; 
+	height: 250px; 
+	position: relative;
+}
+
+.frameEntryName{
+	position:absolute;
+	bottom:0;
+	width:80%;
+	background-color:#ffce99;
+	margin-left:25px;
+}
  
  /* Profil Form */
 .profilcontainer {padding:15px; position: relative; width: 400px; border:solid; }
@@ -628,3 +644,4 @@ p.error em {
 	display: block;
 	clear: both;
 }
+
