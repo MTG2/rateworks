@@ -11,6 +11,7 @@
 		<th>course</th>
         <th>create_date</th>
 		<th>pic</th>
+		<th>edit</th>
 		<th>delete</th>
     </tr>
 
@@ -25,6 +26,9 @@
 		<td><?php echo $ausgabe['User']['course']; ?></td>
 		<td><?php echo $ausgabe['User']['created']; ?></td>
 		<td><?php echo $ausgabe['User']['pic']; ?></td>
+		<td>
+			<?php echo $this->Html->link('Edit', array('action' => 'a_edit_u_view', $ausgabe['User']['id']));?>
+		</td>
 		<td>
 			<?php echo $this->Form->PostLink(
                 'Delete',

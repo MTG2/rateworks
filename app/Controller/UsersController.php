@@ -165,6 +165,27 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 		$this->set('users', $this->paginate());
 	}
 	
+	public function a_edit_u_view($id){
+		
+		$user = $this->User->find('first', array(
+			'contain' => array('User'),
+			'conditions' => array('User.id = '.$id)	
+		));
+		
+		$this->set('thisUser', $user);	
+		
+		
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$this->User->id = $id;
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash('The User has been updated.');
+				$this->redirect(array('action' => 'a_edit_u'));
+			} else {
+				$this->Session->setFlash('Unable to update the User.');
+			}
+		}
+	}
+	
 	/**
  * uploads files to the server
  * @params:
