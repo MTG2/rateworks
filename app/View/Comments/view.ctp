@@ -8,26 +8,26 @@
 <?php echo $this->Html->image($framework['Framework']['pic'], array('width' => '15%', 'height' => '15%', 'class' => 'alignright')) ?>
 <h1><?php echo ($entry['Entry']['name']); ?></h1>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rtotal'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
-<h3> Description </h3>
+<h2> Description </h2>
 <p><?php echo ($entry['Entry']['description']); ?></p>
-<h3> Degree </h3>
+<h2> Degree </h2>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rdegree'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 <p><?php echo ($entry['Entry']['degree']); ?></p>
-<h3> Usability </h3>
+<h2> Usability </h2>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rusability'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 <p><?php echo ($entry['Entry']['usability']); ?></p>
 
 
-<h3> Highlights </h3>
+<h2> Highlights </h2>
 <p><?php echo ($entry['Entry']['highlights']); ?></p>
 
 
-<h3> Links </h3>
+<h2> Links </h2>
 <p><?php echo $this->html->link($entry['Entry']['links']); ?></p>
 <p><?php echo ($entry['Entry']['links']); ?></p>
 
 
-<h3> Domain </h3>
+<h2> Domain </h2>
 <p><?php echo ($entry['Entry']['domain']); ?></p>
 
 </br>
@@ -35,32 +35,36 @@
 
 <section id="profil">
 
-<h2>Kommentar schreiben</h2>
+<h3>Kommentar schreiben</h3>
 </br>
 	<?php echo $this->Html->image($user['User']['pic']) ?>
 <div id="commentText">
 	<?php echo $this->Form->create('Comment'); ?>
 	<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '', 'rows' => 2, 'cols' => 10)); ?>
-	<?php echo $this->Form->end('Save Comment', array('div'=>'alignright')); ?>
+	<?php echo $this->Form->end('Save Comment'); ?>
 </div>
 </section>
+<hr>
 
 
-
-<h1>Kommentare anderer User</h1>
+<h3>Kommentare anderer User</h3>
 <?php foreach ($comments as $comment): ?>
 <p>	 
-		<div id="comment">
+	<div id="comment">
 			
-		<?php echo $this->Html->image($comment['User']['pic']); ?>
+	<?php echo $this->Html->image($comment['User']['pic']); ?>
 						
-<div id="commentAuthor"><?php echo $comment['User']['username'];?> 
-	<div id="commentDate"> am <?php echo $comment['Comment']['created'];?></div>
+<div id="commentAuthor">
+<?php echo $comment['User']['username'];?> 
+	<div id="commentDate"> 
+	am <?php echo $comment['Comment']['created'];?></div>
 </div>
-		<div id="commentText">	<?php echo nl2br($comment['Comment']['text']);?> </div>
+
+<div id="commentText">	<?php echo nl2br($comment['Comment']['text']);?> 
+</div>
 		
 
-		</div>
+	</div>
 
 </p>
 <hr>

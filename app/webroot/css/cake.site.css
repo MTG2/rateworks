@@ -42,7 +42,7 @@ h1{
 font-size:28px;
 padding-bottom:15px;
 }
-h2{ font-size:26px;
+h2{ font-size:24px;
 
 }
 h3{ font-size:18px;
@@ -144,7 +144,6 @@ float:right;
 #content{
 margin-top:30px;
 width:1024px;
-
 max-height:auto;
 height:auto;
 margin-left:auto; /* Firefox, Opera und so */
@@ -154,20 +153,19 @@ font-size: 90%;
 
  
 #footer{
-float:none;
 width:1024px;
 height:50px; 
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
-border: solid;
 }
 
 /* Comment */
 
 #commentArea{
-background:#E0E0E0;
+background:#ffce99;
 width:600px;
-margin-bottom:20px;
+padding-left:10px;
+padding-right:10px;
 }
 
 #commentArea img{
@@ -183,7 +181,6 @@ min-height:85px;
 }
 
 #commentAuthor{
-color:0ff;
 margin-left:85px;
 margin-bottom:10px;
 }
@@ -193,6 +190,7 @@ margin-left:85px;
 }
 
 #commentDate{
+font-size:75%;
 float:right;
 }
 
@@ -204,6 +202,7 @@ border-top: 1px solid #fff;
 background-color:#fff;
 height:1px;
 margin:0px 0px 0px 0px;
+
 }
 /*logo */
 
