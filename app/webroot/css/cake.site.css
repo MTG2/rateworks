@@ -162,29 +162,34 @@ margin-right:auto;
 
 /* Comment */
 
-#comment{
+#commentArea{
 padding-left:10px;
 background:#E0E0E0;
 width:600px;
 margin-bottom:10px;
 }
 
-#comment td{
-padding-top:0px;
-margin-top:0px;
-padding-left:10px;
-vertical-align:top;
-}
-#comment table{
-margin-top:20px;
-table-layout:fixed;
-}
-
-#comment img{
+#commentArea img{
 width:75px;
 height:75px;
+float:left;
 } 
 
+#comment{
+min-height:100px;
+}
+
+#commentAuthor{
+color:0ff;
+margin-left:85px;
+}
+
+#commentText{
+margin-left:85px;
+}
+#commentDate{
+float:right;
+}
 /*logo */
 
 #logo {

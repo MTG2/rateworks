@@ -31,37 +31,37 @@
 <p><?php echo ($entry['Entry']['domain']); ?></p>
 
 </br>
-<div id="commentArea">
+<div id="comment">
+
+<h1>Kommentare</h1>
+
+	 <?php foreach ($comments as $comment): ?>
+
+<p>	 
+<table>
+<?php	
+	echo $this->Html->tableCells(array(array(array($this->Html->image($comment['User']['pic'], 
+								array("alt" => "User",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))), 
+								array('rowspan' => 2, 'colspan' => 2)),	$this->Html->link($comment['User']['username'], 
+								array('controller' => 'users', 'action' => 'view', $comment['User']['id'])), $comment['Comment']['created']),
+								array(nl2br($comment['Comment']['text'])))); 
+?>
+</table>
+</p>
+
+		<?php endforeach; ?>
+
 
 <section id="profil">
-
 <h2>Kommentar schreiben</h2>
 </br>
-	<?php echo $this->Html->image($user['User']['pic']) ?>
-<div id="commentText">
+
+
+
+	<?php echo $this->Html->image($comment['User']['pic']) ?>
 	<?php echo $this->Form->create('Comment'); ?>
-	<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '', 'rows' => 2, 'cols' => 10)); ?>
+			<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '', 'rows' => 2, 'cols' => 10)); ?>
 	<?php echo $this->Form->end('Save Comment'); ?>
-</div>
+
 </section>
-
-
-
-<h1>Kommentare anderer User</h1>
-<?php foreach ($comments as $comment): ?>
-<p>	 
-		<div id="comment">
-			
-		<?php echo $this->Html->image($comment['User']['pic']); ?>
-						
-<div id="commentAuthor"><?php echo $comment['User']['username'];?> 
-	<div id="commentDate"> am <?php echo $comment['Comment']['created'];?></div>
 </div>
-		<div id="commentText">	<?php echo nl2br($comment['Comment']['text']);?> </div>
-		
-
-		</div>
-
-</p>
-<hr>
-		<?php endforeach; ?>
