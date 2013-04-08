@@ -41,7 +41,7 @@
 <div id="commentText">
 	<?php echo $this->Form->create('Comment'); ?>
 	<?php echo $this->Form->input('text', array('type' => 'textarea', 'label' => '', 'rows' => 2, 'cols' => 10)); ?>
-	<?php echo $this->Form->end('Save Comment'); ?>
+	<?php echo $this->Form->end('Save Comment', array('div'=>'alignright')); ?>
 </div>
 </section>
 
