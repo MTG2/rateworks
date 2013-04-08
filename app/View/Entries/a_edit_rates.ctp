@@ -37,7 +37,7 @@
 		<td><?php echo $ausgabe['Entry']['usability']; ?></td>
 		<td><?php echo $ausgabe['Entry']['highlights']; ?></td>
 		<td><?php echo $ausgabe['Entry']['links']; ?></td>
-		<td><?php echo $ausgabe['Entry']['project_link']; ?></td>
+		<td><?php echo $ausgabe['Entry']['projectlink']; ?></td>
 		<td><?php echo $ausgabe['Entry']['domain']; ?></td>
 		<td><?php echo $ausgabe['Entry']['created']; ?></td>
 		<td><?php echo $ausgabe['Framework']['name']; ?></td>

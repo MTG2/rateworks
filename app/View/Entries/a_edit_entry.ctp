@@ -15,7 +15,7 @@
 <?php echo $this->Form->input('name', array('label'=>'', 'value' => $thisEntry['Entry']['name'])); ?>
 
 <p>Projekt Link</p>
-<?php echo $this->Form->input('project_link', array('label'=>'', 'value' => $thisEntry['Entry']['project_link'])); ?>
+<?php echo $this->Form->input('project_link', array('label'=>'', 'value' => $thisEntry['Entry']['projectlink'])); ?>
 
 <p>Beschreibung</p>
 <?php echo $this->Form->input('description', array('rows' => '3', 'label'=>'', 'value' => $thisEntry['Entry']['description'])); ?>
