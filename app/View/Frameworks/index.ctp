@@ -2,7 +2,7 @@
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 
 <h1>Frameworks</h1>
-<p><?php echo $this->Html->link('Add Framework', array('action' => 'add')); ?></p>
+
 
 
 

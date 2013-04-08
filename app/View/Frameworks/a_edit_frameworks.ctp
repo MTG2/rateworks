@@ -12,6 +12,8 @@
     </tr>
 
     <!-- Here is where we loop trough our $ausgabes array, printing out entries info -->
+	<p><b><?php echo $this->Html->link('Add Framework', array('action' => 'add')); ?></b></p>
+	
 
     <?php foreach ($frameworks as $ausgabe): //var $entries kommt aus dem Controller ?> 
     <tr>

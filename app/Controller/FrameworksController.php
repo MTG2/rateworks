@@ -29,7 +29,7 @@ class FrameworksController extends AppController {
 	
 			$files = array(0 => $this->request->data['file']);
 			
-			if($files[0]['size'] <= 128000 && strpos($files[0]['type'],'image') !== false)
+			if($files[0]['size'] <= 3500000 && strpos($files[0]['type'],'image') !== false)
 			{
 				$result = $this->uploadFiles('img/frameworks', $files);
 			}
@@ -46,7 +46,7 @@ class FrameworksController extends AppController {
         $this->request->data['Framework']['user_id'] = $this->Auth->user('id'); //Added this line
         if ($this->Framework->save($this->request->data)) {
             $this->Session->setFlash('Your post has been saved.');
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'a_edit_frameworks'));
         }
     }
 	}
