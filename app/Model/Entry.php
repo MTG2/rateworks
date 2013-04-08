@@ -6,10 +6,37 @@ public $belongsTo = array('User','Framework');
 public $hasMany = 'Comment';
 
  public $validate = array(
-        'title' => array(
+        'projectlink' => array(
             'rule' => 'notEmpty'
         ),
-        'body' => array(
+        'name' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'description' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'degree' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'rdegree' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'usability' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'rusability' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'highlights' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'links' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'domain' => array(
+            'rule' => 'notEmpty'
+        ),
+		 'rtotal' => array(
             'rule' => 'notEmpty'
         )
     );

@@ -19,7 +19,7 @@
 <?php echo $this->Form->input('name', array('label'=>'')); ?>
 
 <p>Projekt Link</p>
-<?php echo $this->Form->input('Projekt Link', array('label'=>'')); ?>
+<?php echo $this->Form->input('projectlink', array('label'=>'')); ?>
 
 <p>Beschreibung</p>
 <?php echo $this->Form->input('description', array('rows' => '3', 'label'=>'')); ?>

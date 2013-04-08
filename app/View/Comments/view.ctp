@@ -8,12 +8,14 @@
 <?php echo $this->Html->image($entry['Framework']['pic'], array('width' => '15%', 'height' => '15%', 'class' => 'alignright')) ?>
 <h1><?php echo ($entry['Entry']['name']); ?></h1>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rtotal'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
-<h2> Description </h2>
+<h2> Projekt Link </h2>
+<p><?php echo ($entry['Entry']['projectlink']); ?></p>
+<h2> Beschreibung </h2>
 <p><?php echo ($entry['Entry']['description']); ?></p>
-<h2> Degree </h2>
+<h2> Reifegrad / Bewertung </h2>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rdegree'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 <p><?php echo ($entry['Entry']['degree']); ?></p>
-<h2> Usability </h2>
+<h2> Handhabung </h2>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rusability'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 <p><?php echo ($entry['Entry']['usability']); ?></p>
 
@@ -27,7 +29,7 @@
 <p><?php echo ($entry['Entry']['links']); ?></p>
 
 
-<h2> Domain </h2>
+<h2> Einsatzgebiet </h2>
 <p><?php echo ($entry['Entry']['domain']); ?></p>
 
 </br>
