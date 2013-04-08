@@ -25,7 +25,18 @@
 
 
 <h2> Links </h2>
-<p><?php echo $this->html->link($entry['Entry']['links'], 'http://'.$entry['Entry']['links'], array('class'=>'ext', 'target'=>'_blank')); ?></p>
+
+<?php 
+
+$links = explode("\n", $entry['Entry']['links']);
+
+foreach ($links as $link):
+
+echo $this->html->link($link, 'http://'.$link, array('class'=>'ext', 'target'=>'_blank')).'</br>';
+
+endforeach; ?>
+
+
 
 <h2> Einsatzgebiet </h2>
 <p><?php echo ($entry['Entry']['domain']); ?></p>
