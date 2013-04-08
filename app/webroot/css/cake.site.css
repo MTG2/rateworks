@@ -144,7 +144,8 @@ float:right;
 #content{
 margin-top:30px;
 width:1024px;
-min-height:400px;
+
+max-height:auto;
 height:auto;
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
@@ -153,11 +154,12 @@ font-size: 90%;
 
  
 #footer{
+float:none;
 width:1024px;
 height:50px; 
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
-
+border: solid;
 }
 
 /* Comment */
@@ -212,20 +214,19 @@ margin-right:auto;
 }
 
 /* Framework tabelle */
-.frameEntry {
-	float:left; 
-	width: 250px; 
-	height: 250px; 
+#frameBase {
+	border: solid 1px;
 	position: relative;
+	float:left;
+	height: 250px;
+	width: 250px;
 }
 
-.frameEntryName{
-	position:absolute;
-	bottom:0;
-	width:80%;
-	background-color:#ffce99;
-	margin-left:25px;
+#frameChild{
+	border: solid 1px;
+
 }
+
  
  /* Profil Form */
 .profilcontainer {padding:15px; position: relative; width: 400px; border:solid; }
