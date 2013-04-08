@@ -19,9 +19,17 @@
 						
 			<?php 			
 				echo "<div style='position:absolute; bottom:0; width:80%; background-color:#ffce99; margin-left:25px;'>";
-				echo "<b>".$framework['Framework']['name']."</b>";
+			?>
+			
+			<b>
+			<?php 
+				echo $this->Html->link($framework['Framework']['name'],
+						array('controller' => 'entries', 'action' => 'show_entries', $framework['Framework']['id']),
+						array('escape' => false));
 				echo "</div>";
 			?>
+			</b>
+			
 			
 		</div>	
 		
