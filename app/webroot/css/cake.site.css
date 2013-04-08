@@ -214,16 +214,19 @@ margin-right:auto;
 
 /* Framework tabelle */
 #frameBase {
-	border: solid 1px;
+	padding-top: 30px;
 	position: relative;
 	float:left;
 	height: 250px;
 	width: 250px;
+	position: relative;
 }
 
 #frameChild{
-	border: solid 1px;
-
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	background-color:#ffce99;
 }
 
  

@@ -20,7 +20,7 @@
 		echo "<tr>";
 	}
 	
-		echo "<td><div id='frameBase'>";
+		echo "<td><div align='center' id='frameBase'>";
 			echo $this->Html->link(
 				$this->Html->image($framework['Framework']['pic'], array('border' => '0', 'width'=>'150px')),
 				array('controller' => 'entries', 'action' => 'show_entries', $framework['Framework']['id']),
