@@ -56,55 +56,32 @@ endforeach; ?>
 </div>
 </section>
 
-
-
-
-<?php if($comments == null)
-	{
+<?php if($comments == null){
 	
 	} 
 else
 { ?>
-
 <h3>Kommentare anderer User</h3>
 
 <?php foreach ($comments as $comment): ?>
-<p>	 
-	<div id="comment">
-		
+<p><div id="comment">
 
-		
-		
-		
-		
-		
-		
 <?php if($comment['User']['id'] == null){
-
 echo $this->Html->image($comment['User']['pic'],array("alt" => "User",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id'])))?>
-						
+					
 <div id="commentAuthor">
 <?php echo "Gel&ouml;schter Benutzer"; 
-
 
 }
 else{
 		
-echo $this->Html->image($comment['User']['pic'], 
-								array("alt" => "Bild",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))) ?>				
+echo $this->Html->image($comment['User']['pic'],array("alt" => "Bild",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))) ?>				
 <div id="commentAuthor">
-<?php echo $this->Html->link($comment['User']['username'], 
-								array('controller' => 'users', 'action' => 'view', $comment['User']['id']));
+<?php echo $this->Html->link($comment['User']['username'],array('controller' => 'users', 'action' => 'view', $comment['User']['id']));
 }?> 
-				
-
-				
-				
-				
-				
-				
-	<div id="commentDate"> 
-	am <?php echo $comment['Comment']['created'];?></div>
+						
+<div id="commentDate"> 
+am <?php echo $comment['Comment']['created'];?></div>
 </div>
 
 <div id="commentText">	<?php echo nl2br($comment['Comment']['text']);?> 
