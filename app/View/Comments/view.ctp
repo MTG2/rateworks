@@ -67,7 +67,7 @@ else
 <p><div id="comment">
 
 <?php if($comment['User']['id'] == null){
-echo $this->Html->image('deleted.png',array("alt" => "User",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id'])))?>
+echo $this->Html->image('deleted.png',array("alt" => "User"))?>
 					
 <div id="commentAuthor">
 <?php echo "Gel&ouml;schter Benutzer"; 
