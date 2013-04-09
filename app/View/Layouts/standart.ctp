@@ -55,10 +55,8 @@
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Index', '/users/index'); ?></div>
 	<div id="naviLink">
 			<?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?>
-		</div>
-	</div>		
+		</div>	
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?></div>
-	
 	
 		
 	
