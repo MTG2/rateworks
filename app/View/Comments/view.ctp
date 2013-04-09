@@ -71,13 +71,38 @@ else
 <?php foreach ($comments as $comment): ?>
 <p>	 
 	<div id="comment">
-			
-<?php	echo $this->Html->image($comment['User']['pic'], 
-								array("alt" => "User",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))) ?>
+		
+
+		
+		
+		
+		
+		
+		
+<?php if($comment['User']['id'] == null){
+
+echo $this->Html->image($comment['User']['pic'],array("alt" => "User",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id'])))?>
 						
 <div id="commentAuthor">
+<?php echo "Gel&ouml;schter Benutzer"; 
+
+
+}
+else{
+		
+echo $this->Html->image($comment['User']['pic'], 
+								array("alt" => "Bild",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))) ?>				
+<div id="commentAuthor">
 <?php echo $this->Html->link($comment['User']['username'], 
-								array('controller' => 'users', 'action' => 'view', $comment['User']['id']))?> 
+								array('controller' => 'users', 'action' => 'view', $comment['User']['id']));
+}?> 
+				
+
+				
+				
+				
+				
+				
 	<div id="commentDate"> 
 	am <?php echo $comment['Comment']['created'];?></div>
 </div>
