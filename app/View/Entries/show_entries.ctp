@@ -1,6 +1,14 @@
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
-<h1>Entries</h1>
-<p>Framework: <?php  echo $framework['Framework']['name']; ?></p>
+
+
+<div style="float: right">
+	<?php  echo $this->Html->image($framework['Framework']['pic'], array('width'=>'150px')); ?></p>
+</div>
+
+<h1>Projekte</h1>
+
+<p><h3><?php  echo $framework['Framework']['name']; ?></h3></p>
+
 
 <?php if($entries == null)
 	{
@@ -9,24 +17,36 @@
 	} 
 else
 { ?>
-<table>
+<table style="width: 100%; text-align: left;">
     <tr>
-        <th>Name</th>
-        <th>User</th>
-        <th>Date</th>
+        <th style="border-bottom: solid 1px;">Projektname</th>
+        <th style="border-bottom: solid 1px;">Erstellt von</th>
+        <th style="border-bottom: solid 1px;">Datum</th>
     </tr>
-<?php
-foreach ($entries as $entry):	 ?>
-    <tr>
-        <td>
-            <?php echo $this->Html->link($entry['Entry']['name'], array('controller' => 'comments', 'action' => 'view', $entry['Entry']['id'])); ?>
-        </td>
-        <td>
-            <?php echo $entry['User']['username']; ?>
-        </td>
-		<td>
-            <?php echo $entry['Entry']['created']; ?>
-        </td>
-    </tr>
-<?php endforeach; }	?>
+	
+<?php 
+	$checker=1; 
+	$bgColor="#FFFFFF";
+?>	
+
+<?php foreach ($entries as $entry):
+$checker = $checker +1; 
+if ($checker == 2){
+	$bgColor="#ffebd6";
+	$checker = 0;
+}else{
+	$bgColor="#FFFFFF";
+}
+    echo "<tr>";
+        echo "<td style='background-color:".$bgColor."; height: 40px; vertical-align: middle;'><b>";
+			echo $this->Html->link($entry['Entry']['name'], array('controller' => 'comments', 'action' => 'view', $entry['Entry']['id']));
+        echo "</b></td>";
+        echo "<td style='background-color:".$bgColor."; height: 40px; vertical-align: middle;'>";
+			echo $entry['User']['username'];
+        echo "</td>";
+		echo "<td style='background-color:".$bgColor."; height: 40px; vertical-align: middle;'>";
+			echo $entry['Entry']['created'];
+        echo "</td>";
+    echo "</tr>";
+endforeach; }	?>
 </table>
