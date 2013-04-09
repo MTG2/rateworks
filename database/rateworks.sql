@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 08, 2013 at 06:28 PM
--- Server version: 5.5.25a
--- PHP Version: 5.4.4
+-- Host: 127.0.0.1
+-- Erstellungszeit: 09. Apr 2013 um 17:12
+-- Server Version: 5.5.27
+-- PHP-Version: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `rateworks`
+-- Datenbank: `rateworks`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Tabellenstruktur für Tabelle `comments`
 --
 
 CREATE TABLE IF NOT EXISTS `comments` (
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
--- Dumping data for table `comments`
+-- Daten für Tabelle `comments`
 --
 
 INSERT INTO `comments` (`id`, `text`, `upvote`, `downvote`, `user_id`, `entry_id`, `created`, `modified`) VALUES
@@ -63,7 +63,7 @@ INSERT INTO `comments` (`id`, `text`, `upvote`, `downvote`, `user_id`, `entry_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entries`
+-- Tabellenstruktur für Tabelle `entries`
 --
 
 CREATE TABLE IF NOT EXISTS `entries` (
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `entries` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `entries`
+-- Daten für Tabelle `entries`
 --
 
 INSERT INTO `entries` (`id`, `projectlink`, `name`, `description`, `degree`, `rdegree`, `usability`, `rusability`, `highlights`, `links`, `domain`, `created`, `rtotal`, `framework_id`, `user_id`) VALUES
@@ -97,7 +97,7 @@ INSERT INTO `entries` (`id`, `projectlink`, `name`, `description`, `degree`, `rd
 -- --------------------------------------------------------
 
 --
--- Table structure for table `frameworks`
+-- Tabellenstruktur für Tabelle `frameworks`
 --
 
 CREATE TABLE IF NOT EXISTS `frameworks` (
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `frameworks` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `frameworks`
+-- Daten für Tabelle `frameworks`
 --
 
 INSERT INTO `frameworks` (`id`, `name`, `rating`, `created`, `link`, `pic`) VALUES
@@ -124,7 +124,7 @@ INSERT INTO `frameworks` (`id`, `name`, `rating`, `created`, `link`, `pic`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabellenstruktur für Tabelle `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -141,16 +141,16 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
 
 --
--- Dumping data for table `users`
+-- Daten für Tabelle `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `semester`, `course`, `created`, `pic`) VALUES
 (1, 'admin', '', '1008812820791a6e7a936ea0c5e186eb3e2dc94b', 'admin', 0, '', '2013-03-27 14:14:44', 'uploads/b15.png'),
 (61, 'Testuser1', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 5, 'Technische Informatik', '2013-04-02 18:31:44', 'uploads/catweazle.jpg'),
 (62, 'Testuser2', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, 'Medieninformatik', '2013-04-02 18:37:16', 'uploads/004_cycling_cartoon_2011.jpg'),
-(63, 'Marc', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, '', '2013-04-04 17:21:51', 'default.jpg'),
-(64, 'Peter', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, '', '2013-04-05 15:49:34', 'default.jpg'),
-(65, 'jan', '', '66b77e12f59ec0c2101345af70021eb9c5c617cd', 'author', 0, '', '2013-04-08 17:57:50', 'default.jpg');
+(63, 'Marc', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, '', '2013-04-04 17:21:51', 'default.png'),
+(64, 'Peter', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, '', '2013-04-05 15:49:34', 'default.png'),
+(65, 'jan', '', '66b77e12f59ec0c2101345af70021eb9c5c617cd', 'author', 0, '', '2013-04-08 17:57:50', 'default.png');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
