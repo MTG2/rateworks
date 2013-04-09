@@ -694,38 +694,43 @@ p.error em {
 	clear: both;
 }
 
+/* Dropdown Menue */
+
 .dropdown
 {
 color: #555;
-margin: 3px -22px 0 0;
-width: 143px;
+margin: 0px -22px 0 0;
+vertical-align:middle;
 position: relative;
-height: 17px;
 text-align:left;
+
 }
 .submenu
 {
-background: #fff;
+background:#ffebd6;
 position: absolute;
 top: -12px;
-left: -20px;
 z-index: 100;
-width: 135px;
+width: 149px;
 display: none;
-margin-left: 10px;
-padding: 40px 0 5px;
-border-radius: 6px;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+padding: 0px 0 0px;
+margin-top:47px;
+border-bottom:solid 1px;
+border-right:solid 1px;
+border-left:solid 1px;
+border-color:#919191;
+
 }
 .dropdown li a
 {
 color: #555555;
 display: block;
-font-family: arial;
+font-family: Verdana;
 font-weight: bold;
 padding: 6px 15px;
 cursor: pointer;
 text-decoration:none;
+
 }
 
 .dropdown li a:hover
@@ -736,26 +741,26 @@ text-decoration: none;
 }
 a.account 
 {
-font-size: 11px;
-line-height: 16px;
-color: #555;
-position: absolute;
 z-index: 110;
-display: block;
-padding: 11px 0 0 20px;
-height: 28px;
 width: 121px;
-margin: -11px 0 0 -10px;
-text-decoration: none;
 cursor:pointer;
+color:#7b4d1c;
+height:36px;
+float:left;
+width:auto;
+padding-right:20px;
+padding-top:0px;
+vertical-align:middle;
 }
 .root
 {
+padding-top:100px;
 list-style:none;
 margin:0px;
 padding:0px;
 font-size: 11px;
-padding: 11px 0 0 0px;
+padding: 0px 0 0 0px;
 border-top:1px solid #dedede;
+
 }
 
