@@ -13,6 +13,7 @@ div.rateit
 
 div.rateit div.rateit-range
 {
+	margin-top:5px;
     position: relative;
     display: -moz-inline-box;
     display: inline-block;

@@ -40,14 +40,14 @@ html { overflow-y: scroll;}
  
 h1{ 
 font-size:28px;
-padding-bottom:15px;
+padding-bottom:20px;
+text-align:center;
 }
-h2{ font-size:24px;
-
-}
-h3{ font-size:18px;
+h2{ font-size:22px;
 padding-top:18px;
 padding-bottom:2px;
+}
+h3{ font-size:18px;
 }
 h4{ font-size:16px;}
 h5{ font-size:14px;}
@@ -56,10 +56,10 @@ h1,h2,h3,h4,h5,h6{ color:#7b4d1c;}
 small{ font-size:10px;}
 b, strong{ font-weight:bold;} 
  
-a{ text-decoration: none; }
+a{ text-decoration: none;color:blue; }
 a:hover{ text-decoration: underline;}
 a:active{ text-decoration: none; color:black;}
-a:visited{ color:#000;}
+a:visited{ color:blue;}
  
 body{
 background:#fff;
@@ -162,6 +162,7 @@ margin-right:auto;
 /* Comment */
 
 #commentArea{
+margin-top:20px;
 background:#ffebd6;
 width:600px;
 padding-left:10px;
