@@ -59,6 +59,10 @@ public function isAuthorized($user) {
 
 public function beforeRender(){
 $this->set('id', $this->Session->read('Auth.User.id')); 
+$this->loadModel('Framework');
+$gframeworks =  $this->Framework->find('all');
+$this->set('gframeworks', $gframeworks); 
+
 }	
 
 public function uploadFiles($folder, $formdata, $itemId = null)

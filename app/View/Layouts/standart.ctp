@@ -61,7 +61,6 @@
 	//Mouse click on sub menu
 	$(".submenu").mouseup(function()
 	{
-	alert("OK");
 		return false
 	});
 
@@ -88,29 +87,27 @@
 
 </head>
 <body>
-		
 <div id="navigation">
 	<div id="navigationMitte">
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Index', '/users/index'); ?></div>
-	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?></div>
-	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?></div>
-	
-	
 	<div id="naviLink">
 	<div class="dropdown">
-	<a class="account" >My Account</a>
+	<a class="account" ><?php echo $this->Html->image('zahnrad_klein.png')?>Frameworks</a>
 	<div class="submenu">
 	<ul class="root">
-	<li ><a href="#Dashboard" >Dashboard</a></li>
-	<li ><a href="#Profile" >Profile</a></li>
-	<li ><a href="#settings">Settings</a></li>
-	<li ><a href="#feedback">Send Feedback</a></li>
+	<?php echo '<li>'.$this->Html->link("Übersicht", array('controller' => 'frameworks', 'action' => 'index')).'</li>';
+	 foreach ($gframeworks as $gframework) : 
+		echo '<li>'.$this->Html->link($gframework['Framework']['name'], array('controller' => 'entries', 'action' => 'show_entries', $gframework['Framework']['id'])).'</li>';
+	 endforeach ?>
 	</ul>
 	</div>
 	</div>
-	</div>
+	</div>		
+	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?></div>
 	
-							
+	
+		
+	
 		<div id="usernav">
 			<div id="navPic"><?php echo		
 				$this->Html->link(
@@ -119,13 +116,11 @@
 						array('escape' => false));
 				?></div>
 			<div id="naviLink"><?php echo $this->Html->link('Logout', '/users/logout', array('class'=>'navigation')); ?></div>
-
 		</div>
-	</div>
-					
-</div>			
-			
-			
+	</div>			
+</div>		
+	
+	
 		<div id="content">
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
