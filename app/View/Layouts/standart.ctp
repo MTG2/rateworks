@@ -42,6 +42,43 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		setTimeout(function(){$("#flashMessage").slideUp(250);},2000);	
+		
+		$(".account").click(function()
+		{
+			var X=$(this).attr('id');
+			if(X==1)
+			{
+			$(".submenu").hide();
+			$(this).attr('id', '0');
+			}
+			else
+			{
+			$(".submenu").show();
+			$(this).attr('id', '1');
+		}
+		});
+
+	//Mouse click on sub menu
+	$(".submenu").mouseup(function()
+	{
+	alert("OK");
+		return false
+	});
+
+	//Mouse click on my account link
+	$(".account").mouseup(function()
+	{
+		return false
+	});
+
+
+	//Document Click
+	$(document).mouseup(function()
+	{
+		$(".submenu").hide();
+		$(".account").attr('id', '');
+	});
+		
 		});
 	</script>
 	
@@ -57,7 +94,23 @@
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Index', '/users/index'); ?></div>
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?></div>
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?></div>
-										
+	
+	
+	<div id="naviLink">
+	<div class="dropdown">
+	<a class="account" >My Account</a>
+	<div class="submenu">
+	<ul class="root">
+	<li ><a href="#Dashboard" >Dashboard</a></li>
+	<li ><a href="#Profile" >Profile</a></li>
+	<li ><a href="#settings">Settings</a></li>
+	<li ><a href="#feedback">Send Feedback</a></li>
+	</ul>
+	</div>
+	</div>
+	</div>
+	
+							
 		<div id="usernav">
 			<div id="navPic"><?php echo		
 				$this->Html->link(
