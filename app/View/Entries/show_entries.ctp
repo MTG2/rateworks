@@ -46,7 +46,10 @@ if ($checker == 2){
 			echo $this->Html->link($entry['Entry']['name'], array('controller' => 'comments', 'action' => 'view', $entry['Entry']['id']));
         echo "</b></td>";
         echo "<td class='".$bgClass."'>";
-			echo $entry['User']['username'];
+		
+			echo $this->Html->link($entry['User']['username'], 
+				array('controller' => 'users', 'action' => 'view', $entry['User']['id']));
+		
         echo "</td>";
 		echo "<td class='".$bgClass."'>";
 			echo $entry['Entry']['created'];
