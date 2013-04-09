@@ -58,6 +58,14 @@ endforeach; ?>
 
 
 
+
+<?php if($comments == null)
+	{
+	
+	} 
+else
+{ ?>
+
 <h3>Kommentare anderer User</h3>
 
 <?php foreach ($comments as $comment): ?>
@@ -82,4 +90,15 @@ endforeach; ?>
 
 </p>
 <hr>
-		<?php endforeach; ?>
+		<?php endforeach; }?>
+
+</table>
+
+
+
+
+
+
+
+
+
