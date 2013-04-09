@@ -7,7 +7,7 @@
 
 <h1>Projekte</h1>
 
-<p><h3><?php  echo $framework['Framework']['name']; ?></h3></p>
+<p><h3 id="entryH3"><?php  echo $framework['Framework']['name']; ?></h3></p>
 
 
 <?php if($entries == null)
@@ -17,34 +17,38 @@
 	} 
 else
 { ?>
-<table style="width: 100%; text-align: left;">
+<table id="showEntryTable">
     <tr>
-        <th style="border-bottom: solid 1px;">Projektname</th>
-        <th style="border-bottom: solid 1px;">Erstellt von</th>
-        <th style="border-bottom: solid 1px;">Datum</th>
+        <th class="firstEntryLine">Projektname</th>
+        <th class="firstEntryLine">Erstellt von</th>
+        <th class="firstEntryLine">Datum</th>
     </tr>
 	
 <?php 
 	$checker=1; 
-	$bgColor="#FFFFFF";
+	$bgClass="secondLine";
 ?>	
 
 <?php foreach ($entries as $entry):
+
 $checker = $checker +1; 
+
 if ($checker == 2){
-	$bgColor="#ffebd6";
+	$bgClass="firstLine";
 	$checker = 0;
 }else{
-	$bgColor="#FFFFFF";
+	$bgClass="secondLine";
 }
-    echo "<tr>";
-        echo "<td style='background-color:".$bgColor."; height: 40px; vertical-align: middle;'><b>";
+
+
+    echo "<tr class='".$bgClass."'>";
+        echo "<td><b>";
 			echo $this->Html->link($entry['Entry']['name'], array('controller' => 'comments', 'action' => 'view', $entry['Entry']['id']));
         echo "</b></td>";
-        echo "<td style='background-color:".$bgColor."; height: 40px; vertical-align: middle;'>";
+        echo "<td class='".$bgClass."'>";
 			echo $entry['User']['username'];
         echo "</td>";
-		echo "<td style='background-color:".$bgColor."; height: 40px; vertical-align: middle;'>";
+		echo "<td class='".$bgClass."'>";
 			echo $entry['Entry']['created'];
         echo "</td>";
     echo "</tr>";

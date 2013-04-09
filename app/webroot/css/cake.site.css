@@ -335,7 +335,33 @@ margin-right:auto;
  height:auto;
  }
  
+ /* show_entries */
  
+ .firstLine{
+	background-color:#ffebd6; 
+	height: 40px; 
+	vertical-align: middle;
+ }
+ 
+  .secondLine{
+	background-color:#FFFFFF; 
+	height: 40px; 
+	vertical-align: middle;
+ }
+ 
+ #entryH3{
+	padding-bottom: 50px;
+ }
+ 
+ #showEntryTable{
+	width: 100%; 
+	text-align: left;
+ }
+ 
+ .firstEntryLine{
+	border-bottom: solid 1px;
+	padding-bottom: 4px;
+ }
  
  /* Login Form */
  
