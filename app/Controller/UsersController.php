@@ -56,7 +56,7 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 		 $this->Session->setFlash(__('User bereits vorhanden'));
 		 else {
 				$this->request->data['User']['role'] = 'author';
-				$this->request->data['User']['pic'] = 'default.jpg';
+				$this->request->data['User']['pic'] = 'default.png';
 				$this->User->create();
 				if ($this->User->save($this->request->data)) {
 					$this->Session->setFlash(__('The user has been saved'));
