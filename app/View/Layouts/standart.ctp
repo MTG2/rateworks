@@ -42,43 +42,6 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		setTimeout(function(){$("#flashMessage").slideUp(250);},2000);	
-		
-		$(".account").hover(function()
-		{
-			var X=$(this).attr('id');
-			if(X==1)
-			{
-			//$(".submenu").hide();
-			$(this).attr('id', '0');
-			}
-			else
-			{
-			$(".submenu").show();
-			$(this).attr('id', '1');
-		}
-		});
-
-	//Mouse click on sub menu
-	$(".submenu").mouseup(function()
-	{
-		return false
-	});
-
-	//Mouse click on my account link
-	$(".account").mouseup(function()
-	{
-		return false
-	});
-
-
-	//Document Click
-	$(document).hover(function()
-	{
-		$(".submenu").hide();
-		$(".account").attr('id', '');
-	});
-		
-		});
 	</script>
 	
  <?php
@@ -91,16 +54,7 @@
 	<div id="navigationMitte">
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Index', '/users/index'); ?></div>
 	<div id="naviLink">
-		<div class="dropdown">
-			<a class="account" ><?php echo $this->Html->image('zahnrad_klein.png')?> Frameworks</a>
-				<div class="submenu">
-				<ul class="root">
-				<?php echo '<li>'.$this->Html->link("Übersicht", array('controller' => 'frameworks', 'action' => 'index')).'</li>';
-				foreach ($gframeworks as $gframework) : 
-					echo '<li>'.$this->Html->link($gframework['Framework']['name'], array('controller' => 'entries', 'action' => 'show_entries', $gframework['Framework']['id'])).'</li>';
-				endforeach ?>
-				</ul>
-				</div>
+			<?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Frameworks', '/frameworks/index'); ?>
 		</div>
 	</div>		
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?></div>
