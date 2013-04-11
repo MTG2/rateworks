@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2013 at 06:29 PM
+-- Generation Time: Apr 11, 2013 at 06:43 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `role` varchar(20) NOT NULL,
-  `semester` int(10) NOT NULL,
+  `semester` varchar(2) NOT NULL,
   `course` varchar(30) NOT NULL,
   `created` datetime NOT NULL,
   `pic` text NOT NULL,
@@ -164,13 +164,13 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `semester`, `course`, `created`, `pic`) VALUES
-(1, 'admin', '', '1008812820791a6e7a936ea0c5e186eb3e2dc94b', 'admin', 0, '', '2013-03-27 14:14:44', 'uploads/b15.png'),
-(61, 'Testuser1', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 5, 'Technische Informatik', '2013-04-02 18:31:44', 'uploads/catweazle.jpg'),
-(62, 'Testuser2', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, 'Medieninformatik', '2013-04-02 18:37:16', 'uploads/004_cycling_cartoon_2011.jpg'),
-(63, 'Marc', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, '', '2013-04-04 17:21:51', 'default.png'),
-(64, 'Peter', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, '', '2013-04-05 15:49:34', 'default.png'),
-(65, 'jan', '', '66b77e12f59ec0c2101345af70021eb9c5c617cd', 'author', 0, '', '2013-04-08 17:57:50', 'default.png'),
-(66, 'ollum', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', 0, '', '2013-04-11 18:27:17', 'default.png');
+(1, 'admin', '', '1008812820791a6e7a936ea0c5e186eb3e2dc94b', 'admin', '0', '', '2013-03-27 14:14:44', 'uploads/b15.png'),
+(61, 'Testuser1', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', '5', 'Technische Informatik', '2013-04-02 18:31:44', 'uploads/catweazle.jpg'),
+(62, 'Testuser2', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', '0', 'Medieninformatik', '2013-04-02 18:37:16', 'uploads/004_cycling_cartoon_2011.jpg'),
+(63, 'Marc', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', '0', '', '2013-04-04 17:21:51', 'default.png'),
+(64, 'Peter', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', '0', '', '2013-04-05 15:49:34', 'default.png'),
+(65, 'jan', '', '66b77e12f59ec0c2101345af70021eb9c5c617cd', 'author', '0', '', '2013-04-08 17:57:50', 'default.png'),
+(66, 'ollum', '', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', '0', '', '2013-04-11 18:27:17', 'default.png');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
