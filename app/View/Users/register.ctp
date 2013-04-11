@@ -18,6 +18,24 @@
 				'id' => 'password'));?>
 			</div>
 			<div>
+				<?php echo $this->Form->input('email', array(
+				'placeholder' => 'E-Mail',
+				'label' => '',
+				'id' => 'email'));?>
+			</div>
+			<div>
+				<?php echo $this->Form->input('semester', array(
+				'placeholder' => 'Semester',
+				'label' => '',
+				'id' => 'semester'));?>
+			</div>
+			<div>
+				<?php echo $this->Form->input('course', array(
+				'placeholder' => 'Studiengang',
+				'label' => '',
+				'id' => 'course'));?>
+			</div>
+			<div>
 				<?php echo $this->Form->input('registrationkey', array(
 				'placeholder' => 'Zugangsschluessel',
 				'label' => '',
