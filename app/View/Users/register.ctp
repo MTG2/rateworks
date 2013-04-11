@@ -18,6 +18,12 @@
 				'id' => 'password'));?>
 			</div>
 			<div>
+				<?php echo $this->Form->input('registrationkey', array(
+				'placeholder' => 'Zugangsschluessel',
+				'label' => '',
+				'id' => 'Schlüssel'));?>
+			</div>
+			<div>
 				<?php echo $this->Form->end(__('Register')); ?>
 			</div>
 		</form><!-- form -->

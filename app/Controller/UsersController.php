@@ -49,26 +49,31 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
     }
 
     public function register() {
-        if ($this->request->is('post')) {
-		
-		$username=$this->request->data['User']['username'];
-		if($username=$this->User->find('first', array('conditions' => array('User.username' => $username))))
-		 $this->Session->setFlash(__('User bereits vorhanden'));
-		 else {
-				$this->request->data['User']['role'] = 'author';
-				$this->request->data['User']['pic'] = 'default.png';
-				$this->User->create();
-				if ($this->User->save($this->request->data)) {
-					$this->Session->setFlash(__('The user has been saved'));
-					$user = $this->User->read();
-
-					 if ($this->Auth->login($user['User'])) {
-					    $this->redirect($this->Auth->redirect());
-					 }
-					
-				} else {
-					$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+        if ($this->request->is('post')) {	
+		$this->loadModel('Registrationkey');
+			$username=$this->request->data['User']['username'];
+			if($username=$this->User->find('first', array('conditions' => array('User.username' => $username)))){
+				$this->Session->setFlash(__('User bereits vorhanden'));
+			}
+			else {
+				$key = $this->Registrationkey->find('first');
+				if(strcmp($this->request->data['User']['registrationkey'], $key['Registrationkey']['key']) == 0){ 
+					$this->request->data['User']['role'] = 'author';
+					$this->request->data['User']['pic'] = 'default.png';
+					$this->User->create();
+					if ($this->User->save($this->request->data)) {
+						$this->Session->setFlash(__('The user has been saved'));
+						$user = $this->User->read();
+						if ($this->Auth->login($user['User'])) {
+						   $this->redirect($this->Auth->redirect());
+						}
+					} else {
+						$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+					}
 				}
+				else{
+					$this->Session->setFlash(__('Falschen Zugangsschl&uuml;ssel eingeben.'));
+				}	
 			}
 		}
     }

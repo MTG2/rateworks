@@ -42,6 +42,7 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		setTimeout(function(){$("#flashMessage").slideUp(250);},2000);	
+		});
 	</script>
 	
  <?php

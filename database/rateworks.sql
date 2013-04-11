@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 09. Apr 2013 um 17:12
--- Server Version: 5.5.27
--- PHP-Version: 5.4.7
+-- Host: localhost
+-- Generation Time: Apr 11, 2013 at 03:56 PM
+-- Server version: 5.5.25a
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Datenbank: `rateworks`
+-- Database: `rateworks`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE IF NOT EXISTS `comments` (
@@ -36,10 +36,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
 --
--- Daten für Tabelle `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `text`, `upvote`, `downvote`, `user_id`, `entry_id`, `created`, `modified`) VALUES
@@ -63,7 +63,7 @@ INSERT INTO `comments` (`id`, `text`, `upvote`, `downvote`, `user_id`, `entry_id
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `entries`
+-- Table structure for table `entries`
 --
 
 CREATE TABLE IF NOT EXISTS `entries` (
@@ -83,10 +83,10 @@ CREATE TABLE IF NOT EXISTS `entries` (
   `framework_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Daten für Tabelle `entries`
+-- Dumping data for table `entries`
 --
 
 INSERT INTO `entries` (`id`, `projectlink`, `name`, `description`, `degree`, `rdegree`, `usability`, `rusability`, `highlights`, `links`, `domain`, `created`, `rtotal`, `framework_id`, `user_id`) VALUES
@@ -97,7 +97,7 @@ INSERT INTO `entries` (`id`, `projectlink`, `name`, `description`, `degree`, `rd
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `frameworks`
+-- Table structure for table `frameworks`
 --
 
 CREATE TABLE IF NOT EXISTS `frameworks` (
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `frameworks` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Daten für Tabelle `frameworks`
+-- Dumping data for table `frameworks`
 --
 
 INSERT INTO `frameworks` (`id`, `name`, `rating`, `created`, `link`, `pic`) VALUES
@@ -124,7 +124,26 @@ INSERT INTO `frameworks` (`id`, `name`, `rating`, `created`, `link`, `pic`) VALU
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users`
+-- Table structure for table `registrationkeys`
+--
+
+CREATE TABLE IF NOT EXISTS `registrationkeys` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `registrationkeys`
+--
+
+INSERT INTO `registrationkeys` (`id`, `key`) VALUES
+(1, 'wbg213');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -141,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
 
 --
--- Daten für Tabelle `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `semester`, `course`, `created`, `pic`) VALUES
