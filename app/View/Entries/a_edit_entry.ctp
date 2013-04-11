@@ -6,7 +6,7 @@
 <h2>Projekt bearbeiten</h2>
 <h3>ID: <?php echo $thisEntry['Entry']['id']; ?> </h3>
 
-
+<section id="profil">
 
 <?php echo $this->Form->create('Entry'); ?>
 
@@ -38,3 +38,4 @@
 
 <?php echo $this->Form->end('Save'); ?>
 
+</section>

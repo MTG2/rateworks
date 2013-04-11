@@ -12,36 +12,36 @@
 <section id="profil">
 
 <?php echo $this->Form->create('Entry'); ?>
-<?php echo $this->Form->input('framework',array('type'=>'select','options'=>$frameworks));?>
+<?php echo $this->Form->input('Verwendetes Framework',array('type'=>'select','options'=>$frameworks));?>
 <br>
 
 <p>Name</p>
-<?php echo $this->Form->input('name', array('label'=>'')); ?>
+<?php echo $this->Form->input('name', array('label'=>'','placeholder' =>'Projektname')); ?>
 
 <p>Projekt Link</p>
-<?php echo $this->Form->input('projectlink', array('label'=>'')); ?>
+<?php echo $this->Form->input('projectlink', array('label'=>'','placeholder' =>'Link zur Startseite ihres Projekts')); ?>
 
 <p>Beschreibung</p>
-<?php echo $this->Form->input('description', array('rows' => '3', 'label'=>'')); ?>
+<?php echo $this->Form->input('description', array('rows' => '3', 'label'=>'','placeholder' =>'Worum geht es?')); ?>
 
 <p>Reifegrad / Bewertung</p>
 <?php echo $this->Form->input('rdegree',array('type'=>'select', 'label'=>'', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRdegree" data-rateit-resetable="false" ></div>
-<?php echo $this->Form->input('degree', array('rows' => '3', 'label'=>'')); ?>
+<?php echo $this->Form->input('degree', array('label'=>'', 'placeholder' => 'Wie stabil ist die Technologie? Versionszähler, letzte Aktualisierung, …')); ?>
 
 <p>Handhabung</p>
 <?php echo $this->Form->input('rusability',array('label'=>'', 'type'=>'select', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRusability" data-rateit-resetable="false"></div>
-<?php echo $this->Form->input('usability', array('label'=>'', 'rows' => '3')); ?>
+<?php echo $this->Form->input('usability', array('label'=>'', 'rows' => '3', 'placeholder'=>'Wie schwer ist der Einstieg in die Technologie (unter Berücksichtigung ihres Kenntnisstandes)?')); ?>
 
 <p>Highlights</p>
-<?php echo $this->Form->input('highlights', array('label'=>'', 'rows' => '3')); ?>
+<?php echo $this->Form->input('highlights', array('label'=>'', 'rows' => '3', 'placeholder'=>'Was war besonders gut oder schlecht?')); ?>
 
-<p>Links</p>
+<p>Links(mit Enter trennen)</p>
 <?php echo $this->Form->input('links', array('label'=>'', 'rows' => '3')); ?>
 
 <p>Einsatzgebiet</p>
-<?php echo $this->Form->input('domain', array('label'=>'', 'rows' => '3')); ?>
+<?php echo $this->Form->input('domain', array('label'=>'', 'rows' => '3', 'placeholder'=>'Können Sie die Technologie empfehlen? Für welche Einsatzbereiche?')); ?>
 
 <p>Komplette Bewertung</p>
 <?php echo $this->Form->input('rtotal',array('label'=>'', 'type'=>'select', 'options'=>range(1,6,1)));?>
