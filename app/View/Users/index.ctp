@@ -10,8 +10,8 @@ duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est 
 amet.
 
 
-<div>
-<p>Aktuelle Tätigkeiten</p>
+<div id="aktuellInhalt">
+<p><b>Aktuelle Tätigkeiten</b></p>
 <?php
 $checker = 0;
 

@@ -160,9 +160,16 @@ font-size: 90%;
 	background-color:#ffce99;
 	text-align:center;
 	vertical-align:middle;
-	
 }
 
+#aktuellInhalt{
+	text-align:center;
+	margin-top:150px;
+}
+
+#aktuellInhalt p{
+	margin-bottom:35px;
+}
  
 #footer{
 width:1024px;
