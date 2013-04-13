@@ -102,7 +102,8 @@ color:#7b4d1c;
 height:35px;
 float:left;
 width:auto;
-padding-right:20px;
+padding-right:15px;
+padding-left:15px;
 padding-top:15px;
 vertical-align:middle;
 }
@@ -144,8 +145,7 @@ float:right;
 #content{
 margin-top:30px;
 width:1024px;
-max-height:auto;
-height:auto;
+min-height:800px;
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
 font-size: 90%;
@@ -157,6 +157,10 @@ width:1024px;
 height:50px; 
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
+}
+
+#footer a{
+color: #80808f;
 }
 
 /* Comment */

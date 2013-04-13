@@ -37,6 +37,19 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 
     public function index() {
         $this->User->recursive = 0;
+		
+		$this->loadModel('Comment');
+		$comments = $this->Comment->find('all',
+			array(
+				'order' => array(
+					'Comment.created' => 'DESC',
+				)
+			)
+		);
+		
+		
+		$this->set('comments', $comments);
+		
         $this->set('users', $this->paginate());
     }
 

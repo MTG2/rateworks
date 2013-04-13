@@ -8,3 +8,20 @@ dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia
 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo 
 duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit 
 amet.
+
+
+<div>
+<?php
+$checker = 0;
+
+
+foreach ($comments as $comment):
+	if ($checker < 3){
+		$checker = $checker + 1;
+		echo $comment['Comment']['id']; 
+		echo "<br>";
+	}
+endforeach;
+
+?>
+</div>
