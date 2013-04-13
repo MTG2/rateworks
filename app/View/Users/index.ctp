@@ -11,15 +11,21 @@ amet.
 
 
 <div>
+<p>Aktuelle Tätigkeiten</p>
 <?php
 $checker = 0;
 
-
 foreach ($comments as $comment):
 	if ($checker < 3){
+	
+		echo "<div class='indexAktuell'>";
 		$checker = $checker + 1;
-		echo $comment['Comment']['id']; 
-		echo "<br>";
+		
+		echo $this->Html->link($comment['Comment']['id'],
+			array('controller' => 'comments', 'action' => 'view', $comment['Comment']['entry_id']),
+			array('escape' => false));
+		
+		echo "</div>";
 	}
 endforeach;
 
