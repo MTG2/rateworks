@@ -60,7 +60,7 @@
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Projekt anlegen', '/entries/add'); ?></div>
 	
 		
-	
+
 		<div id="usernav">
 			<div id="navPic"><?php echo		
 				$this->Html->link(
