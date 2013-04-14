@@ -4,7 +4,7 @@
 class UsersController extends AppController {
 
 
- public function beforeFilter() {
+	public function beforeFilter() {
         $this->Auth->allow('login','register');
 		
 		if($this->Auth->loggedIn()){
@@ -14,26 +14,26 @@ class UsersController extends AppController {
     }
 
 
-public function login() {
-	if($this->Auth->loggedIn()){
-		$this->redirect($this->Auth->redirect());
+	public function login() {
+		if($this->Auth->loggedIn()){
+			$this->redirect($this->Auth->redirect());
+		}
+
+		if ($this->request->is('post')) {
+			if(!$this->Auth->loggedIn()){
+				if ($this->Auth->login()) {
+				$this->redirect($this->Auth->redirect());
+			} else {
+				$this->Session->setFlash(__('Invalid username or password, try again'));
+			}
+			}
+		}
 	}
 
-    if ($this->request->is('post')) {
-		if(!$this->Auth->loggedIn()){
-			if ($this->Auth->login()) {
-            $this->redirect($this->Auth->redirect());
-        } else {
-            $this->Session->setFlash(__('Invalid username or password, try again'));
-        }
-		}
-    }
-}
-
-public function logout() {
-$this->Session->setFlash('Sie wurden ausgeloggt');
-    $this->redirect($this->Auth->logout());
-}
+	public function logout() {
+	$this->Session->setFlash('Sie wurden ausgeloggt');
+		$this->redirect($this->Auth->logout());
+	}
 
     public function index() {
         $this->User->recursive = 0;
@@ -47,11 +47,22 @@ $this->Session->setFlash('Sie wurden ausgeloggt');
 			)
 		);
 		
+		$this->loadModel('Entry');
+		$entries = $this->Entry->find('all',
+			array(
+				'order' => array(
+					'Entry.created' => 'DESC',
+				)
+			)
+		);		
+		
 		
 		$this->set('comments', $comments);
+		$this->set('entries', $entries);
 		
         $this->set('users', $this->paginate());
     }
+	
 
     public function view($id = null) {
         $this->User->id = $id;
