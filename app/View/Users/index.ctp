@@ -14,6 +14,7 @@ amet.
 <p><b>Aktuelle Tätigkeiten</b></p>
 <?php
 
+
 $entryChecker = 0;
 foreach ($entries as $entry):
 	$entryChecker = $entryChecker +1;
@@ -55,46 +56,68 @@ $nextEntry = 1;
 
 for($count = 0; $count < 3; $count++){
 		
-		if ($nextEntry == 1){
-			$entryDateTime = new DateTime($entryFirst['Entry']['created']);
-			$entryDate = $entryFirst;
+		if (count($entries)>= 1){
+			if ($nextEntry == 1){
+				$entryDateTime = new DateTime($entryFirst['Entry']['created']);
+				$entryDate = $entryFirst;
+			}
 		}
 		
-		if ($nextEntry == 2){
-			$entryDateTime = new DateTime($entrySecond['Entry']['created']);
-			$entryDate = $entrySecond;
+		if (count($entries)>= 2){
+			if ($nextEntry == 2){
+				$entryDateTime = new DateTime($entrySecond['Entry']['created']);
+				$entryDate = $entrySecond;
+			}
 		}
 		
-		if ($nextEntry == 3){
-			$entryDateTime = new DateTime($entryThird['Entry']['created']);
-			$entryDate = $entryThird;
+		if (count($entries)>= 3){
+			if ($nextEntry == 3){
+				$entryDateTime = new DateTime($entryThird['Entry']['created']);
+				$entryDate = $entryThird;
+			}
 		}
 
 		
-		
-		
-		if ($nextComment == 1){
-			$commentDateTime = new DateTime($commentFirst['Comment']['created']);
-			$commentDate = $commentFirst;
+		if (count($comments)>= 1){
+			if ($nextComment == 1){
+				$commentDateTime = new DateTime($commentFirst['Comment']['created']);
+				$commentDate = $commentFirst;
+			}
 		}
 		
-		if ($nextComment == 2){
-			$commentDateTime = new DateTime($commentSecond['Comment']['created']);
-			$commentDate = $commentSecond;
+		if (count($comments)>= 2){
+			if ($nextComment == 2){
+				$commentDateTime = new DateTime($commentSecond['Comment']['created']);
+				$commentDate = $commentSecond;
+			}
 		}
 		
-		if ($nextComment == 3){
-			$commentDateTime = new DateTime($commentThird['Comment']['created']);
-			$commentDate = $commentThird;
+		if (count($comments)>= 3){
+			if ($nextComment == 3){
+				$commentDateTime = new DateTime($commentThird['Comment']['created']);
+				$commentDate = $commentThird;
+			}
 		}
 		
-		$dateComment = new DateTime($comment['Comment']['created']);
+		if(count($comments)>0){
+			$dateComment = new DateTime($comment['Comment']['created']);
+		}else{
+			$dateComment = new DateTime("0000-00-00 00:00:00");
+			$commentDateTime = new DateTime("0000-00-00 00:00:00");
+		}
+		
+		if(count($entries)<1){
+			$entryDate = 1337;
+			$entryDateTime = new DateTime("0000-00-00 00:00:00");
+		}
+		
 		
 		echo "<div class='indexAktuell'>";		
 
 		if ($commentDateTime > $entryDateTime){
 			echo "<b>".$this->Html->link($commentDate['User']['username'],array('action' => 'view', $commentDate['User']['id']))." kommentierte ".$this->Html->link($commentDate['Entry']['name'],
 			array('controller' => 'comments', 'action' => 'view', $commentDate['Comment']['entry_id']),array('escape' => false))."</b>";
+			
 			
 			echo "<div class='commentInfo'>";
 				
@@ -112,9 +135,12 @@ for($count = 0; $count < 3; $count++){
 
 			$nextComment = $nextComment + 1;
 		}else{
-
-			echo "<b>".$this->Html->link($entryDate['User']['username'],array('action' => 'view', $entryDate['User']['id']))." erstellte ".$this->Html->link($entryDate['Entry']['name'],
-			array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),array('escape' => false))."</b>";
+			if (count($entries)<1 && count($comments)<1){
+				echo "<b>Kein Eintrag</b>";
+			}else{
+				echo "<b>".$this->Html->link($entryDate['User']['username'],array('action' => 'view', $entryDate['User']['id']))." erstellte ".$this->Html->link($entryDate['Entry']['name'],
+				array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),array('escape' => false))."</b>";
+			}
 			
 			echo "<div class='commentInfo'>";
 				
