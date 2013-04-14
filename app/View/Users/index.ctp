@@ -91,25 +91,44 @@ for($count = 0; $count < 3; $count++){
 		$dateComment = new DateTime($comment['Comment']['created']);
 		
 		echo "<div class='indexAktuell'>";		
-		
-		
 
 		if ($commentDateTime > $entryDateTime){
-			echo "Neues Kommentar<br>";
-			echo $commentDate['Comment']['created']."<br>";
-
-
+			echo "<b>".$this->Html->link($commentDate['User']['username'],array('action' => 'view', $commentDate['User']['id']))." kommentierte ".$this->Html->link($commentDate['Entry']['name'],
+			array('controller' => 'comments', 'action' => 'view', $commentDate['Comment']['entry_id']),array('escape' => false))."</b>";
 			
-			echo $this->Html->link($commentDate['Entry']['name'],
-				array('controller' => 'comments', 'action' => 'view', $commentDate['Comment']['entry_id']),
-				array('escape' => false));
+			echo "<div class='commentInfo'>";
+				
+				echo $this->Html->link(
+								$this->Html->image('comment.png', array('border' => '0', 'width'=>'70px')),
+								array('controller' => 'comments', 'action' => 'view', $commentDate['Comment']['entry_id']),
+								array('escape' => false));
+								
+				echo "<b>".$commentDate['Comment']['created']."</b>";
+				
+				echo "<div class='commentText'>";
+					echo $commentDate['Comment']['text'];
+				echo "</div>";
+			echo "</div>";
+
 			$nextComment = $nextComment + 1;
 		}else{
-			echo "Neues Projekt<br>";
-			echo $this->Html->link($entryDate['Entry']['id'],
-				array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),
-				array('escape' => false));	
+
+			echo "<b>".$this->Html->link($entryDate['User']['username'],array('action' => 'view', $entryDate['User']['id']))." erstellte ".$this->Html->link($entryDate['Entry']['name'],
+			array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),array('escape' => false))."</b>";
+			
+			echo "<div class='commentInfo'>";
 				
+				echo $this->Html->link(
+								$this->Html->image('newProject.png', array('border' => '0', 'width'=>'50px')),
+								array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),
+								array('escape' => false));
+								
+				echo "<b>".$entryDate['Entry']['created']."</b>";
+				
+				echo "<div class='commentText'>";
+					echo $entryDate['Entry']['description'];
+				echo "</div>";
+			echo "</div>";
 			$nextEntry = $nextEntry + 1;
 		}
 		
