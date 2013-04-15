@@ -13,7 +13,9 @@ class CommentsController extends AppController {
 
       $comment = $this->Comment->find('all', array(
 		'contain' => array('Comment'),
-		'conditions' => array('Comment.entry_id = '.$id)	
+		'conditions' => array('Comment.entry_id = '.$id),
+		'order' => array('Comment.created' => 'DESC')
+
 		));
 		
 		$this->loadModel('User');
