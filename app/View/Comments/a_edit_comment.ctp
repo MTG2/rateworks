@@ -1,7 +1,7 @@
 <!-- File: /app/View/Comments/a_edit_comment.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
-<h1>Edit Comments</h1>
+<h1>Kommentare verwalten</h1>
 <table width="100%">
     <tr>
         <td class="firstEntryLine">ID</td>

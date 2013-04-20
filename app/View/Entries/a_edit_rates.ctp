@@ -1,7 +1,7 @@
 <!-- File: /app/View/Users/a_edit_rates.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
-<h1>Edit Frameworkentries</h1>
+<h1>Projekte verwalten</h1>
 <table width="100%">
     <tr>
         <td class="firstEntryLine">Name</td>

@@ -178,7 +178,7 @@ for($count = 0; $count < 3; $count++){
 
 					echo "</div>";
 				}else{
-					echo $this->Html->image('newProject.png', array('border' => '0', 'width'=>'50px'));
+					echo $this->Html->image('keinEintrag.png', array('border' => '0', 'width'=>'50px'));
 					echo "<div class='commentText'>";
 					echo "   -  -  -  ";
 					echo "</div>";

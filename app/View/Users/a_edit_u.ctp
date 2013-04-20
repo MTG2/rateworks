@@ -1,7 +1,7 @@
 <!-- File: /app/View/Users/a_edit_u.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
-<h1>Table users</h1>
+<h1>Benutzer bearbeiten</h1>
 <table>
     <tr>
         <td class="firstEntryLine">ID</td>
