@@ -14,8 +14,12 @@ amet.
 <p><b>Aktuelle Tätigkeiten</b></p>
 <?php
 
-
+$oldEntry = null;
+$oldComment = null;
 $entryChecker = 0;
+$commentDateTime = null;
+$commentDate = null;
+$entryLeer=0;
 foreach ($entries as $entry):
 	$entryChecker = $entryChecker +1;
 	
@@ -76,7 +80,7 @@ for($count = 0; $count < 3; $count++){
 				$entryDate = $entryThird;
 			}
 		}
-
+		
 		
 		if (count($comments)>= 1){
 			if ($nextComment == 1){
@@ -111,13 +115,22 @@ for($count = 0; $count < 3; $count++){
 			$entryDateTime = new DateTime("0000-00-00 00:00:00");
 		}
 		
-		
+		if($commentDate == $oldComment){
+			$commentDateTime = null;
+		}
 		echo "<div class='indexAktuell'>";		
 
 		if ($commentDateTime > $entryDateTime){
-			echo "<b>".$this->Html->link($commentDate['User']['username'],array('action' => 'view', $commentDate['User']['id']))." kommentierte ".$this->Html->link($commentDate['Entry']['name'],
-			array('controller' => 'comments', 'action' => 'view', $commentDate['Comment']['entry_id']),array('escape' => false))."</b>";
-			
+			echo "<div class='newsTitle'>";
+				if($commentDate != $oldComment){
+					echo "<b>".$this->Html->link($commentDate['User']['username'],array('action' => 'view', $commentDate['User']['id']))." kommentierte ".$this->Html->link($commentDate['Entry']['name'],
+					array('controller' => 'comments', 'action' => 'view', $commentDate['Comment']['entry_id']),array('escape' => false))."</b>";
+					$oldComment = $commentDate;
+				}else{
+					echo "<b>Kein Eintrag</b>";
+					
+				}
+			echo "</div>";
 			
 			echo "<div class='commentInfo'>";
 				
@@ -135,25 +148,41 @@ for($count = 0; $count < 3; $count++){
 
 			$nextComment = $nextComment + 1;
 		}else{
-			if (count($entries)<1 && count($comments)<1){
-				echo "<b>Kein Eintrag</b>";
-			}else{
-				echo "<b>".$this->Html->link($entryDate['User']['username'],array('action' => 'view', $entryDate['User']['id']))." erstellte ".$this->Html->link($entryDate['Entry']['name'],
-				array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),array('escape' => false))."</b>";
-			}
+			echo "<div class='newsTitle'>";
+				if ((count($entries)<1 && count($comments)<1)){
+					echo "<b>Kein Eintrag</b>";
+				}else{
+					if ($oldEntry != $entryDate){
+						echo "<b>".$this->Html->link($entryDate['User']['username'],array('action' => 'view', $entryDate['User']['id']))." erstellte ".$this->Html->link($entryDate['Entry']['name'],
+						array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),array('escape' => false))."</b>";
+						$oldEntry = $entryDate;
+					}else{
+						echo "<b>Kein Eintrag</b>";
+						$entryLeer=1;
+					}
+				}
+			echo "</div>";
 			
 			echo "<div class='commentInfo'>";
-				
-				echo $this->Html->link(
-								$this->Html->image('newProject.png', array('border' => '0', 'width'=>'50px')),
-								array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),
-								array('escape' => false));
-								
-				echo "<b>".$entryDate['Entry']['created']."</b>";
-				
-				echo "<div class='commentText'>";
+				if($entryLeer != 1){
+					echo $this->Html->link(
+									$this->Html->image('newProject.png', array('border' => '0', 'width'=>'50px')),
+									array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),
+									array('escape' => false));
+									
+					echo "<b>".$entryDate['Entry']['created']."</b>";
+					
+					echo "<div class='commentText'>";
+						
 					echo $entryDate['Entry']['description'];
-				echo "</div>";
+
+					echo "</div>";
+				}else{
+					echo $this->Html->image('newProject.png', array('border' => '0', 'width'=>'50px'));
+					echo "<div class='commentText'>";
+					echo "   -  -  -  ";
+					echo "</div>";
+				}
 			echo "</div>";
 			$nextEntry = $nextEntry + 1;
 		}
