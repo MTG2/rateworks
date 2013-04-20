@@ -52,6 +52,7 @@
 </head>
 <body>
 
+
 		
 	<div id="navigationAdmin">
 		<div id="navigationMitte">
@@ -60,6 +61,12 @@
 				<div id="naviLinkAdmin"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Frameworks verwalten', '/frameworks/a_edit_frameworks'); ?></div>
 											
 			<div id="usernav">
+				<div id="navPicAdmin"><?php echo		
+					$this->Html->link(
+						$this->Html->image('back.png', array('border' => '0')),
+							array('controller' => 'users', 'action' => 'index'),
+							array('escape' => false));
+					?></div>
 				<div id="navPicAdmin"><?php echo		
 					$this->Html->link(
 						$this->Html->image('profil_logo_kleiner.png', array('border' => '0')),

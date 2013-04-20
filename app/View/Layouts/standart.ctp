@@ -51,6 +51,8 @@
 
 </head>
 <body>
+
+
 <div id="navigation">
 	<div id="navigationMitte">
 	<div id="naviLink"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Index', '/users/index'); ?></div>
@@ -62,6 +64,17 @@
 		
 
 		<div id="usernav">
+		
+		<?php
+			if ($this->Session->read('Auth.User.role') == "admin"){
+				echo "<div id='navPic'>";
+				echo $this->Html->link(
+						$this->Html->image('admin.png', array('border' => '0')),
+							array('controller' => 'users', 'action' => 'a_main'),
+							array('escape' => false));
+				echo "</div>";
+			}
+		?>
 			<div id="navPic"><?php echo		
 				$this->Html->link(
 					$this->Html->image('profil_logo_kleiner.png', array('border' => '0')),
