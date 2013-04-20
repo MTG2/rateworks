@@ -112,6 +112,39 @@ box-shadow: 0 0 2px #000;
 }
 
 
+
+#adminEditUser {
+	padding-top: 30px;
+	position: relative;
+	margin-left:260px;
+	float:left;
+	height: 170px;
+	width: 250px;
+}
+
+#adminEditFramework{
+	padding-top: 30px;
+	position: relative;
+	margin-left:10px;
+	float:left;
+	height: 170px;
+	width: 250px;
+}
+
+
+#adminChild{
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	background-color:#d2e8ed;
+}
+
+
+.adminLine{
+	text-align: center;
+	vertical-align: middle;
+}
+
 /* Navigation Links */
 
 #naviLink{
@@ -156,6 +189,25 @@ padding-right:10px;
 padding-left:10px;
 vertical-align:middle;
 }
+
+.secondLineAdmin{
+background-color:#FFFFFF; 
+height: 40px; 
+vertical-align: middle;
+overflow:hidden;
+}
+
+#addFramework{
+	padding-bottom: 20px;
+}
+
+.firstLineAdmin{
+background-color:#d2e8ed; 
+height: 40px; 
+vertical-align: middle;
+overflow:hidden;
+}
+
 
 #navPicAdmin:hover{
 color:#7b4d1c;
@@ -456,9 +508,11 @@ margin-right:auto;
 	text-align: left;
  }
  
+ 
  .firstEntryLine{
 	border-bottom: solid 1px;
-	padding-bottom: 4px;
+	padding-right: 6px;
+	font-weight:bold;
  }
  
  /* Login Form */

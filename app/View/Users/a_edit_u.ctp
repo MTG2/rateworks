@@ -4,15 +4,14 @@
 <h1>Table users</h1>
 <table>
     <tr>
-        <th>id</th>
-        <th>username</th>
-		<th>password</th>
-        <th>semester</th>
-		<th>course</th>
-        <th>create_date</th>
-		<th>pic</th>
-		<th>edit</th>
-		<th>delete</th>
+        <td class="firstEntryLine">ID</td>
+        <td class="firstEntryLine">Benutzername</td>
+        <td class="firstEntryLine">Semester</td>
+		<td class="firstEntryLine">Kurs</td>
+        <td class="firstEntryLine">Erstellt</td>
+		<td class="firstEntryLine">Bild</td>
+		<td class="firstEntryLine">Bearbeiten</td>
+		<td class="firstEntryLine">Löschen</td>
     </tr>
 
     <!-- Here is where we loop trough our $ausgabes array, printing out user info -->
@@ -22,50 +21,46 @@
 		$checker = $checker +1; 
 
 		if ($checker == 2){
-		$bgClass="firstLine";
+		$bgClass="secondLineAdmin";
 		$checker = 0;
 		}else{
-		$bgClass="secondLine";
+		$bgClass="firstLineAdmin";
 		}
 	
     echo "<tr class='".$bgClass."'>";
-		echo "<td>";
+		echo "<td class='adminLine'>";
 			echo $ausgabe['User']['id'];
 		echo "</td>";
 		
-		echo "<td>";
+		echo "<td class='adminLine'>";
 			echo $ausgabe['User']['username'];
 		echo "</td>";
 		
-		echo "<td>";
-			echo $ausgabe['User']['password'];
-		echo "</td>";
-		
-		echo "<td>";
+		echo "<td class='adminLine'>";
 			echo $ausgabe['User']['semester'];
 		echo "</td>";
 		
-		echo "<td>";
+		echo "<td class='adminLine'>";
 			echo $ausgabe['User']['course'];
 		echo "</td>";
 		
-		echo "<td>";
+		echo "<td class='adminLine'>";
 			echo $ausgabe['User']['created'];
 		echo "</td>";
 		
-		echo "<td>";
+		echo "<td class='adminLine'>";
 			echo $ausgabe['User']['pic'];
 		echo "</td>";
 
-		echo "<td>";
+		echo "<td class='adminLine'>";
 			echo $this->Html->link('Edit', array('action' => 'a_edit_u_view', $ausgabe['User']['id']));
 		echo "</td>";
 		
-		echo "<td>";
+		echo "<td class='adminLine'>";
 			echo $this->Form->PostLink(
                 'Delete',
                 array('action' => 'delete', $ausgabe['User']['id'], "a_edit_u"),
-                array('confirm' => 'Are you sure?'));
+                array('confirm' => 'Wirklich "'.$ausgabe['User']['username'].'" löschen?'));
         echo "</td>";
 
     echo "</tr>";
