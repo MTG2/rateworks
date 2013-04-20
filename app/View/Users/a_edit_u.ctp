@@ -16,29 +16,62 @@
     </tr>
 
     <!-- Here is where we loop trough our $ausgabes array, printing out user info -->
+	<?php $checker = 0;
+    foreach ($users as $ausgabe): //var $users kommt aus dem Controller 
 
-    <?php foreach ($users as $ausgabe): //var $users kommt aus dem Controller ?> 
-    <tr>
-        <td><?php echo $ausgabe['User']['id']; ?></td>
-        <td><?php echo $ausgabe['User']['username']; ?></td>
-		<td><?php echo $ausgabe['User']['password']; ?></td>
-		<td><?php echo $ausgabe['User']['semester']; ?></td>
-		<td><?php echo $ausgabe['User']['course']; ?></td>
-		<td><?php echo $ausgabe['User']['created']; ?></td>
-		<td><?php echo $ausgabe['User']['pic']; ?></td>
-		<td>
-			<?php echo $this->Html->link('Edit', array('action' => 'a_edit_u_view', $ausgabe['User']['id']));?>
-		</td>
-		<td>
-			<?php echo $this->Form->PostLink(
+		$checker = $checker +1; 
+
+		if ($checker == 2){
+		$bgClass="firstLine";
+		$checker = 0;
+		}else{
+		$bgClass="secondLine";
+		}
+	
+    echo "<tr class='".$bgClass."'>";
+		echo "<td>";
+			echo $ausgabe['User']['id'];
+		echo "</td>";
+		
+		echo "<td>";
+			echo $ausgabe['User']['username'];
+		echo "</td>";
+		
+		echo "<td>";
+			echo $ausgabe['User']['password'];
+		echo "</td>";
+		
+		echo "<td>";
+			echo $ausgabe['User']['semester'];
+		echo "</td>";
+		
+		echo "<td>";
+			echo $ausgabe['User']['course'];
+		echo "</td>";
+		
+		echo "<td>";
+			echo $ausgabe['User']['created'];
+		echo "</td>";
+		
+		echo "<td>";
+			echo $ausgabe['User']['pic'];
+		echo "</td>";
+
+		echo "<td>";
+			echo $this->Html->link('Edit', array('action' => 'a_edit_u_view', $ausgabe['User']['id']));
+		echo "</td>";
+		
+		echo "<td>";
+			echo $this->Form->PostLink(
                 'Delete',
                 array('action' => 'delete', $ausgabe['User']['id'], "a_edit_u"),
                 array('confirm' => 'Are you sure?'));
-            ?>
-		</td>
-    </tr>
-    <?php endforeach; ?>
-    <?php unset($ausgabe); ?>
+        echo "</td>";
+
+    echo "</tr>";
+    endforeach;
+    unset($ausgabe); 
+	?>
 </table>
 
 

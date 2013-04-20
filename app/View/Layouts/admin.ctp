@@ -53,15 +53,22 @@
 <body>
 
 		
-	<div id="navigation">
-			<?php echo $this->Html->link('Adminindex', '/users/a_main'); ?>
-			<?php echo $this->Html->link('User bearbeiten', '/users/a_edit_u'); ?>
-			<?php echo $this->Html->link('Frameworks bearbeiten', '/frameworks/a_edit_frameworks'); ?>
-										
-		<div id="usernav">
-				<?php echo $this->Html->link('Logout', '/users/logout'); ?>
-				<?php echo $this->Html->link('Profil',  '/users/edit'); ?>
-				
+	<div id="navigationAdmin">
+		<div id="navigationMitte">
+				<div id="naviLinkAdmin"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Adminindex', '/users/a_main'); ?></div>
+				<div id="naviLinkAdmin"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('User verwalten', '/users/a_edit_u'); ?></div>
+				<div id="naviLinkAdmin"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Frameworks verwalten', '/frameworks/a_edit_frameworks'); ?></div>
+											
+			<div id="usernav">
+				<div id="navPicAdmin"><?php echo		
+					$this->Html->link(
+						$this->Html->image('profil_logo_kleiner.png', array('border' => '0')),
+							array('controller' => 'users', 'action' => 'edit', 'class' => 'navigation'),
+							array('escape' => false));
+					?></div>
+				<div id="naviLinkAdmin"><?php echo $this->Html->link('Logout', '/users/logout', array('class'=>'navigation')); ?></div>
+					
+			</div>
 		</div>
 	</div>
 			

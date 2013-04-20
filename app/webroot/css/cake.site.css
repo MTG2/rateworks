@@ -95,6 +95,23 @@ font-size: 110%;
 box-shadow: 0 0 2px #000;
 }
 
+#navigationAdmin{
+background:#bdd3d8;
+width:auto;
+height:50px;
+margin:0;
+padding:0;
+padding-left:5px;
+padding-right:5px;
+margin-left:auto; /* Firefox, Opera und so */
+margin-right:auto;
+font-size: 110%;
+-moz-box-shadow: 0px 0 2px #000;
+-webkit-box-shadow: 0px 0 2px #000;
+box-shadow: 0 0 2px #000;
+}
+
+
 /* Navigation Links */
 
 #naviLink{
@@ -108,6 +125,43 @@ padding-top:15px;
 vertical-align:middle;
 }
 
+#naviLinkAdmin{
+color:#7b4d1c;
+height:35px;
+float:left;
+width:auto;
+padding-right:15px;
+padding-left:15px;
+padding-top:15px;
+vertical-align:middle;
+}
+
+#naviLinkAdmin:hover{
+color:#d2e8ed;
+background:#d2e8ed;
+text-decoration:none;
+}
+
+#naviLinkAdmin a{
+color:#7b4d1c;
+}
+
+#navPicAdmin{
+color:#7b4d1c;
+height:35px;
+float:left;
+width:auto;
+padding-top:10px;
+padding-right:10px;
+padding-left:10px;
+vertical-align:middle;
+}
+
+#navPicAdmin:hover{
+color:#7b4d1c;
+background:#d2e8ed;
+padding-bottom:5px;
+}
 
 #navPic{
 color:#7b4d1c;
