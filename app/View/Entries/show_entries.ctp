@@ -42,7 +42,7 @@ if ($checker == 2){
 
 
     echo "<tr class='".$bgClass."'>";
-        echo "<td><b>";
+        echo "<td class='".$bgClass."'><b>";
 			echo $this->Html->link($entry['Entry']['name'], array('controller' => 'comments', 'action' => 'view', $entry['Entry']['id']));
         echo "</b></td>";
         echo "<td class='".$bgClass."'>";
