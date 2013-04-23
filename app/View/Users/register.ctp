@@ -45,7 +45,9 @@
 
 			<div>
 				<?php echo $this->Form->end(__('Register')); ?>
+				<?php echo $this->Html->link('Login', array('controller' => 'users', 'action' => 'login')); ?>
 			</div>
+			
 		</form><!-- form -->
 	</section><!-- content -->
 </div><!-- container -->
