@@ -23,7 +23,7 @@
 				'label' => '',
 				'id' => 'Schlüssel'));?>
 			</div>
-			<h1>Zusätzliche Informationen</h1>
+			<h2>Zusätzliche Informationen</h2>
 			<div>
 				<?php echo $this->Form->input('email', array(
 				'placeholder' => 'E-Mail',

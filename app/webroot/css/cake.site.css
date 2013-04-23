@@ -585,6 +585,13 @@ form:after {
 	background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     left: 0;
 }
+#formular h2 {
+	color: #7E7E7E;
+	font: bold 20px Helvetica, Arial, sans-serif;
+	letter-spacing: -0.05em;
+	line-height: 20px;
+	margin: 10px 0 10px;
+}
 #formular:after,
 #formular:before {
 	background: #f9f9f9;
