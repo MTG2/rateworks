@@ -10,7 +10,7 @@ class CommentsController extends AppController {
     }
 		
 	public function view($id) {
-
+		$edit_entry = 0;
       $comment = $this->Comment->find('all', array(
 		'contain' => array('Comment'),
 		'conditions' => array('Comment.entry_id = '.$id),
@@ -27,6 +27,12 @@ class CommentsController extends AppController {
 	//	$this->loadModel('Framework');
 	//	$framework = $this->Entry->find('first', array('conditions' => array('Framework.id' => $id)));
 		
+		if($entry['Entry']['user_id'] == $user['User']['id'])
+		{
+			$edit_entry = 1;
+		}
+		
+		$this->set('edit_entry', $edit_entry);
 		$this->set('user', $user);
 		$this->set('comments', $comment); 
 		$this->set('entry', $entry); 

@@ -5,7 +5,6 @@
   echo $this->html->script('jquery.rateit',true); 
 ?>
 
-
 <h1><?php echo ($entry['Entry']['name']); ?></h1>
 <?php echo $this->Html->image($entry['Framework']['pic'], array('width' => '15%', 'height' => '15%', 'class' => 'alignright')) ?>
 <h2> Beschreibung </h2>
@@ -42,10 +41,15 @@ endforeach; ?>
 
 <h2>Gesamtbewertung</h2>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rtotal'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
+
+<?php if($edit_entry == 1)
+{
+echo $this->Html->link('Eintrag bearbeiten', array('controller' => 'entries', 'action' => 'edit', $entry['Entry']['id'])); 
+}
+?>
+
 <div id="commentArea">
-
 <section id="profil">
-
 <h3>Kommentar schreiben</h3>
 </br>
 	<?php echo $this->Html->image($user['User']['pic']) ?>

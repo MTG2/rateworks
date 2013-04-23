@@ -52,11 +52,13 @@ class EntriesController extends AppController {
         throw new NotFoundException(__('Invalid post'));
     }
 
+	$this->set('entry', $entry);
+	
     if ($this->request->is('post') || $this->request->is('put')) {
         $this->Entry->id = $id;
         if ($this->Entry->save($this->request->data)) {
             $this->Session->setFlash('Your post has been updated.');
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('controller' => 'comments','action' => 'view', $entry['Entry']['id']));
         } else {
             $this->Session->setFlash('Unable to update your post.');
         }
