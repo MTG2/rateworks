@@ -21,7 +21,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<?php echo $this->Html->charset(); ?>
+
 	<title>
 		<?php echo $title_for_layout; ?>
 	</title>
@@ -29,19 +31,33 @@
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.site');
-
+		echo $this->Html->css('rateit');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
-	?>
+	?>	
+		
+	<?php echo $this->html->script('jquery-1.9.1',true); ?>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		setTimeout(function(){$("#flashMessage").slideUp(250);},2000);	
+		});
+	</script>
+	
+ <?php
+ echo $scripts_for_layout;
+ ?>
+
 </head>
 <body>
 	<div id="logo">
 		<?php echo $this->Html->image('zahnrad_hintergrund2.png');
 		?>
 	</div>
-			<?php echo $this->fetch('content'); ?>
 			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->fetch('content'); ?>
+			
 			
 		<div id="footer">
 

@@ -757,6 +757,10 @@ form .error-message {
 	font-weight: bold;
 	margin: 0 0 1em 0;
 	padding: 5px;
+	width:500px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
 }
 
 .success,
