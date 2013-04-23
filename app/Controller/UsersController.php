@@ -176,9 +176,10 @@ class UsersController extends AppController {
         if ($this->User->delete()) {
             $this->Session->setFlash(__('User deleted'));
 			
+			if (strcmp ($user['User']['pic'] , "default.png" )  != 0){
 			$file = new File(WWW_ROOT.'img/'.$user['User']['pic']);
 			$file->delete();
-			
+			}
             $this->redirect(array('action' => $page));
         }
         $this->Session->setFlash(__('User was not deleted'));
