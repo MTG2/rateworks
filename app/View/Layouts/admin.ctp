@@ -40,8 +40,7 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function(){
-	
-		$("#flashMessage").fadeOut(2000);
+		setTimeout(function(){$("#flashMessage").slideUp(250);},2000);	
 		});
 	</script>
 	
