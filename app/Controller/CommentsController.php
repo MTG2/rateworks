@@ -5,7 +5,7 @@ class CommentsController extends AppController {
 
 	public function beforeFilter() {
 		if($this->Auth->loggedIn()){
-			$this->Auth->allow('index', 'view');
+			$this->Auth->allow('index', 'view', 'delete');
 		}	
     }
 		
@@ -27,12 +27,6 @@ class CommentsController extends AppController {
 	//	$this->loadModel('Framework');
 	//	$framework = $this->Entry->find('first', array('conditions' => array('Framework.id' => $id)));
 		
-		if($entry['Entry']['user_id'] == $user['User']['id'])
-		{
-			$edit_entry = 1;
-		}
-		
-		$this->set('edit_entry', $edit_entry);
 		$this->set('user', $user);
 		$this->set('comments', $comment); 
 		$this->set('entry', $entry); 
@@ -66,11 +60,20 @@ class CommentsController extends AppController {
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
-
-		if ($this->Comment->delete($id)) {
-			$this->Session->setFlash('The Comment with id: ' . $id . ' has been deleted.');
-		}
-			
+			$comment = $this->Comment->find('first', array(
+			'contain' => array('Comment'),
+			'conditions' => array('Comment.id = '.$id)));
+		
+			if($comment['Comment']['user_id'] == $this->Auth->user('id'))
+			{
+				if ($this->Comment->delete($id)) {	
+					$this->Session->setFlash('Kommentar wurde geloescht');		
+				}
+			}
+			else
+			{
+				$this->Session->setFlash('Keine Berechtigung zum loeschen');		
+			}
 		$this->redirect(array('action' => $page, $entryID));
 	}
 		

@@ -42,7 +42,7 @@ endforeach; ?>
 <h2>Gesamtbewertung</h2>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rtotal'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
 
-<?php if($edit_entry == 1)
+<?php if($entry['Entry']['user_id'] == $user['User']['id'])
 {
 echo $this->Html->link('Eintrag bearbeiten', array('controller' => 'entries', 'action' => 'edit', $entry['Entry']['id'])); 
 }
@@ -78,24 +78,34 @@ echo $this->Html->image('deleted.png',array("alt" => "User"))?>
 
 }
 else{
+
+echo $this->Html->image($comment['User']['pic'],array("alt" => "Bild",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))) ?>		
 		
-echo $this->Html->image($comment['User']['pic'],array("alt" => "Bild",'url' => array('controller' => 'users', 'action' => 'view', $comment['User']['id']))) ?>				
 <div id="commentAuthor">
 <?php echo $this->Html->link($comment['User']['username'],array('controller' => 'users', 'action' => 'view', $comment['User']['id']));
 }?> 
 						
 <div id="commentDate"> 
 am <?php echo $comment['Comment']['created'];?></div>
+
 </div>
 
 <div id="commentText">	<?php echo nl2br($comment['Comment']['text']);?> 
+
 </div>
-		
 
 	</div>
+<?php	
 
+if($comment['Comment']['user_id'] == $id){
+
+echo $this->Form->PostLink(	'Kommentar loeschen',array('action' => 'delete', $comment['Comment']['id'], "view", $entry['Entry']['id']),
+				array('confirm' => 'Wollen Sie die Kommentar wirklich loeschen?')); 
+			}				
+?>
 </p>
 <hr>
+
 		<?php endforeach; }?>
 
 </table>
