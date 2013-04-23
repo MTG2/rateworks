@@ -557,7 +557,7 @@ form:after {
 	font: bold 25px Helvetica, Arial, sans-serif;
 	letter-spacing: -0.05em;
 	line-height: 20px;
-	margin: 10px 0 30px;
+	margin: 20px 0 10px;
 }
 #formular h1:before,
 #formular h1:after {
@@ -657,8 +657,12 @@ form:after {
 	border: 1px solid #ed1c24;
 	outline: none;
 }
-#username { background-position: 10px 10px !important }
-#password { background-position: 10px -53px !important }
+#username { background-position: 10px 10px !important}
+#password { background-position: 10px -53px !important}
+#semester {background-position: 10px -53px !important}
+#course{background-position: 10px -53px !important}
+#Schlüssel {background-position: 10px -53px !important}
+#email{background-position: 10px -53px !important}
 #formular form input[type="submit"] {
 	background: rgb(254,231,154);
 	background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);

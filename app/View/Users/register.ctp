@@ -18,6 +18,13 @@
 				'id' => 'password'));?>
 			</div>
 			<div>
+				<?php echo $this->Form->input('registrationkey', array(
+				'placeholder' => 'Zugangsschluessel',
+				'label' => '',
+				'id' => 'Schlüssel'));?>
+			</div>
+			<h1>Zusätzliche Informationen</h1>
+			<div>
 				<?php echo $this->Form->input('email', array(
 				'placeholder' => 'E-Mail',
 				'label' => '',
@@ -35,12 +42,7 @@
 				'label' => '',
 				'id' => 'course'));?>
 			</div>
-			<div>
-				<?php echo $this->Form->input('registrationkey', array(
-				'placeholder' => 'Zugangsschluessel',
-				'label' => '',
-				'id' => 'Schl�ssel'));?>
-			</div>
+
 			<div>
 				<?php echo $this->Form->end(__('Register')); ?>
 			</div>
