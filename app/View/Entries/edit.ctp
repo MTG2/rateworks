@@ -13,7 +13,7 @@
 <?php echo $this->Form->input('name', array('label'=>'', 'value' => $entry['Entry']['name'])); ?>
 
 <p>Projekt Link</p>
-<?php echo $this->Form->input('project_link', array('label'=>'', 'value' => $entry['Entry']['projectlink'])); ?>
+<?php echo $this->Form->input('projectlink', array('label'=>'', 'value' => $entry['Entry']['projectlink'])); ?>
 
 <p>Beschreibung</p>
 <?php echo $this->Form->input('description', array('rows' => '3', 'label'=>'', 'value' => $entry['Entry']['description'])); ?>
