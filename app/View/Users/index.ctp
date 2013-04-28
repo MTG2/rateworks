@@ -151,6 +151,7 @@ for($count = 0; $count < 3; $count++){
 			echo "<div class='newsTitle'>";
 				if ((count($entries)<1 && count($comments)<1)){
 					echo "<b>Kein Eintrag</b>";
+					$entryLeer=1;
 				}else{
 					if ($oldEntry != $entryDate){
 						echo "<b>".$this->Html->link($entryDate['User']['username'],array('action' => 'view', $entryDate['User']['id']))." erstellte ".$this->Html->link($entryDate['Entry']['name'],
