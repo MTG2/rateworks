@@ -111,12 +111,21 @@ font-size: 110%;
 box-shadow: 0 0 2px #000;
 }
 
-
+#key{
+background:#d2e8ed;
+padding:5px;
+margin-left:auto; /* Firefox, Opera und so */
+margin-right:auto;
+font-size: 110%;
+-moz-box-shadow: 0px 0 2px #000;
+-webkit-box-shadow: 0px 0 2px #000;
+box-shadow: 0 0 2px #000;
+}
 
 #adminEditUser {
 	padding-top: 30px;
 	position: relative;
-	margin-left:260px;
+	margin-left:115px;
 	float:left;
 	height: 170px;
 	width: 250px;
@@ -668,7 +677,7 @@ form:after {
 #password { background-position: 10px -53px !important}
 #semester {background-position: 10px -250px !important}
 #course{background-position: 10px -250px !important}
-#Schlüssel {background-position: 10px -53px !important}
+#Schlüssel {background-position: 10px -303px !important}
 #email{background-position: 11px -188px !important}
 #formular form input[type="submit"] {
 	background: rgb(254,231,154);

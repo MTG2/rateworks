@@ -19,7 +19,7 @@
 			</div>
 			<div>
 				<?php echo $this->Form->input('registrationkey', array(
-				'placeholder' => 'Zugangsschluessel',
+				'placeholder' => 'Zugangsschlüssel',
 				'label' => '',
 				'id' => 'Schlüssel'));?>
 			</div>

@@ -215,6 +215,23 @@ class UsersController extends AppController {
 		}
 	}
 	
+	public function a_edit_key(){
+		$this->loadModel('Registrationkey');
+		$key = $this->Registrationkey->find('first');
+		$this->set('key', $key);	
+		
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$this->Registrationkey->id = 1;
+			if ($this->Registrationkey->save($this->request->data)) {
+				$this->Session->setFlash('Zugangsschlüssel geändert.');
+				$this->redirect(array('action' => 'a_edit_key'));
+			} else {
+				$this->Session->setFlash('Unable to update the User.');
+			}
+		}
+		
+	}
+	
 	/**
  * uploads files to the server
  * @params:

@@ -58,6 +58,7 @@
 				<div id="naviLinkAdmin"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Adminindex', '/users/a_main'); ?></div>
 				<div id="naviLinkAdmin"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('User verwalten', '/users/a_edit_u'); ?></div>
 				<div id="naviLinkAdmin"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Frameworks verwalten', '/frameworks/a_edit_frameworks'); ?></div>
+				<div id="naviLinkAdmin"><?php echo $this->Html->image('zahnrad_klein.png')?> <?php echo $this->Html->link('Key verwalten', '/users/a_edit_key'); ?></div>
 											
 			<div id="usernav">
 				<div id="navPicAdmin"><?php echo		
