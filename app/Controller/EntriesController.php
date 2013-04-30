@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class EntriesController extends AppController {
 
@@ -35,7 +35,7 @@ class EntriesController extends AppController {
 		
 
         if ($this->Entry->save($this->request->data)) {
-            $this->Session->setFlash('Your post has been saved.');
+            $this->Session->setFlash('Eintrag wurde gespeichert.');
             $this->redirect(array('controller' => 'comments', 'action' => 'view',$this->Entry->id));
 
         }
@@ -57,10 +57,10 @@ class EntriesController extends AppController {
     if ($this->request->is('post') || $this->request->is('put')) {
         $this->Entry->id = $id;
         if ($this->Entry->save($this->request->data)) {
-            $this->Session->setFlash('Your post has been updated.');
+            $this->Session->setFlash('Änderungen wurden gespeichert.');
             $this->redirect(array('controller' => 'comments','action' => 'view', $entry['Entry']['id']));
         } else {
-            $this->Session->setFlash('Unable to update your post.');
+            $this->Session->setFlash('Änderungen konnten nicht gespeichert werden.');
         }
     }
 
@@ -99,7 +99,7 @@ public function delete($id, $page, $frameworkid) {
     }
 
     if ($this->Entry->delete($id)) {
-        $this->Session->setFlash('The Entry with id: ' . $id . ' has been deleted.');
+        $this->Session->setFlash('Eintrag mit id: ' . $id . ' wurde gelöscht.');
     }
 		
 	$this->redirect(array('action' => $page, $frameworkid));
@@ -122,7 +122,7 @@ public function isAuthorized($user) {
         }
 		else
 		{
-		    $this->Session->setFlash('Not Allowed.');
+		    $this->Session->setFlash('Keine Berechtigung.');
 		}
     }
 
@@ -157,10 +157,10 @@ public function isAuthorized($user) {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->Entry->id = $id;
 			if ($this->Entry->save($this->request->data)) {
-				$this->Session->setFlash('Your post has been updated.');
+				$this->Session->setFlash('Änderungen wurden gespeichert.');
 				$this->redirect(array('action' => 'a_edit_rates', $id));
 			} else {
-				$this->Session->setFlash('Unable to update your post.');
+				$this->Session->setFlash('Änderungen konnten nicht gespeichert werden.');
 			}
 		}
 	

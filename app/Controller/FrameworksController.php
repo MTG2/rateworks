@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class FrameworksController extends AppController {
 
@@ -35,7 +35,7 @@ class FrameworksController extends AppController {
 			}
 			else
 			{
-				$this->Session->setFlash(__('Wrong size or file type'));
+				$this->Session->setFlash(__('Falsche Bildgröße / Falscher Dateityp.'));
 			}
 		}
 		
@@ -45,7 +45,7 @@ class FrameworksController extends AppController {
 	
         $this->request->data['Framework']['user_id'] = $this->Auth->user('id'); //Added this line
         if ($this->Framework->save($this->request->data)) {
-            $this->Session->setFlash('Your post has been saved.');
+            $this->Session->setFlash('Der Eintrag wurde gespeichert.');
             $this->redirect(array('action' => 'a_edit_frameworks'));
         }
     }
@@ -64,10 +64,10 @@ class FrameworksController extends AppController {
     if ($this->request->is('post') || $this->request->is('put')) {
         $this->Framework->id = $id;
         if ($this->Framework->save($this->request->data)) {
-            $this->Session->setFlash('Your post has been updated.');
+            $this->Session->setFlash('Änderungen wurden gespeichert.');
             $this->redirect(array('action' => 'index'));
         } else {
-            $this->Session->setFlash('Unable to update your post.');
+            $this->Session->setFlash('Änderungen konnten nicht gespeichert werden.');
         }
     }
 
@@ -85,7 +85,7 @@ public function delete($id, $page) {
 	$framework = $this->Framework->find('first', array('conditions' => array('Framework.id' => $id)));
 	
    if ($this->Framework->delete($id)) {
-        $this->Session->setFlash('The Framework with id: ' . $id . ' has been deleted.');
+        $this->Session->setFlash('Framework mit id: ' . $id . ' wurde gelöscht.');
 		
 		$file = new File(WWW_ROOT.'img/'.$framework['Framework']['pic']);
 		$file->delete();

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class CommentsController extends AppController {
 
@@ -37,7 +37,7 @@ class CommentsController extends AppController {
 		$this->request->data['Comment']['entry_id'] = $entry['Entry']['id']; 
 		
 			if ($this->Comment->save($this->request->data)) {
-				$this->Session->setFlash('Your post has been saved.');
+				$this->Session->setFlash('Kommentar wurde gespeichert.');
 				$this->redirect(array('action' => 'view', $id));
 			}
 		}

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // app/Controller/UsersController.php
 class UsersController extends AppController {
@@ -24,7 +24,7 @@ class UsersController extends AppController {
 				if ($this->Auth->login()) {
 				$this->redirect($this->Auth->redirect());
 			} else {
-				$this->Session->setFlash(__('Invalid username or password, try again'));
+				$this->Session->setFlash(__('Falscher Benutzername oder Passwort.'));
 			}
 			}
 		}
@@ -76,7 +76,7 @@ class UsersController extends AppController {
 		$this->loadModel('Registrationkey');
 			$username=$this->request->data['User']['username'];
 			if($username=$this->User->find('first', array('conditions' => array('User.username' => $username)))){
-				$this->Session->setFlash(__('User bereits vorhanden'));
+				$this->Session->setFlash(__('User bereits vorhanden.'));
 			}
 			else {
 				$key = $this->Registrationkey->find('first');
@@ -91,7 +91,7 @@ class UsersController extends AppController {
 						   $this->redirect($this->Auth->redirect());
 						}
 					} else {
-						$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+						$this->Session->setFlash(__('Registrierung fehlgeschlagen, bitte erneut versuchen.'));
 					}
 				}
 				else{
@@ -140,7 +140,7 @@ class UsersController extends AppController {
 			}
 			else
 			{
-				$this->Session->setFlash(__('Wrong size or file type'));
+				$this->Session->setFlash(__('Falsche Bildgröße / Falscher Dateityp.'));
 			}
 		}
 		
@@ -149,10 +149,10 @@ class UsersController extends AppController {
 				$data = $this->request->data['User']['pic'] = substr($result['urls'][0],4);
 			}
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
+                $this->Session->setFlash(__('Änderungen gespeichert.'));
                $this->redirect(array('controller' => 'users', 'action' => 'edit', $id));
             } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('Änderungen konnten nicht gespeichert werden.'));
             }
 		
         } else {
@@ -181,7 +181,7 @@ class UsersController extends AppController {
 			}
             $this->redirect(array('action' => $page));
         }
-        $this->Session->setFlash(__('User was not deleted'));
+        $this->Session->setFlash(__('Benutzer konnte nicht gelöscht werden'));
         $this->redirect(array('action' => $page));
     }
 	
@@ -210,7 +210,7 @@ class UsersController extends AppController {
 				$this->Session->setFlash('The User has been updated.');
 				$this->redirect(array('action' => 'a_edit_u'));
 			} else {
-				$this->Session->setFlash('Unable to update the User.');
+				$this->Session->setFlash('Änderungen konnten nicht gespeichert werden.');
 			}
 		}
 	}
@@ -226,25 +226,11 @@ class UsersController extends AppController {
 				$this->Session->setFlash('Zugangsschlüssel geändert.');
 				$this->redirect(array('action' => 'a_edit_key'));
 			} else {
-				$this->Session->setFlash('Unable to update the User.');
+				$this->Session->setFlash('Änderungen konnten nicht gespeichert werden.');
 			}
 		}
 		
 	}
-	
-	/**
- * uploads files to the server
- * @params:
- *    $folder  = the folder to upload the files e.g. 'img/files'
- *    $formdata   = the array containing the form files
- *    $itemId  = id of the item (optional) will create a new sub folder
- * @return:
- *    will return an array with the success of each file upload
- */
-
-	
-	
-
 }
 	
 ?>
