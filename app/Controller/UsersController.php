@@ -68,6 +68,54 @@ class UsersController extends AppController {
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
+		
+		$this->loadModel('Comment');
+		$comments = $this->Comment->find('all',
+			array(
+			'conditions' => array('Comment.user_id = '.$id),
+				'order' => array(
+					'Comment.created' => 'DESC',
+				)
+			)
+		);
+		
+		$this->loadModel('Entry');
+		$entries = $this->Entry->find('all',
+			array(
+			'conditions' => array('Entry.user_id = '.$id),
+				'order' => array(
+					'Entry.created' => 'DESC',
+				)
+			)
+		);		
+		
+		$activities = array();
+		foreach ($comments as $comment) {
+			$activities[] = array('type' => 'comment', 'value' => $comment);
+		}
+		
+		foreach ($entries as $entry) {
+			$activities[] = array('type' => 'entry', 'value' => $entry);
+		}
+		
+		$dates = array();
+		foreach ($activities as $s) {
+		
+			if($s['type'] == 'comment')
+			{
+				$dates[] = $s['value']['Comment']['created'];
+			}
+			else
+			{
+				$dates[] = $s['value']['Entry']['created'];
+			}
+		}
+
+		array_multisort($dates, SORT_DESC, $activities);
+		
+		$this->set('activities', $activities);
+		$this->set('comments', $comments);
+		$this->set('entries', $entries);
         $this->set('user', $this->User->read(null, $id));
     }
 
