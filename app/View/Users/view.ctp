@@ -23,7 +23,7 @@ $i=$i+1;
 
 <?php 
 if ($activity['type']=='comment'){
-echo "Kommentar in ".$activity['value']['Comment']['entry_id']." <p>";
+echo "Hat ".$activity['value']['Entry']['name']." kommentiert <p>";
 echo $activity['value']['Comment']['text'];
 }
 ?>
