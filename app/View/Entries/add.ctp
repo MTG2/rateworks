@@ -1,4 +1,4 @@
-<!-- File: /app/View/Entries/add.ctp -->
+﻿<!-- File: /app/View/Entries/add.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 
 
@@ -12,7 +12,7 @@
 <section id="profil">
 
 <?php echo $this->Form->create('Entry'); ?>
-<?php echo $this->Form->input('framework',array('type'=>'select','options'=>$frameworks));?>
+Framework auswählen:<?php echo $this->Form->input('',array('type'=>'select','options'=>$frameworks));?>
 <br>
 
 <p>Name</p>
