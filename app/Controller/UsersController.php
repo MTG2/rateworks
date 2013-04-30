@@ -63,6 +63,7 @@ class UsersController extends AppController {
     }
 	
 
+
     public function view($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
@@ -171,9 +172,55 @@ class UsersController extends AppController {
             throw new NotFoundException(__('Invalid user'));
         }
 
+		$this->loadModel('Comment');
+		$comments = $this->Comment->find('all',
+			array(
+			'conditions' => array('Comment.user_id = '.$id),
+				'order' => array(
+					'Comment.created' => 'DESC',
+				)
+			)
+		);
+		
+		$this->loadModel('Entry');
+		$entries = $this->Entry->find('all',
+			array(
+			'conditions' => array('Entry.user_id = '.$id),
+				'order' => array(
+					'Entry.created' => 'DESC',
+				)
+			)
+		);		
+		
+		$activities = array();
+		foreach ($comments as $comment) {
+			$activities[] = array('type' => 'comment', 'value' => $comment);
+		}
+		
+		foreach ($entries as $entry) {
+			$activities[] = array('type' => 'entry', 'value' => $entry);
+		}
+		
+		$dates = array();
+		foreach ($activities as $s) {
+		
+			if($s['type'] == 'comment')
+			{
+				$dates[] = $s['value']['Comment']['created'];
+			}
+			else
+			{
+				$dates[] = $s['value']['Entry']['created'];
+			}
+		}
+
+		array_multisort($dates, SORT_DESC, $activities);
+		
+		$this->set('activities', $activities);
+		
+		
+		
 		$entry = $this->User->find('first', array('conditions' => array('User.id' => $id)));
-		
-		
 		$this->set('entry', $entry);
 		
         if ($this->request->is('post') || $this->request->is('put')) {
