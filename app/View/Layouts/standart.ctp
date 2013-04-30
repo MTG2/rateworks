@@ -78,10 +78,10 @@
 			<div id="navPic"><?php echo		
 				$this->Html->link(
 					$this->Html->image('profil_logo_kleiner.png', array('border' => '0')),
-						array('controller' => 'users', 'action' => 'edit', 'class' => 'navigation'),
+						array('controller' => 'users', 'action' => 'edit'),
 						array('escape' => false));
 				?></div>
-			<div id="naviLink"><?php echo $this->Html->link('Logout', '/users/logout', array('class'=>'navigation')); ?></div>
+			<div id="naviLink"><?php echo $this->Html->link('Logout', '/users/logout'); ?></div>
 		</div>
 	</div>			
 </div>		

@@ -24,7 +24,7 @@ Framework auswählen:<?php echo $this->Form->input('',array('type'=>'select','op
 <p>Beschreibung</p>
 <?php echo $this->Form->input('description', array('rows' => '3', 'label'=>'','placeholder' =>'Kurze Beschreibung des Projektes?')); ?>
 
-<p>Reifegrad / Bewertung</p>
+<p>Reifegrad</p>
 <?php echo $this->Form->input('rdegree',array('type'=>'select', 'label'=>'', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRdegree" data-rateit-resetable="false" ></div>
 <?php echo $this->Form->input('degree', array('label'=>'', 'placeholder' => 'Wie stabil ist die Technologie? Versionszaehler, letzte Aktualisierung...')); ?>
