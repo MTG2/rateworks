@@ -1,13 +1,11 @@
 <!-- File: /app/View/Users/index.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1> Herzlich Wilkommen </h1>
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
-invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et 
-justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
-dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
-invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo 
-duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit 
-amet.
+<p>Dieses Projekt dient dazu Frameworks die im Kurs Webanwendungen verwendet wurden zu bewerten und diese Bewertungen mit anderen Kursteilnehmern zu teilen. Zielsetzung unseres Projektes war ein System zu entwickeln das über die kommenden Jahre wachsen kann und Einsteigern einen guten Überblick über verschiedene neue Technologien bietet.</p>
+<p>Nach Abschluss eines Projektes kann unter <?php echo $this->Html->link('Proejkt anlegen', array('controller' => 'entries', 'action' => 'add')); ?> die Technologiebewertung aus dem WAN Moodle-Kurs eingetragen werden. Zusätzlich können hier die einzelnen Unterpunkte mit einem Sternesystem bewertet werden. Nachdem das Formular abgeschickt wurde erscheint die Technologiebewertung unter <?php echo $this->Html->link('Frameworks', array('controller' => 'frameworks', 'action' => 'index')); ?> in dem jeweilig ausgewählten Framework.<p>
+
+<p>Diese Projekt wurde von Jan Lehnhäuser, Martin Hentzel und Marc Heinisch im Rahmen der WAN-Veranstaltung im Wintersemester 2012 programmiert. Wir wünschen euch genauso viel Spaß bei dem Verwenden von Frameworks wie wir hierbei hatten :)</p>
+
 
 
 <div id="aktuellInhalt">
