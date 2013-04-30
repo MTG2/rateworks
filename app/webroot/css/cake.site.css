@@ -358,7 +358,14 @@ float:right;
 /*Userprofil*/
 
 #user{
+line-height:25px;
 height:200px;
+}
+
+#info{
+background-color:white;
+float:right;
+width:100px;
 }
 
 /*Trennlienie */

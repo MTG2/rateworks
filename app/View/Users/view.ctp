@@ -1,4 +1,4 @@
-<!-- File: /app/View/Users/view.ctp -->
+﻿<!-- File: /app/View/Users/view.ctp -->
 <?php $this->layout = 'standart'; ?> 
 <div id="user">
 <h3><?php echo $user['User']['username']; ?></h3>
@@ -7,12 +7,14 @@
 <p>E-Mail: <?php echo $user['User']['email']; ?> </p>
 <p>Semester: <?php echo $user['User']['semester']; ?> </p>
 <p>Kurs: <?php echo $user['User']['course']; ?> </p>
+<p>Anzahl Kommentare: <?php echo count($comments) ?>
+<p>Anzahl Projekte: <?php echo count($entries) ?>
 </div>
-
+<h2>Letze Tätigkeiten</h2>
 <div id="commentArea">
 
 <?php
-$i=0; // Variable f�r Anzahl der Eintr�ge
+$i=0; // Variable für Anzahl der Einträge
 foreach ($activities as $activity): 
 $i=$i+1;
 ?>
@@ -21,21 +23,24 @@ $i=$i+1;
 
 <?php 
 if ($activity['type']=='comment'){
-echo "Kommentar <p>";
+echo "Kommentar in ".$activity['value']['Comment']['entry_id']." <p>";
 echo $activity['value']['Comment']['text'];
 }
-
+?>
+<?php
 if ($activity['type']=='entry'){
 echo "<br>Hat Projekt ";
 echo $activity['value']['Entry']['name'];
 echo " angelegt.";
 }
-	
 if ($i==10)break; 
-	
 ?>
 
 </div>
+
+
+
+
 <hr>
 
 <?php endforeach; ?>
