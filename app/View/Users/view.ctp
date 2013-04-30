@@ -29,7 +29,7 @@ echo $activity['value']['Comment']['text'];
 ?>
 <?php
 if ($activity['type']=='entry'){
-echo "<br>Hat Projekt ";
+echo "Hat Projekt ";
 echo $activity['value']['Entry']['name'];
 echo " angelegt.";
 }
