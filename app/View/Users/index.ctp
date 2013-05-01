@@ -121,42 +121,46 @@ for($count = 0; $count < 3; $count++){
 		if ($commentDateTime > $entryDateTime){
 			echo "<div class='newsTitle'>";
 				if($commentDate != $oldComment){
-					echo "<b>".$this->Html->link($commentDate['User']['username'],array('action' => 'view', $commentDate['User']['id']))." kommentierte ".$this->Html->link($commentDate['Entry']['name'],
+					echo $this->Html->image('commentSmall.png', array('border' => '0', 'width'=>'16px'))."<b> ".$this->Html->link($commentDate['User']['username'],array('action' => 'view', $commentDate['User']['id']))." kommentierte ".$this->Html->link($commentDate['Entry']['name'],
 					array('controller' => 'comments', 'action' => 'view', $commentDate['Comment']['entry_id']),array('escape' => false))."</b>";
 					$oldComment = $commentDate;
 				}else{
-					echo "<b>Kein Eintrag</b>";
+					echo $this->Html->image('keinEintrag.png', array('border' => '0', 'width'=>'16px'))."<b>Kein Eintrag</b>";
 					
 				}
 			echo "</div>";
 			
 			echo "<div class='commentInfo'>";
 				
-				echo $this->Html->link(
-								$this->Html->image('comment.png', array('border' => '0', 'width'=>'70px')),
-								array('controller' => 'comments', 'action' => 'view', $commentDate['Comment']['entry_id']),
-								array('escape' => false));
-								
-				echo "<b>".$commentDate['Comment']['created']."</b>";
-				
 				echo "<div class='commentText'>";
 					echo $commentDate['Comment']['text'];
 				echo "</div>";
+				
+					$entDate = new DateTime($commentDate['Comment']['created']);
+					$entToCompare = $entDate->format('Y-m-d');
+					$heute = date('Y-m-d');
+
+					if($heute == $entToCompare){
+						echo "<b>heute · ".$entDate->format('H:i')."</b>";
+					}else{
+						echo "<b>".$entDate->format('d-m-Y')." · ".$entDate->format('H:i')."</b>";
+					}
+				
 			echo "</div>";
 
 			$nextComment = $nextComment + 1;
 		}else{
 			echo "<div class='newsTitle'>";
 				if ((count($entries)<1 && count($comments)<1)){
-					echo "<b>Kein Eintrag</b>";
+					echo $this->Html->image('keinEintrag.png', array('border' => '0', 'width'=>'16px'))."<b>Kein Eintrag</b>";
 					$entryLeer=1;
 				}else{
 					if ($oldEntry != $entryDate){
-						echo "<b>".$this->Html->link($entryDate['User']['username'],array('action' => 'view', $entryDate['User']['id']))." erstellte ".$this->Html->link($entryDate['Entry']['name'],
+						echo $this->Html->image('entrySmall.png', array('border' => '0', 'width'=>'14px'))."<b> ".$this->Html->link($entryDate['User']['username'],array('action' => 'view', $entryDate['User']['id']))." erstellte ".$this->Html->link($entryDate['Entry']['name'],
 						array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),array('escape' => false))."</b>";
 						$oldEntry = $entryDate;
 					}else{
-						echo "<b>Kein Eintrag</b>";
+						echo $this->Html->image('keinEintrag.png', array('border' => '0', 'width'=>'13px'))."<b> Kein Eintrag</b>";
 						$entryLeer=1;
 					}
 				}
@@ -164,23 +168,29 @@ for($count = 0; $count < 3; $count++){
 			
 			echo "<div class='commentInfo'>";
 				if($entryLeer != 1){
-					echo $this->Html->link(
-									$this->Html->image('newProject.png', array('border' => '0', 'width'=>'50px')),
-									array('controller' => 'comments', 'action' => 'view', $entryDate['Entry']['id']),
-									array('escape' => false));
-									
-					echo "<b>".$entryDate['Entry']['created']."</b>";
+
+					echo "<div class='commentText'>";
+					
+					echo $entryDate['Entry']['description'];
+					
+					echo "</div>";
+					
+					$comDate = new DateTime($entryDate['Entry']['created']);
+					$comToCompare = $comDate->format('Y-m-d');
+					$heute = date('Y-m-d');
+
+					if($heute == $comToCompare){
+						echo "<b>heute · ".$comDate->format('H:i')."</b>";
+					}else{
+						echo "<b>".$comDate->format('d-m-Y')." · ".$comDate->format('H:i')."</b>";
+					}
+					
+				}else{
 					
 					echo "<div class='commentText'>";
-						
-					echo $entryDate['Entry']['description'];
-
+					echo "  -   ";
 					echo "</div>";
-				}else{
-					echo $this->Html->image('keinEintrag.png', array('border' => '0', 'width'=>'50px'));
-					echo "<div class='commentText'>";
-					echo "   -  -  -  ";
-					echo "</div>";
+					echo " - ";
 				}
 			echo "</div>";
 			$nextEntry = $nextEntry + 1;

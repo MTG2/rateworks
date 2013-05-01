@@ -277,7 +277,8 @@ font-size: 90%;
 }
 
 .newsTitle{
-	margin-bottom:5px;
+	border-bottom: solid 1px;
+	font-size:90%;
 }
 #aktuellInhalt{
 	text-align:center;
@@ -289,14 +290,11 @@ font-size: 90%;
 }
  
 .commentInfo{
-	border: 1px solid;
-	border-color: #cecece;
 	background-color:#ffebd6;
 	padding: 5px;
 }
 
 .commentInfo b{
-	float:right;
 	font-size:75%;
 
 }
@@ -306,6 +304,7 @@ font-size: 90%;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	margin-top: 5px;
+	margin-bottom:10px;
 }
  
 #footer{
