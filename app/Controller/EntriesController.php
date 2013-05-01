@@ -152,13 +152,15 @@ public function isAuthorized($user) {
 			'conditions' => array('Entry.id = '.$id)	
 		));
 		
+		$frameworkID = $entry['Entry']['framework_id'];
+		
 		$this->set('thisEntry', $entry);	
 		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->Entry->id = $id;
 			if ($this->Entry->save($this->request->data)) {
 				$this->Session->setFlash('Änderungen wurden gespeichert.');
-				$this->redirect(array('action' => 'a_edit_rates', $id));
+				$this->redirect(array('action' => 'a_edit_rates', $frameworkID));
 			} else {
 				$this->Session->setFlash('Änderungen konnten nicht gespeichert werden.');
 			}
