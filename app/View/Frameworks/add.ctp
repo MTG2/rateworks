@@ -5,8 +5,8 @@
 	echo $this->Form->create('Framework', array('action' => 'add', 'type' => 'file'));
 	echo "Name";
 	echo $this->Form->input('name', array('label' => ''));
-	echo "Text";
-	echo $this->Form->input('text', array('rows' => '3', 'label' => ''));
+	echo "Link zum Framework";
+	echo $this->Form->input('link', array('rows' => '3', 'label' => ''));
 	echo "<b>Maximal 3Mb sollte das Bild gross sein.</b></br>";
 	echo $this->form->file('file');
 	echo $this->Form->end('Save Framework');
