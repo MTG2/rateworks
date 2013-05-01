@@ -229,9 +229,19 @@ class UsersController extends AppController {
 	
 			$files = array(0 => $this->request->data['file']);
 			
-			if($files[0]['size'] <= 128000 && strpos($files[0]['type'],'image') !== false)
+			if($files[0]['size'] <= 3500000 && strpos($files[0]['type'],'image') !== false)
 			{
 				$result = $this->uploadFiles('img/uploads', $files);
+				
+				$size = getimagesize($result['urls'][0]);
+				
+				if($size > 150){
+					$thumbnail = new thumbnail();
+					$thumbnail->create($result['urls'][0]);
+					$thumbnail->setQuality(100);
+					$thumbnail->minSize(150);
+					$thumbnail->save($result['urls'][0]);
+				}
 			}
 			else
 			{

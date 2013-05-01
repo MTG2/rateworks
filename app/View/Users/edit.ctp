@@ -5,8 +5,10 @@
 <section id="profil">
 <?php
 
-echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0', 'width' => '15%', 'height' => '15%'))."</br>";
+echo "<b>Profilbild</b><br>";
 
+echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0'))."</br>";
+echo $this->form->file('file')."<br><br>";
 	echo "Username: ".$entry['User']['username']."</br>";
 	echo "Role: ".$entry['User']['role']."</br></br>";
     echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));?>
@@ -17,8 +19,7 @@ Studiengang
   <div> <?php echo $this->Form->input('course', array('maxlength' => '30', 'label' => '')); ?> </div>
 E-Mail
   <div> <?php echo $this->Form->input('email', array('maxlength' => '30', 'label' => '')); ?> </div>
-Profilbild
-  <div> <?php echo $this->form->file('file');?>	   </div>
+
   <div> <?php echo $this->Form->end('Save User'); ?> </div>
 	
 	</section>
