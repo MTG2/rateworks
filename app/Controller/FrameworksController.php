@@ -1,5 +1,7 @@
 ﻿<?php
 
+include_once("thumbnail.php");
+
 class FrameworksController extends AppController {
 
 	public function beforeFilter() {
@@ -22,7 +24,7 @@ class FrameworksController extends AppController {
     }
 	
 	public function add() {
-	$result = null;
+
     if ($this->request->is('post')) {
 	
 	if (isset($this->request->data['file'])) {
@@ -31,7 +33,17 @@ class FrameworksController extends AppController {
 			
 			if($files[0]['size'] <= 3500000 && strpos($files[0]['type'],'image') !== false)
 			{
+
 				$result = $this->uploadFiles('img/frameworks', $files);
+				
+				echo $result['urls'][0];
+				
+				$thumbnail = new thumbnail();
+				$thumbnail->create($result['urls'][0]);
+				$thumbnail->setQuality(100);
+				$thumbnail->minSize(150);
+				$thumbnail->save($result['urls'][0]);
+		
 			}
 			else
 			{
