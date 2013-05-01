@@ -380,7 +380,7 @@ margin-left:-10px;
 /*logo */
 
 #logo {
-width:800px;
+width:400px;
 margin-left:auto; /* Firefox, Opera und so */
 margin-right:auto;
 }
@@ -405,7 +405,7 @@ margin-right:auto;
 
  
  /* Profil Form */
-.profilcontainer {padding:15px; position: relative; width: 400px; border:solid; }
+.profilcontainer {padding:15px; position: relative; width: 90%; border:solid; }
 #profil form { margin: 0 0px; position: relative }
 #profil form textarea,
 #profil form input[type="number"],
@@ -432,7 +432,7 @@ margin-right:auto;
 	font: 13px Helvetica, Arial, sans-serif;
 	margin: 0 0 10px;
 	padding: 15px 10px 15px 5px;
-	width: 400px;;
+	width: 90%;
 	resize:vertical;
 }
 #profil form textarea:focus,

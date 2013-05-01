@@ -12,7 +12,7 @@
 <section id="profil">
 
 <?php echo $this->Form->create('Entry'); ?>
-Framework auswählen: <?php echo $this->Form->input('framework',array('label'=>'','type'=>'select','options'=>$frameworks));?>
+<b>Framework auswählen:</b> <?php echo $this->Form->input('framework',array('label'=>'','type'=>'select','options'=>$frameworks));?>
 <br>
 
 <p>Name</p>

@@ -6,8 +6,7 @@
 	echo $this->html->script('jquery.rateit',true); 
 ?>
 
-<h2>Projekt bearbeiten</h2>
-<h3>ID: <?php echo $entry['Entry']['id']; ?> </h3>
+<h2 align="center">Projekt bearbeiten</h2>
 
 <section id="profil">
 
