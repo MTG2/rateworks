@@ -26,6 +26,10 @@ E-Mail
 	
 	</section>
 
+	
+<?php if($activities != null){ ?>
+
+	
 <h2>Letze Tätigkeiten</h2>
 <div id="commentArea">
 
@@ -53,13 +57,9 @@ if ($i==10)break;
 ?>
 
 </div>
-
-
-
-
 <hr>
 
-<?php endforeach; ?>
+<?php endforeach; }?>
 
 
 </div>
