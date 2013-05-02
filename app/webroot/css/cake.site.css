@@ -400,9 +400,10 @@ margin-right:auto;
 	padding-top: 30px;
 	position: relative;
 	float:left;
-	height: 250px;
+	height: 220px;
 	width: 250px;
 	position: relative;
+
 }
 
 
@@ -413,6 +414,9 @@ margin-right:auto;
 	background-color:#ffce99;
 }
 
+#frameBase img{
+vertical-align:middle;
+}
  
  /* Profil Form */
 .profilcontainer {padding:15px; position: relative; width: 90%; border:solid; }
