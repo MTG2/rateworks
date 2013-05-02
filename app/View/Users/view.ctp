@@ -1,7 +1,7 @@
 ﻿<!-- File: /app/View/Users/view.ctp -->
 <?php $this->layout = 'standart'; ?> 
 <div id="user">
-<h3><?php echo $user['User']['username']; ?></h3>
+<h3><?php echo "Profil von ".$user['User']['username'].""; ?></h3>
 <?php echo $this->Html->image($user['User']['pic'], array('class'=>'alignleft', 'width'=>'150px', 'height'=>'150px'));  ?>
 <p>Rolle: <?php echo $user['User']['role']; ?> </p>
 <p>E-Mail: <?php echo $user['User']['email']; ?> </p>
@@ -23,7 +23,7 @@ $i=$i+1;
 
 <?php 
 if ($activity['type']=='comment'){
-echo "".$this->Html->image('commentSmall.png', array('border' => '0',))." ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." kommentiert. <p>";
+echo "".$this->Html->image('commentSmall.png', array('border' => '0',))." ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." kommentiert: <p>";
 echo nl2br($activity['value']['Comment']['text']);
 }
 ?>
