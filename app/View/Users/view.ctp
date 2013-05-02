@@ -24,7 +24,7 @@ $i=$i+1;
 <?php 
 if ($activity['type']=='comment'){
 echo "".$this->Html->image('commentSmall.png', array('border' => '0',))." ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." kommentiert. <p>";
-echo $activity['value']['Comment']['text'];
+echo nl2br($activity['value']['Comment']['text']);
 }
 ?>
 <?php

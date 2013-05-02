@@ -1,4 +1,4 @@
-<!-- File: /app/View/Comments/view.ctp -->
+﻿<!-- File: /app/View/Comments/view.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <?php
  echo $this->html->script('jquery-1.9.1',false); 
@@ -74,7 +74,7 @@ else
 echo $this->Html->image('deleted.png',array("alt" => "User"))?>
 					
 <div id="commentAuthor">
-<?php echo "Gel&ouml;schter Benutzer"; 
+<?php echo "Gelöschter Benutzer"; 
 
 }
 else{

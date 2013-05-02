@@ -45,24 +45,26 @@ foreach ($activities as $activity):
 $i=$i+1;
 ?>
 
-<div id="comment">
+<div id="activity">
 
 <?php 
 if ($activity['type']=='comment'){
-echo "Hat ".$activity['value']['Entry']['name']." kommentiert <p>";
-echo $activity['value']['Comment']['text'];
+echo "".$this->Html->image('commentSmall.png', array('border' => '0',))." ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." kommentiert. <p>";
+echo nl2br($activity['value']['Comment']['text']);
 }
 ?>
 <?php
 if ($activity['type']=='entry'){
-echo "Hat Projekt ";
-echo $activity['value']['Entry']['name'];
-echo " angelegt.";
+echo "".$this->Html->image('entrySmall.png', array('border' => '0', 'width'=>''))." Projekt ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." angelegt. <p>";
 }
 if ($i==10)break; 
 ?>
 
 </div>
+
+
+
+
 <hr>
 
 <?php endforeach; }?>
