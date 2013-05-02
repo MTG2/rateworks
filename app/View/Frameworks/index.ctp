@@ -23,18 +23,17 @@
 		echo "<tr>";
 	}
 
-	echo '<div class="rateit" data-rateit-value="'.$framework['total']['total'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>';
+	
 		echo "<td><div align='center' id='frameBase'>";
 			echo $this->Html->link(
 				$this->Html->image($framework['framework']['Framework']['pic'], array('border' => '0')),
 				array('controller' => 'entries', 'action' => 'show_entries', $framework['framework']['Framework']['id']),
 				array('escape' => false));
-	
+		echo '<p><div class="rateit" data-rateit-value="'.$framework['total']['total'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>';
 			echo "<div id='frameChild'>";
 				echo $this->Html->link($framework['framework']['Framework']['name'],
 					array('controller' => 'entries', 'action' => 'show_entries', $framework['framework']['Framework']['id']),
 					array('escape' => false));
-			
 			echo "</div>";
 		echo "</div></td>";	
 		
