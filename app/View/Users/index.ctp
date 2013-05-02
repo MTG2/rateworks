@@ -5,7 +5,7 @@
 <br>
 <p>Nach Abschluss eines Projektes kann unter <?php echo $this->Html->link('Projekt anlegen', array('controller' => 'entries', 'action' => 'add')); ?> die Technologiebewertung aus dem WAN Moodle-Kurs eingetragen werden. Zusätzlich können hier die einzelnen Unterpunkte mit einem Sternesystem bewertet werden. Nachdem das Formular abgeschickt wurde erscheint die Technologiebewertung unter <?php echo $this->Html->link('Frameworks', array('controller' => 'frameworks', 'action' => 'index')); ?> in dem jeweilig ausgewählten Framework.<p>
 <br>
-<p>Diese Projekt wurde von Jan Lehnhäuser, Martin Hentzel und Marc Heinisch im Rahmen der WAN-Veranstaltung im Wintersemester 2012 programmiert. Wir wünschen euch genauso viel Spaß bei dem Verwenden von Frameworks wie wir hierbei hatten :)</p>
+<p>Dieses Projekt wurde von Jan Lehnhäuser, Martin Hentzel und Marc Heinisch im Rahmen der WAN-Veranstaltung im Wintersemester 2012 programmiert. Wir wünschen euch genauso viel Spaß bei dem Verwenden von Frameworks wie wir hierbei hatten :)</p>
 
 
 
