@@ -1,4 +1,4 @@
-<!-- File: /app/View/Users/edit.ctp -->
+﻿<!-- File: /app/View/Users/edit.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1>Edit Profile</h1>
 
@@ -25,3 +25,42 @@ E-Mail
   <div> <?php echo $this->Form->end('Save User'); ?> </div>
 	
 	</section>
+
+<h2>Letze Tätigkeiten</h2>
+<div id="commentArea">
+
+<?php
+$i=0; // Variable für Anzahl der Einträge
+foreach ($activities as $activity): 
+$i=$i+1;
+?>
+
+<div id="comment">
+
+<?php 
+if ($activity['type']=='comment'){
+echo "Hat ".$activity['value']['Entry']['name']." kommentiert <p>";
+echo $activity['value']['Comment']['text'];
+}
+?>
+<?php
+if ($activity['type']=='entry'){
+echo "Hat Projekt ";
+echo $activity['value']['Entry']['name'];
+echo " angelegt.";
+}
+if ($i==10)break; 
+?>
+
+</div>
+
+
+
+
+<hr>
+
+<?php endforeach; ?>
+
+
+</div>
+
