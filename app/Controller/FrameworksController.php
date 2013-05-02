@@ -11,7 +11,21 @@ class FrameworksController extends AppController {
     }
 
     public function index() {
-         $this->set('frameworks', $this->Framework->find('all'));
+	
+		$frameworks = $this->Framework->find('all');
+		$this->loadModel('Entry');
+	
+		foreach ($frameworks as &$framework) {
+		
+		$entry = $this->Entry->find("all", array(
+				"fields"     => array("AVG(rtotal) AS total"),
+				'conditions' => array('Entry.framework_id = '.$framework['Framework']['id']
+		)));
+		
+		$values[] = array('framework' => $framework, 'total' => $entry[0][0]);
+		
+		}
+        $this->set('frameworks', $values);
     }
 
     public function view($id = null) {
