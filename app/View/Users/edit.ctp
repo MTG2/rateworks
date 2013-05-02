@@ -8,6 +8,8 @@
 echo "<b>Profilbild</b><br>";
 
 echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0'))."</br>";
+echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));
+
 echo $this->form->file('file')."<br><br>";
 	echo "Username: ".$entry['User']['username']."</br>";
 	echo "Role: ".$entry['User']['role']."</br></br>";

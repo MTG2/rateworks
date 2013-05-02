@@ -235,13 +235,13 @@ class UsersController extends AppController {
 				
 				$size = getimagesize($result['urls'][0]);
 				
-				if($size > 150){
+			/*	if($size > 150){
 					$thumbnail = new thumbnail();
 					$thumbnail->create($result['urls'][0]);
 					$thumbnail->setQuality(100);
 					$thumbnail->minSize(150);
 					$thumbnail->save($result['urls'][0]);
-				}
+				} */
 			}
 			else
 			{
