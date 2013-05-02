@@ -218,8 +218,6 @@ class UsersController extends AppController {
 		
 		$this->set('activities', $activities);
 		
-		
-		
 		$entry = $this->User->find('first', array('conditions' => array('User.id' => $id)));
 		$this->set('entry', $entry);
 		
@@ -253,6 +251,13 @@ class UsersController extends AppController {
 			{
 				$data = $this->request->data['User']['pic'] = substr($result['urls'][0],4);
 			}
+				
+			//passwort ändern
+			if($this->Auth->password($this->data['User']['oldpassword']) == $this->Auth->user('password'))
+			{
+				$this->request->data['User']['password'] = $this->Auth->password($this->data['User']['newpassword']);
+			}
+
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('Änderungen gespeichert.'));
                $this->redirect(array('controller' => 'users', 'action' => 'edit', $id));

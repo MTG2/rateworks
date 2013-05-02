@@ -21,7 +21,13 @@ Studiengang
   <div> <?php echo $this->Form->input('course', array('maxlength' => '30', 'label' => '')); ?> </div>
 E-Mail
   <div> <?php echo $this->Form->input('email', array('maxlength' => '30', 'label' => '')); ?> </div>
-
+Altes Passwort
+ <div>  <?php echo $this->Form->input('oldpassword', array('placeholder' => 'Passwort','label' => '','id' => 'oldpassword'));?><div> 
+Neues Passwort
+ <div>  <?php echo $this->Form->input('newpassword', array('placeholder' => 'Passwort','label' => '','id' => 'newpassword'));?><div>  
+  
+  
+  
   <div> <?php echo $this->Form->end('Save User'); ?> </div>
 	
 	</section>
