@@ -255,7 +255,7 @@ class UsersController extends AppController {
 			//passwort ändern
 			if($this->Auth->password($this->data['User']['oldpassword']) == $this->Auth->user('password'))
 			{
-				$this->request->data['User']['password'] = $this->Auth->password($this->data['User']['newpassword']);
+				$this->request->data['User']['password'] = $this->data['User']['newpassword'];	
 			}
 
             if ($this->User->save($this->request->data)) {
