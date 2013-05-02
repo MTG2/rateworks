@@ -367,6 +367,16 @@ float:right;
 width:100px;
 }
 
+#activity{
+padding-top:5px;
+}
+
+#activity img{
+width:15px;
+height:15px;
+margin-right:5px;
+float:left;
+} 
 /*Trennlienie */
 
 hr {
