@@ -23,13 +23,13 @@ $i=$i+1;
 
 <?php 
 if ($activity['type']=='comment'){
-echo "".$this->Html->image('commentSmall.png', array('border' => '0',))." ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." kommentiert: <p>";
+echo "".$this->Html->image('commentSmall.png', array('border' => '0',))." ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." am ".$activity['value']['Entry']['created']." kommentiert: <p>";
 echo nl2br($activity['value']['Comment']['text']);
 }
 ?>
 <?php
 if ($activity['type']=='entry'){
-echo "".$this->Html->image('entrySmall.png', array('border' => '0', 'width'=>''))." Projekt ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." angelegt. <p>";
+echo "".$this->Html->image('entrySmall.png', array('border' => '0', 'width'=>''))." Projekt ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." am ".$activity['value']['Entry']['created']." angelegt. <p>";
 }
 if ($i==10)break; 
 ?>
