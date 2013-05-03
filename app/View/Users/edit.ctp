@@ -1,38 +1,43 @@
 ﻿<!-- File: /app/View/Users/edit.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
-<h1>Edit Profile</h1>
+
+
 
 <section id="profil">
+
+<div id="userForm">
 <?php
 
-echo "<b>Profilbild</b><br>";
+echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));	
 
-echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0'))."</br>";
-echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));
-
-echo $this->form->file('file')."<br><br>";
 	echo "Username: ".$entry['User']['username']."</br>";
 	echo "Rolle: ".$entry['User']['role']."</br></br>";
-    echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));?>
 
-Semester	
-  <div> <?php echo $this->Form->input('semester', array('maxlength' => '2', 'label' => '')); ?> </div>
-Studiengang
-  <div> <?php echo $this->Form->input('course', array('maxlength' => '30', 'label' => '')); ?> </div>
-E-Mail Adresse
-  <div> <?php echo $this->Form->input('email', array('maxlength' => '30', 'label' => '')); ?> </div>
-Altes Passwort
- <div>  <?php echo $this->Form->input('oldpassword', array('placeholder' => 'Passwort','label' => '','id' => 'oldpassword'));?><div> 
-Neues Passwort
- <div>  <?php echo $this->Form->input('newpassword', array('placeholder' => 'Passwort','label' => '','id' => 'newpassword'));?><div>  
-  
-  
-  
-  <div> <?php echo $this->Form->end('Save User'); ?> </div>
-	
-	</section>
+?>
+		
 
-	
+<b>Semester</b>	
+   <?php echo $this->Form->input('semester', array('maxlength' => '2', 'label' => '')); ?> 
+<b>Studiengang</b>
+   <?php echo $this->Form->input('course', array('maxlength' => '30', 'label' => '')); ?> 
+<b>E-Mail Adresse</b>
+   <?php echo $this->Form->input('email', array('maxlength' => '30', 'label' => '')); ?> 
+<b>Altes Passwort</b>
+  <?php echo $this->Form->input('oldpassword', array('placeholder' => 'Passwort','label' => '','id' => 'oldpassword'));?>
+<b>Neues Passwort</b>
+   <?php echo $this->Form->input('newpassword', array('placeholder' => 'Passwort','label' => '','id' => 'newpassword'));?>
+
+
+  <div id="profilPic">
+  <b>Profilbild</b><br>
+  <?php
+  echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0'))."</br>";
+  echo $this->form->file('file')."<br><br>";
+
+  echo '</div>';
+  echo $this->Form->end('Save User');  
+  ?>
+  </section>
 <?php if($activities != null){ ?>
 
 	

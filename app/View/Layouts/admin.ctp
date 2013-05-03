@@ -88,9 +88,7 @@
 		<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-		<?php echo $this->Html->link('Impressum', array(
-								   		'controller' => 'users',
-										'action' => 'impressum')) ?>
+
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => 'Cakephp', 'border' => '0')),
 					'http://www.cakephp.org/',
