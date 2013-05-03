@@ -1,4 +1,4 @@
-<!-- File: /app/View/Users/a_edit_key.ctp -->
+﻿<!-- File: /app/View/Users/a_edit_key.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 <h1>Zugangsschlüssel verwalten</h1>
 
