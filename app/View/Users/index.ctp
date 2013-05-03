@@ -1,4 +1,4 @@
-<!-- File: /app/View/Users/index.ctp -->
+﻿<!-- File: /app/View/Users/index.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1> Herzlich Wilkommen </h1>
 <p>Dieses Projekt dient dazu Frameworks die im Kurs Webanwendungen verwendet wurden zu bewerten und diese Bewertungen mit anderen Kursteilnehmern zu teilen. Zielsetzung unseres Projektes war ein System zu entwickeln das über die kommenden Jahre wachsen kann und Einsteigern einen guten Überblick über verschiedene neue Technologien bietet.</p>

@@ -67,12 +67,12 @@ class CommentsController extends AppController {
 			if($comment['Comment']['user_id'] == $this->Auth->user('id'))
 			{
 				if ($this->Comment->delete($id)) {	
-					$this->Session->setFlash('Kommentar wurde geloescht');		
+					$this->Session->setFlash('Kommentar wurde gelöscht');		
 				}
 			}
 			else
 			{
-				$this->Session->setFlash('Keine Berechtigung zum loeschen');		
+				$this->Session->setFlash('Keine Berechtigung zum löschen');		
 			}
 		$this->redirect(array('action' => $page, $entryID));
 	}

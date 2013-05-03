@@ -1,9 +1,9 @@
-<!-- File: /app/View/Users/a_edit_u_view.ctp -->
+﻿<!-- File: /app/View/Users/a_edit_u_view.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
 
 
-<h1>Edit Profile</h1>
+<h1>Profile bearbeiten</h1>
 
 <?php
 

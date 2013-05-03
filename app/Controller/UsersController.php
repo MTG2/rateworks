@@ -153,7 +153,7 @@ class UsersController extends AppController {
 	public function upload(){
 	 if ($this->request->is('post') || $this->request->is('put')) {
 	 if (isset($this->request->data['Users']['file'])) {
-	 $this->Session->setFlash(__('The user has been saved'));
+	 $this->Session->setFlash(__('Der Benutzer wurde gespeichert'));
      $result = $this->uploadFiles('img/uploads', $this->request->data['Users']);
     }
 	}
@@ -317,7 +317,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->User->id = $id;
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash('The User has been updated.');
+				$this->Session->setFlash('Änderungen gespeichert.');
 				$this->redirect(array('action' => 'a_edit_u'));
 			} else {
 				$this->Session->setFlash('Änderungen konnten nicht gespeichert werden.');
