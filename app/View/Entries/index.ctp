@@ -1,4 +1,4 @@
-<!-- File: /app/View/Posts/index.ctp -->
+﻿<!-- File: /app/View/Posts/index.ctp -->
 
 <h1>Frameworks</h1>
 <p>Username: <?php  echo $this->Session->read('Auth.User.username');?></p>

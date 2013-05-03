@@ -1,4 +1,4 @@
-<!-- File: /app/View/Frameworks/index.ctp -->
+﻿<!-- File: /app/View/Frameworks/index.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <?php
  echo $this->html->script('jquery-1.9.1',false); 

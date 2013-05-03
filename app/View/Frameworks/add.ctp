@@ -1,4 +1,4 @@
-<!-- File: /app/View/Frameworks/add.ctp -->
+﻿<!-- File: /app/View/Frameworks/add.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 <h1>Add Framework</h1>
 <?php

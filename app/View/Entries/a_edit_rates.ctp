@@ -1,4 +1,4 @@
-<!-- File: /app/View/Users/a_edit_rates.ctp -->
+﻿<!-- File: /app/View/Users/a_edit_rates.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
 <h1>Projekte verwalten</h1>

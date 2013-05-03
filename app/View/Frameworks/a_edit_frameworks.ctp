@@ -1,4 +1,4 @@
-<!-- File: /app/View/Users/a_edit_frameworks.ctp -->
+﻿<!-- File: /app/View/Users/a_edit_frameworks.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
 <h1>Frameworks verwalten</h1>
@@ -13,7 +13,7 @@
 
     <!-- Here is where we loop trough our $ausgabes array, printing out entries info -->
 	<div id="addFramework">
-	<p><?php echo $this->Html->image('add.png', array('alt' => 'Cakephp', 'border' => '0', 'class' => 'floatleft', 'width' => '16px')); ?>  <b><?php echo $this->Html->link('Add Framework', array('action' => 'add')); ?></b></p>
+	<p><?php echo $this->Html->image('add.png', array('alt' => 'Cakephp', 'border' => '0', 'class' => 'floatleft', 'width' => '16px')); ?>  <b><?php echo $this->Html->link('Framework hinzufügen', array('action' => 'add')); ?></b></p>
 	</div>
 	
 	<?php $checker = 0; ?>

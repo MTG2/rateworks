@@ -1,4 +1,4 @@
-<!-- File: /app/View/Entries/a_edit_entry.ctp -->
+﻿<!-- File: /app/View/Entries/a_edit_entry.ctp -->
 <?php $this->layout = 'admin'; ?>  <!-- admin Layout laden -->
 
 <?php

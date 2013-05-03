@@ -1,4 +1,4 @@
-<?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
+﻿<?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 
 
 <div style="float: right">
@@ -12,7 +12,7 @@
 
 <?php if($entries == null)
 	{
-		echo " </br> Noch keine Eintr&auml;ge vorhanden" ;
+		echo " </br> Noch keine Einträge vorhanden" ;
 	
 	} 
 else

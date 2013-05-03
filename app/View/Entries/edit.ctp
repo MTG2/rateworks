@@ -1,4 +1,4 @@
-<!-- File: /app/View/Posts/edit.ctp -->
+﻿<!-- File: /app/View/Posts/edit.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 
 <?php

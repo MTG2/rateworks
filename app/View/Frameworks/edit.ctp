@@ -1,4 +1,4 @@
-<!-- File: /app/View/Frameworks/edit.ctp -->
+﻿<!-- File: /app/View/Frameworks/edit.ctp -->
 <?php $this->layout = 'standart'; ?>  <!-- standart Layout laden -->
 <h1>Edit Frameworks</h1>
 <?php
