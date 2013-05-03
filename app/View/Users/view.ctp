@@ -10,7 +10,7 @@
 <p>Anzahl Kommentare: <?php echo count($comments) ?>
 <p>Anzahl Projekte: <?php echo count($entries) ?>
 </div>
-<h2>Letze Tätigkeiten</h2>
+<h3>Letze Tätigkeiten</h3>
 <div id="commentArea">
 
 <?php
