@@ -12,14 +12,14 @@ echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));
 
 echo $this->form->file('file')."<br><br>";
 	echo "Username: ".$entry['User']['username']."</br>";
-	echo "Role: ".$entry['User']['role']."</br></br>";
+	echo "Rolle: ".$entry['User']['role']."</br></br>";
     echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));?>
 
 Semester	
   <div> <?php echo $this->Form->input('semester', array('maxlength' => '2', 'label' => '')); ?> </div>
 Studiengang
   <div> <?php echo $this->Form->input('course', array('maxlength' => '30', 'label' => '')); ?> </div>
-E-Mail
+E-Mail Adresse
   <div> <?php echo $this->Form->input('email', array('maxlength' => '30', 'label' => '')); ?> </div>
 Altes Passwort
  <div>  <?php echo $this->Form->input('oldpassword', array('placeholder' => 'Passwort','label' => '','id' => 'oldpassword'));?><div> 

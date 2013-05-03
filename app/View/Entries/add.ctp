@@ -27,21 +27,21 @@
 <p>Reifegrad</p>
 <?php echo $this->Form->input('rdegree',array('type'=>'select', 'label'=>'', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRdegree" data-rateit-resetable="false" ></div>
-<?php echo $this->Form->input('degree', array('label'=>'', 'placeholder' => 'Wie stabil ist die Technologie? Versionszaehler, letzte Aktualisierung...')); ?>
+<?php echo $this->Form->input('degree', array('label'=>'', 'placeholder' => 'Wie stabil ist die Technologie? Versionszähler, letzte Aktualisierung...')); ?>
 
 <p>Handhabung</p>
 <?php echo $this->Form->input('rusability',array('label'=>'', 'type'=>'select', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRusability" data-rateit-resetable="false"></div>
-<?php echo $this->Form->input('usability', array('label'=>'', 'rows' => '3', 'placeholder'=>'Wie schwer ist der Einstieg in die Technologie (unter Beruecksichtigung ihres Kenntnisstandes)?')); ?>
+<?php echo $this->Form->input('usability', array('label'=>'', 'rows' => '3', 'placeholder'=>'Wie schwer ist der Einstieg in die Technologie (unter Berücksichtigung ihres Kenntnisstandes)?')); ?>
 
 <p>Highlights</p>
 <?php echo $this->Form->input('highlights', array('label'=>'', 'rows' => '3', 'placeholder'=>'Was war besonders gut oder schlecht?')); ?>
 
 <p>Links(mit Enter trennen)</p>
-<?php echo $this->Form->input('links', array('label'=>'', 'rows' => '3', 'placeholder'=>'Buecher, Internet-Ressourcen, Tutorials')); ?>
+<?php echo $this->Form->input('links', array('label'=>'', 'rows' => '3', 'placeholder'=>'Bücher, Internet-Ressourcen, Tutorials')); ?>
 
 <p>Einsatzgebiet</p>
-<?php echo $this->Form->input('domain', array('label'=>'', 'placeholder'=>'Koennen Sie die Technologie empfehlen? Fuer welche Einsatzbereiche?')); ?>
+<?php echo $this->Form->input('domain', array('label'=>'', 'placeholder'=>'Können Sie die Technologie empfehlen? Für welche Einsatzbereiche?')); ?>
 
 <p>Komplette Bewertung</p>
 <?php echo $this->Form->input('rtotal',array('label'=>'', 'type'=>'select', 'options'=>range(1,6,1)));?>
