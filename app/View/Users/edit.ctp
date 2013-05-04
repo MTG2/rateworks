@@ -32,7 +32,9 @@ echo $this->Form->create('User', array('action' => 'edit', 'type' => 'file'));
   <b>Profilbild</b><br>
   <?php
   echo $this->Html->image($entry['User']['pic'], array('alt' => 'Cakephp', 'border' => '0'))."</br>";
-  echo "<p><small>Bildformate: jpg, png, gif<br>";
+  echo "<p><small>Dateityp: <b>jpg, png, gif</b><br>";
+  echo "Bildformat <b>1:1</b><br>";
+  echo "max. <b>0,8 Mb</b><br>";
   echo "gif-Bildformate maximal 150x150 pixel</small></p><br>";
   echo $this->form->file('file')."<br><br>";
 

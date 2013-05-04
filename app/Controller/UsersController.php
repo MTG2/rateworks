@@ -228,37 +228,39 @@ class UsersController extends AppController {
 			$files = array(0 => $this->request->data['file']);
 			
 			
-			if($files[0]['size'] <= 3500000 && strpos($files[0]['type'],'image') !== false)
+			if($files[0]['size'] <= 800000 && strpos($files[0]['type'],'image') !== false)
 			{
 				$result = $this->uploadFiles('img/uploads', $files);
 				
 				$size = getimagesize($result['urls'][0]);
 				$width  = $size[0];     // width as integer
 				$height = $size[1];     // height as integer
-				$type =   $size[2];
-										// $size[2] ist der Dateityp
+				$type =   $size[2];		// $size[2] ist der Dateityp
+
+				$image = imagecreatefrompng($result['urls'][0]);
+				imagejpeg($image, $result['urls'][0], 100);
+				imagedestroy($image);							
 				
-				if($type == 1) {								// Gif ist Typ 1
-					if (($width > 160) && ($height > 160)){
-						unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
-						$result = null;							// so bleibt default als Userbild
+				if(($width/$height >= 0.95) && ($width/$height <= 1.05)){
+				
+					if($type == 1) {								// gif = 1, jpg = 2, png =3
+						if (($width > 160 && $height > 160)){
+							unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+							$result = null;							// so bleibt default als Userbild
+						}
+					}else{
+						if($size > 150){
+							$thumbnail = new thumbnail();
+							$thumbnail->create($result['urls'][0]);
+							$thumbnail->setQuality(100);
+							$thumbnail->minSize(150);
+							$thumbnail->save($result['urls'][0]);
+						}
 					}
 				}else{
-				
-					$image = imagecreatefrompng($result['urls'][0]);
-					imagejpeg($image, $result['urls'][0], 100);
-					imagedestroy($image);					
-
-					if($size > 150){
-						$thumbnail = new thumbnail();
-						$thumbnail->create($result['urls'][0]);
-						$thumbnail->setQuality(100);
-						$thumbnail->minSize(150);
-						$thumbnail->save($result['urls'][0]);
-					}
+					unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+					$result = null;							// so bleibt default als Userbild
 				}
-				
- 
 			}
 			else
 			{

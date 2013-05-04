@@ -50,7 +50,31 @@ class FrameworksController extends AppController {
 
 				$result = $this->uploadFiles('img/frameworks', $files);
 
+				$size = getimagesize($result['urls'][0]);
+				$width  = $size[0];     // width as integer
+				$height = $size[1];     // height as integer
+				$type =   $size[2];
+										// $size[2] ist der Dateityp
 				
+				if($type == 1) {								// Gif ist Typ 1
+				
+					unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+					$result = null;							// so bleibt default als Userbild
+					
+				}else{
+				
+					$image = imagecreatefrompng($result['urls'][0]);
+					imagejpeg($image, $result['urls'][0], 100);
+					imagedestroy($image);					
+
+					if($size > 150){
+						$thumbnail = new thumbnail();
+						$thumbnail->create($result['urls'][0]);
+						$thumbnail->setQuality(100);
+						$thumbnail->maxSize(150);
+						$thumbnail->save($result['urls'][0]);
+					}
+				}
 			}
 			else
 			{
@@ -63,10 +87,14 @@ class FrameworksController extends AppController {
 		}
 	
         $this->request->data['Framework']['user_id'] = $this->Auth->user('id'); //Added this line
-        if ($this->Framework->save($this->request->data)) {
-            $this->Session->setFlash('Der Eintrag wurde gespeichert.');
-            $this->redirect(array('action' => 'a_edit_frameworks'));
-        }
+		if ($result != null){
+			if ($this->Framework->save($this->request->data)) {
+				$this->Session->setFlash('Der Eintrag wurde gespeichert.');
+				$this->redirect(array('action' => 'a_edit_frameworks'));
+			}
+		}else{
+			$this->Session->setFlash('Falsches Bildformat.');
+		}
     }
 	}
 	
