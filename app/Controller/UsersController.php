@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include_once("thumbnail.php");
 // app/Controller/UsersController.php
 class UsersController extends AppController {
