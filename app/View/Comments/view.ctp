@@ -6,7 +6,9 @@
 ?>
 
 <h1><?php echo ($entry['Entry']['name']); ?></h1>
-<?php echo $this->Html->image($entry['Framework']['pic'], array('width' => '15%', 'height' => '15%', 'class' => 'alignright')) ?>
+	<?php  
+	$image = $this->Html->image($entry['Framework']['pic'], array('width'=>'150px', 'class' => 'alignright'));
+	echo $this->html->link($image, $entry['Framework']['link'], array('class'=>'ext', 'target'=>'_blank', 'escape' => false)); ?>
 <h2> Beschreibung </h2>
 <p><?php echo ($entry['Entry']['description']); ?></p>
 <h2> Projekt Link </h2>

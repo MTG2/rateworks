@@ -2,7 +2,9 @@
 
 
 <div style="float: right">
-	<?php  echo $this->Html->image($framework['Framework']['pic'], array('width'=>'150px')); ?></p>
+	<?php  
+	$image = $this->Html->image($framework['Framework']['pic'], array('width'=>'150px'));
+	echo $this->html->link($image, $framework['Framework']['link'], array('class'=>'ext', 'target'=>'_blank', 'escape' => false)); ?></p>
 </div>
 
 <h1>Projekte</h1>
