@@ -227,19 +227,38 @@ class UsersController extends AppController {
 	
 			$files = array(0 => $this->request->data['file']);
 			
+			
 			if($files[0]['size'] <= 3500000 && strpos($files[0]['type'],'image') !== false)
 			{
 				$result = $this->uploadFiles('img/uploads', $files);
 				
 				$size = getimagesize($result['urls'][0]);
+				$width  = $size[0];     // width as integer
+				$height = $size[1];     // height as integer
+				$type =   $size[2];
+										// $size[2] ist der Dateityp
 				
-				if($size > 150){
-					$thumbnail = new thumbnail();
-					$thumbnail->create($result['urls'][0]);
-					$thumbnail->setQuality(100);
-					$thumbnail->minSize(150);
-					$thumbnail->save($result['urls'][0]);
-				} 
+				if($type == 1) {								// Gif ist Typ 1
+					if (($width > 160) && ($height > 160)){
+						unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+						$result = null;							// so bleibt default als Userbild
+					}
+				}else{
+				
+					$image = imagecreatefrompng($result['urls'][0]);
+					imagejpeg($image, $result['urls'][0], 100);
+					imagedestroy($image);					
+
+					if($size > 150){
+						$thumbnail = new thumbnail();
+						$thumbnail->create($result['urls'][0]);
+						$thumbnail->setQuality(100);
+						$thumbnail->minSize(150);
+						$thumbnail->save($result['urls'][0]);
+					}
+				}
+				
+ 
 			}
 			else
 			{
@@ -250,6 +269,8 @@ class UsersController extends AppController {
 			if($result != null)
 			{
 				$data = $this->request->data['User']['pic'] = substr($result['urls'][0],4);
+			}else{
+				$this->Session->setFlash(__('Falsche Bildgröße / Falscher Dateityp.'));
 			}
 				
 			//passwort ändern
@@ -259,7 +280,12 @@ class UsersController extends AppController {
 			}
 
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('Änderungen gespeichert.'));
+				if ($result == null){
+					$this->Session->setFlash(__('Bildformat falsch formatiert'));
+				}else{
+					$this->Session->setFlash(__('Änderungen gespeichert.'));
+				}
+                
                $this->redirect(array('controller' => 'users', 'action' => 'edit', $id));
             } else {
                 $this->Session->setFlash(__('Änderungen konnten nicht gespeichert werden.'));
