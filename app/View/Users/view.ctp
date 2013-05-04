@@ -6,7 +6,7 @@
 <p>Rolle: <?php echo $user['User']['role']; ?> </p>
 <p>E-Mail: <?php echo $user['User']['email']; ?> </p>
 <p>Semester: <?php echo $user['User']['semester']; ?> </p>
-<p>Kurs: <?php echo $user['User']['course']; ?> </p>
+<p>Studiengang: <?php echo $user['User']['course']; ?> </p>
 <p>Anzahl Kommentare: <?php echo count($comments) ?>
 <p>Anzahl Projekte: <?php echo count($entries) ?>
 </div>
