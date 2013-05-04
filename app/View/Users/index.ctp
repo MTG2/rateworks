@@ -144,7 +144,7 @@ for($count = 0; $count < 3; $count++){
 					if($heute == $entToCompare){
 						echo "<b>heute · ".$entDate->format('H:i')."</b>";
 					}else{
-						echo "<b>".$entDate->format('d-m-Y')." · ".$entDate->format('H:i')."</b>";
+						echo "<b>".$entDate->format('d.m.Y')." · ".$entDate->format('H:i')."</b>";
 					}
 				
 			echo "</div>";
@@ -183,7 +183,7 @@ for($count = 0; $count < 3; $count++){
 					if($heute == $comToCompare){
 						echo "<b>heute · ".$comDate->format('H:i')."</b>";
 					}else{
-						echo "<b>".$comDate->format('d-m-Y')." · ".$comDate->format('H:i')."</b>";
+						echo "<b>".$comDate->format('d.m.Y')." · ".$comDate->format('H:i')."</b>";
 					}
 					
 				}else{
