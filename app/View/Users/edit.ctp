@@ -57,14 +57,36 @@ $i=$i+1;
 <div id="activity">
 
 <?php 
+
 if ($activity['type']=='comment'){
-echo "".$this->Html->image('commentSmall.png', array('border' => '0',))." ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." am ".$activity['value']['Entry']['created']." kommentiert: <p>";
+
+$commentDate = new DateTime($activity['value']['Comment']['created']);
+$commentToCompare = $commentDate->format('Y-m-d');
+
+if (date('Y-m-d') == $commentToCompare){
+	$datum = "heute · ".$commentDate->format('H:i');
+}else{
+	$datum = $commentDate->format('d.m.Y')." · ".$commentDate->format('H:i');
+}
+
+echo "".$this->Html->image('commentSmall.png', array('border' => '0',))." ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." ".$datum." kommentiert: <p>";
 echo nl2br($activity['value']['Comment']['text']);
+
 }
 ?>
 <?php
 if ($activity['type']=='entry'){
-echo "".$this->Html->image('entrySmall.png', array('border' => '0', 'width'=>''))." Projekt ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." am ".$activity['value']['Entry']['created']." angelegt. <p>";
+
+$commentDate = new DateTime($activity['value']['Entry']['created']);
+$commentToCompare = $commentDate->format('Y-m-d');
+
+if (date('Y-m-d') == $commentToCompare){
+	$datum = "heute · ".$commentDate->format('H:i');
+}else{
+	$datum = $commentDate->format('d.m.Y')." · ".$commentDate->format('H:i');
+}
+
+echo "".$this->Html->image('entrySmall.png', array('border' => '0', 'width'=>''))." Projekt ".$this->Html->link($activity['value']['Entry']['name'], array('controller' => 'comments', 'action' => 'view/'.$activity['value']['Entry']['id'].''))." ".$datum." angelegt. <p>";
 }
 if ($i==10)break; 
 ?>
