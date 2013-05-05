@@ -33,11 +33,27 @@ class EntriesController extends AppController {
         $this->request->data['Entry']['user_id'] = $this->Auth->user('id'); 
 		$this->request->data['Entry']['framework_id'] = $this->request->data['Entry']['framework'];
 		
+		if(strpos($this->request->data['Entry']['projectlink'], 'http://') !== true){
+			$this->request->data['Entry']['projectlink'] = "http://".$this->request->data['Entry']['projectlink'];
+		}
+		
+		$links = explode("\n", $this->request->data['Entry']['links']);
+		$linkstr = "";
+			
+		foreach ($links as $link):
+
+			if(strpos($link, 'http://') !== true){
+			$link = "http://".$link;
+			$linkstr = $linkstr."\n".$link;
+		}
+		endforeach; 
+		
+		
+		$this->request->data['Entry']['links'] = $linkstr;
 
         if ($this->Entry->save($this->request->data)) {
             $this->Session->setFlash('Eintrag wurde gespeichert.');
             $this->redirect(array('controller' => 'comments', 'action' => 'view',$this->Entry->id));
-
         }
     }
 	}

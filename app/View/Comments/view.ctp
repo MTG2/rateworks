@@ -12,7 +12,7 @@
 <h2> Beschreibung </h2>
 <p><?php echo ($entry['Entry']['description']); ?></p>
 <h2> Projekt Link </h2>
-<p><?php echo $this->html->link($entry['Entry']['projectlink'], 'http://'.$entry['Entry']['projectlink'], array('class'=>'ext', 'target'=>'_blank')); ?></p>
+<p><?php echo $this->html->link($entry['Entry']['projectlink'], $entry['Entry']['projectlink'], array('class'=>'ext', 'target'=>'_blank')); ?></p>
 <h2> Reifegrad</h2>
 <p><?php echo ($entry['Entry']['degree']); ?></p>
 <p><?php echo '<div class="rateit" data-rateit-value="'.$entry['Entry']['rdegree'].'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>'; ?>
@@ -32,7 +32,7 @@ $links = explode("\n", $entry['Entry']['links']);
 
 foreach ($links as $link):
 
-echo $this->html->link($link, 'http://'.$link, array('class'=>'ext', 'target'=>'_blank')).'</br>';
+echo $this->html->link($link, $link, array('class'=>'ext', 'target'=>'_blank')).'</br>';
 
 endforeach; ?>
 
