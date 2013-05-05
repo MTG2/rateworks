@@ -251,44 +251,60 @@ class UsersController extends AppController {
 					$type =   $size[2];		// $size[2] ist der Dateityp					
 					
 					if(($width/$height >= 0.95) && ($width/$height <= 1.05)){
-					
-						if($type == 1) {								// gif = 1, jpg = 2, png =3
-							if (($width > 160 && $height > 160)){
-								unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
-								$result = null;							// so bleibt default als Userbild
-								$filecheck = 0;
+						if($type == 1 || $type == 2 || $type == 3){
+							if($type == 1) {								// gif = 1, jpg = 2, png =3
+								if (($width > 160 && $height > 160)){
+									unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+									$result = null;							// so bleibt default als Userbild
+									$filecheck = 0;	
+								}else{
+									copy($result['urls'][0],"img/uploads/".$timestamp.".gif");
+									unlink($result['urls'][0]);
+									$result['urls'][0] = "img/uploads/".$timestamp.".gif";
+									
+									if($picOld["User"]['pic'] != 'default.png'){
+										unlink("img/".$picOld["User"]['pic']);
+									}
+								}
+								
+
+							}else{
+								
+								if ($type == 3){
+									$input = imagecreatefrompng($result['urls'][0]);
+									list($width, $height) = getimagesize($result['urls'][0]);
+									$output = imagecreatetruecolor($width, $height);
+									$white = imagecolorallocate($output,  255, 255, 255);
+									imagefilledrectangle($output, 0, 0, $width, $height, $white);
+									imagecopy($output, $input, 0, 0, 0, 0, $width, $height);
+									$toDelete = $result['urls'][0];
+									$result['urls'][0] = $result['urls'][0].".jpg";
+									imagejpeg($output, $result['urls'][0]);
+									unlink($toDelete);								//löscht das alte Bild
+								}
+
+								if($size > 150){
+									$thumbnail = new thumbnail();
+									$thumbnail->create($result['urls'][0]);
+									$thumbnail->setQuality(100);
+									$thumbnail->minSize(150);
+									$thumbnail->save($result['urls'][0]);
+								}
+								
+								copy($result['urls'][0],"img/uploads/".$timestamp.".jpg");
+								unlink($result['urls'][0]);
+								$result['urls'][0] = "img/uploads/".$timestamp.".jpg";
+								
+								if($picOld["User"]['pic'] != 'default.png'){
+									unlink("img/".$picOld["User"]['pic']);
+								}
+								
+								
 							}
 						}else{
-							
-							if ($type == 3){
-								$input = imagecreatefrompng($result['urls'][0]);
-								list($width, $height) = getimagesize($result['urls'][0]);
-								$output = imagecreatetruecolor($width, $height);
-								$white = imagecolorallocate($output,  255, 255, 255);
-								imagefilledrectangle($output, 0, 0, $width, $height, $white);
-								imagecopy($output, $input, 0, 0, 0, 0, $width, $height);
-								$toDelete = $result['urls'][0];
-								$result['urls'][0] = $result['urls'][0].".jpg";
-								imagejpeg($output, $result['urls'][0]);
-								unlink($toDelete);								//löscht das alte Bild
-							}
-
-							if($size > 150){
-								$thumbnail = new thumbnail();
-								$thumbnail->create($result['urls'][0]);
-								$thumbnail->setQuality(100);
-								$thumbnail->minSize(150);
-								$thumbnail->save($result['urls'][0]);
-							}
-							
-							copy($result['urls'][0],"img/uploads/".$timestamp.".jpg");
-							unlink($result['urls'][0]);
-							$result['urls'][0] = "img/uploads/".$timestamp.".jpg";
-							if($picOld["User"]['pic'] != 'default.png'){
-								unlink("img/".$picOld["User"]['pic']);
-							}
-							
-							
+							unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+							$result = null;							// so bleibt default als Userbild
+							$filecheck = 0;
 						}
 					}else{
 						unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server

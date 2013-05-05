@@ -57,41 +57,48 @@ class FrameworksController extends AppController {
 				$height = $size[1];     // height as integer
 				$type =   $size[2];
 										// $size[2] ist der Dateityp
+				if($type == 1 || $type == 2 || $type == 3){
 				
-				if($type == 1) {								// Gif ist Typ 1
-				
-					unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
-					$result = null;							// so bleibt default als Userbild
+					if($type == 1) {								// Gif ist Typ 1
+					
+						unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+						$result = null;							// so bleibt default als Userbild
+						
+					}else{
+					
+						if ($type == 3){
+							$input = imagecreatefrompng($result['urls'][0]);
+							list($width, $height) = getimagesize($result['urls'][0]);
+							$output = imagecreatetruecolor($width, $height);
+							$white = imagecolorallocate($output,  255, 255, 255);
+							imagefilledrectangle($output, 0, 0, $width, $height, $white);
+							imagecopy($output, $input, 0, 0, 0, 0, $width, $height);
+							$toDelete = $result['urls'][0];
+							$result['urls'][0] = $result['urls'][0].".jpg";
+							imagejpeg($output, $result['urls'][0]);
+							unlink($toDelete);								//löscht das alte Bild
+						}
+						
+						if($size > 150){
+							$thumbnail = new thumbnail();
+							$thumbnail->create($result['urls'][0]);
+							$thumbnail->setQuality(100);
+							$thumbnail->maxSize(150);
+							$thumbnail->save($result['urls'][0]);
+						}
+						
+						
+						copy($result['urls'][0],"img/frameworks/".$timestamp.".jpg");
+						unlink($result['urls'][0]);
+						$result['urls'][0] = "img/frameworks/".$timestamp.".jpg";
+						
+					}
 					
 				}else{
-				
-					if ($type == 3){
-						$input = imagecreatefrompng($result['urls'][0]);
-						list($width, $height) = getimagesize($result['urls'][0]);
-						$output = imagecreatetruecolor($width, $height);
-						$white = imagecolorallocate($output,  255, 255, 255);
-						imagefilledrectangle($output, 0, 0, $width, $height, $white);
-						imagecopy($output, $input, 0, 0, 0, 0, $width, $height);
-						$toDelete = $result['urls'][0];
-						$result['urls'][0] = $result['urls'][0].".jpg";
-						imagejpeg($output, $result['urls'][0]);
-						unlink($toDelete);								//löscht das alte Bild
-					}
-					
-					if($size > 150){
-						$thumbnail = new thumbnail();
-						$thumbnail->create($result['urls'][0]);
-						$thumbnail->setQuality(100);
-						$thumbnail->maxSize(150);
-						$thumbnail->save($result['urls'][0]);
-					}
-					
-					
-					copy($result['urls'][0],"img/frameworks/".$timestamp.".jpg");
-					unlink($result['urls'][0]);
-					$result['urls'][0] = "img/frameworks/".$timestamp.".jpg";
-					
+					unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+					$result = null;							// so bleibt default als Userbild
 				}
+
 			}
 			else
 			{
