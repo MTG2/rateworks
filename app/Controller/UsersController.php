@@ -166,8 +166,13 @@ class UsersController extends AppController {
 	
     public function edit() {
 		$id =  $this->Auth->user('id');
+		$idSave = $id;
         $this->User->id = $id;
 		$result = null;
+		
+		
+		
+		
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
@@ -223,50 +228,79 @@ class UsersController extends AppController {
 		
         if ($this->request->is('post') || $this->request->is('put')) {
 		
-		if (isset($this->request->data['file'])) {
-	
-			$files = array(0 => $this->request->data['file']);
+			$picOld = null;
+			$picOld = $this->User->find('first', array('conditions' => array('User.id' => $idSave)));
 			
-			
-			if($files[0]['size'] <= 800000 && strpos($files[0]['type'],'image') !== false)
-			{
-				$result = $this->uploadFiles('img/uploads', $files);
+			if (isset($this->request->data['file'])) {
+		
+				$files = array(0 => $this->request->data['file']);
 				
-				$size = getimagesize($result['urls'][0]);
-				$width  = $size[0];     // width as integer
-				$height = $size[1];     // height as integer
-				$type =   $size[2];		// $size[2] ist der Dateityp
+				$filecheck = 1;
+				
+				
+				if($files[0]['size'] <= 850000 && strpos($files[0]['type'],'image') !== false)
+				{
+					$datum = new DateTime();
+					$timestamp = $datum->getTimestamp().rand(1000, 389234);
+					
+					$result = $this->uploadFiles('img/uploads', $files);
+					
+					$size = getimagesize($result['urls'][0]);
+					$width  = $size[0];     // width as integer
+					$height = $size[1];     // height as integer
+					$type =   $size[2];		// $size[2] ist der Dateityp					
+					
+					if(($width/$height >= 0.95) && ($width/$height <= 1.05)){
+					
+						if($type == 1) {								// gif = 1, jpg = 2, png =3
+							if (($width > 160 && $height > 160)){
+								unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+								$result = null;							// so bleibt default als Userbild
+								$filecheck = 0;
+							}
+						}else{
+							
+							if ($type == 3){
+								$input = imagecreatefrompng($result['urls'][0]);
+								list($width, $height) = getimagesize($result['urls'][0]);
+								$output = imagecreatetruecolor($width, $height);
+								$white = imagecolorallocate($output,  255, 255, 255);
+								imagefilledrectangle($output, 0, 0, $width, $height, $white);
+								imagecopy($output, $input, 0, 0, 0, 0, $width, $height);
+								$toDelete = $result['urls'][0];
+								$result['urls'][0] = $result['urls'][0].".jpg";
+								imagejpeg($output, $result['urls'][0]);
+								unlink($toDelete);								//löscht das alte Bild
+							}
 
-				$image = imagecreatefrompng($result['urls'][0]);
-				imagejpeg($image, $result['urls'][0], 100);
-				imagedestroy($image);							
-				
-				if(($width/$height >= 0.95) && ($width/$height <= 1.05)){
-				
-					if($type == 1) {								// gif = 1, jpg = 2, png =3
-						if (($width > 160 && $height > 160)){
-							unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
-							$result = null;							// so bleibt default als Userbild
+							if($size > 150){
+								$thumbnail = new thumbnail();
+								$thumbnail->create($result['urls'][0]);
+								$thumbnail->setQuality(100);
+								$thumbnail->minSize(150);
+								$thumbnail->save($result['urls'][0]);
+							}
+							
+							copy($result['urls'][0],"img/uploads/".$timestamp.".jpg");
+							unlink($result['urls'][0]);
+							$result['urls'][0] = "img/uploads/".$timestamp.".jpg";
+							if($picOld["User"]['pic'] != 'default.png'){
+								unlink("img/".$picOld["User"]['pic']);
+							}
+							
+							
 						}
 					}else{
-						if($size > 150){
-							$thumbnail = new thumbnail();
-							$thumbnail->create($result['urls'][0]);
-							$thumbnail->setQuality(100);
-							$thumbnail->minSize(150);
-							$thumbnail->save($result['urls'][0]);
-						}
+						unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
+						$result = null;							// so bleibt default als Userbild
+						$filecheck = 0;
 					}
-				}else{
-					unlink($result['urls'][0]);				// Löscht das hochgeladene Bild vom Server
-					$result = null;							// so bleibt default als Userbild
+				}
+				else
+				{
+					$this->Session->setFlash(__('Falsche Bildgröße / Falscher Dateityp.'));
 				}
 			}
-			else
-			{
-				$this->Session->setFlash(__('Falsche Bildgröße / Falscher Dateityp.'));
-			}
-		}
 		
 			if($result != null)
 			{
@@ -282,10 +316,11 @@ class UsersController extends AppController {
 			}
 
             if ($this->User->save($this->request->data)) {
-				if ($result == null){
-					$this->Session->setFlash(__('Bildformat falsch formatiert'));
+				
+				if ($filecheck == 0){
+					$this->Session->setFlash(__('Bild falsch formatiert.'));
 				}else{
-					$this->Session->setFlash(__('Änderungen gespeichert.'));
+					$this->Session->setFlash(__('Änderung gespeichert.'));
 				}
                 
                $this->redirect(array('controller' => 'users', 'action' => 'edit', $id));
