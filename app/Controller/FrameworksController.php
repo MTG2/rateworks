@@ -47,7 +47,9 @@ class FrameworksController extends AppController {
 			
 			if($files[0]['size'] <= 3500000 && strpos($files[0]['type'],'image') !== false)
 			{
-
+				
+				$datum = new DateTime();
+				$timestamp = $datum->getTimestamp().rand(1000, 389234);
 				$result = $this->uploadFiles('img/frameworks', $files);
 
 				$size = getimagesize($result['urls'][0]);
@@ -63,10 +65,19 @@ class FrameworksController extends AppController {
 					
 				}else{
 				
-					$image = imagecreatefrompng($result['urls'][0]);
-					imagejpeg($image, $result['urls'][0], 100);
-					imagedestroy($image);					
-
+					if ($type == 3){
+						$input = imagecreatefrompng($result['urls'][0]);
+						list($width, $height) = getimagesize($result['urls'][0]);
+						$output = imagecreatetruecolor($width, $height);
+						$white = imagecolorallocate($output,  255, 255, 255);
+						imagefilledrectangle($output, 0, 0, $width, $height, $white);
+						imagecopy($output, $input, 0, 0, 0, 0, $width, $height);
+						$toDelete = $result['urls'][0];
+						$result['urls'][0] = $result['urls'][0].".jpg";
+						imagejpeg($output, $result['urls'][0]);
+						unlink($toDelete);								//löscht das alte Bild
+					}
+					
 					if($size > 150){
 						$thumbnail = new thumbnail();
 						$thumbnail->create($result['urls'][0]);
@@ -74,6 +85,12 @@ class FrameworksController extends AppController {
 						$thumbnail->maxSize(150);
 						$thumbnail->save($result['urls'][0]);
 					}
+					
+					
+					copy($result['urls'][0],"img/frameworks/".$timestamp.".jpg");
+					unlink($result['urls'][0]);
+					$result['urls'][0] = "img/frameworks/".$timestamp.".jpg";
+					
 				}
 			}
 			else
@@ -84,6 +101,11 @@ class FrameworksController extends AppController {
 		
 	if($result != null){
 			$data = $this->request->data['Framework']['pic'] = substr($result['urls'][0],4);
+			if(strpos($this->request->data['Framework']['link'], 'http://') !== true){
+				$this->request->data['Framework']['link'] = "http://".$this->request->data['Framework']['link'];
+			}
+			
+			
 		}
 	
         $this->request->data['Framework']['user_id'] = $this->Auth->user('id'); //Added this line
