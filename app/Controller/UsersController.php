@@ -5,7 +5,7 @@ class UsersController extends AppController {
 
 
 	public function beforeFilter() {
-        $this->Auth->allow('login','register');
+        $this->Auth->allow('login','register','restore_password');
 		
 		if($this->Auth->loggedIn()){
 			$this->Auth->allow('edit','logout', 'login', 'index', 'view');
@@ -420,6 +420,34 @@ class UsersController extends AppController {
 		}
 		
 	}
+
+	public function restore_password(){
+
+	if ($this->request->is('post') || $this->request->is('put')) {
+		
+		$to = 'jan46@onlinehome.de'; //$this->request->data['User']['email'];
+		$subject = "Ihr neues Passwort";
+		$message = "Test";
+		echo mail($to,$subject,$message);
+		$this->Session->setFlash('Mail gesendet');
+		
+		//CakeEmail::deliver('jan46@onlinehome.de', 'Subject', 'Message', array('from' => 'me@example.com'));
+		
+
+
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	}
+	
+	
+	
 }
 	
 ?>
