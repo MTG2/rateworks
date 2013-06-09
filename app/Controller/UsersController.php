@@ -424,19 +424,26 @@ class UsersController extends AppController {
 	public function restore_password(){
 
 	if ($this->request->is('post') || $this->request->is('put')) {
-		
-		$to = 'jan46@onlinehome.de'; //$this->request->data['User']['email'];
-		$subject = "Ihr neues Passwort";
-		$message = "Test";
-		echo mail($to,$subject,$message);
-		$this->Session->setFlash('Mail gesendet');
-		
-		//CakeEmail::deliver('jan46@onlinehome.de', 'Subject', 'Message', array('from' => 'me@example.com'));
-		
 
+			$Email = new CakeEmail('default');
+				
+			
+			$Email->sender('pejujani@onlinehome.de', 'MyApp emailer');
+			$Email->from(array('pejujani@onlinehome.de' => 'My Site'));
+			$Email->to('jan46@onlinehome.de');
+			$Email->subject('About');
+			$Email->send('My message');
+			$this->Session->setFlash('Mail gesendet');
+			
 
-		
-		
+			
+			
+		/*	$email = new CakeEmail('default');
+		$email->from(array('dachsmensch@gmail.com' => __('Recruitment Job App')))
+      ->to('jan46@onlinehome.de')
+          ->subject(__('Recruitment Status Update'))
+          ->send(__('Dear, ReynierPM this is a testing email'));*/
+		  
 		
 		
 		

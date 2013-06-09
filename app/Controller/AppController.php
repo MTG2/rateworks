@@ -21,7 +21,7 @@
  */
 
 App::uses('Controller', 'Controller');
-	App::uses('CakeEmail', 'Network/Email');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * Application Controller
  *
@@ -35,6 +35,7 @@ class AppController extends Controller {
     public $helpers = array('Html', 'Form', 'Session');
 	public $components = array(
     'Session',
+	'Email',
 	'DebugKit.Toolbar',
     'Auth' => array(
         'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
