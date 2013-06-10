@@ -24,10 +24,12 @@
 <p>Beschreibung</p>
 <?php echo $this->Form->input('description', array('rows' => '3', 'label'=>'','placeholder' =>'Kurze Beschreibung des Projektes?')); ?>
 
+<p>Verwendete Version</p>
+<?php echo $this->Form->input('version', array('label'=>'', 'placeholder' => 'Versionszähler')); ?>
 <p>Reifegrad</p>
 <?php echo $this->Form->input('rdegree',array('type'=>'select', 'label'=>'', 'options'=>range(1,6,1)));?>
 <div class="rateit" data-rateit-backingfld="#EntryRdegree" data-rateit-resetable="false" ></div>
-<?php echo $this->Form->input('degree', array('label'=>'', 'placeholder' => 'Wie stabil ist die Technologie? Versionszähler, letzte Aktualisierung...')); ?>
+<?php echo $this->Form->input('degree', array('label'=>'', 'placeholder' => 'Wie stabil ist die Technologie? Letzte Aktualisierung...')); ?>
 
 <p>Handhabung</p>
 <?php echo $this->Form->input('rusability',array('label'=>'', 'type'=>'select', 'options'=>range(1,6,1)));?>

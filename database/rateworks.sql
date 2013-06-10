@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 05. Mai 2013 um 18:52
--- Server Version: 5.5.27
--- PHP-Version: 5.4.7
+-- Host: localhost
+-- Generation Time: Jun 10, 2013 at 05:44 PM
+-- Server version: 5.5.25a
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Datenbank: `rateworks`
+-- Database: `rateworks`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE IF NOT EXISTS `comments` (
@@ -36,12 +36,12 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `entries`
+-- Table structure for table `entries`
 --
 
 CREATE TABLE IF NOT EXISTS `entries` (
@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `entries` (
   `projectlink` varchar(300) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` text NOT NULL,
+  `version` varchar(50) NOT NULL,
   `degree` text NOT NULL,
   `rdegree` int(11) NOT NULL,
   `usability` text NOT NULL,
@@ -61,12 +62,12 @@ CREATE TABLE IF NOT EXISTS `entries` (
   `framework_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `frameworks`
+-- Table structure for table `frameworks`
 --
 
 CREATE TABLE IF NOT EXISTS `frameworks` (
@@ -77,10 +78,10 @@ CREATE TABLE IF NOT EXISTS `frameworks` (
   `link` varchar(100) NOT NULL,
   `pic` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Daten für Tabelle `frameworks`
+-- Dumping data for table `frameworks`
 --
 
 INSERT INTO `frameworks` (`id`, `name`, `rating`, `created`, `link`, `pic`) VALUES
@@ -93,7 +94,7 @@ INSERT INTO `frameworks` (`id`, `name`, `rating`, `created`, `link`, `pic`) VALU
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `registrationkeys`
+-- Table structure for table `registrationkeys`
 --
 
 CREATE TABLE IF NOT EXISTS `registrationkeys` (
@@ -103,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `registrationkeys` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Daten für Tabelle `registrationkeys`
+-- Dumping data for table `registrationkeys`
 --
 
 INSERT INTO `registrationkeys` (`id`, `key`) VALUES
@@ -112,7 +113,7 @@ INSERT INTO `registrationkeys` (`id`, `key`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -126,14 +127,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created` datetime NOT NULL,
   `pic` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=70 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=71 ;
 
 --
--- Daten für Tabelle `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `semester`, `course`, `created`, `pic`) VALUES
-(69, 'superadmin', 'king_Arthur2005@gmx.de', 'c1964296638534a0076b514cae6b0b8ab7bbf514', 'admin', '0', 'Keiner', '2013-05-05 18:50:27', 'default.png');
+(69, 'superadmin', 'king_Arthur2005@gmx.de', 'c1964296638534a0076b514cae6b0b8ab7bbf514', 'admin', '0', 'Keiner', '2013-05-05 18:50:27', 'uploads/1367776372326547.jpg'),
+(70, 'marc', 'marc@marc.de', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', '10', 'asdf', '2013-05-20 20:16:11', 'default.png');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
