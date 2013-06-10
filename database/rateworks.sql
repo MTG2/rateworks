@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2013 at 05:44 PM
+-- Generation Time: Jun 10, 2013 at 07:08 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -127,15 +127,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created` datetime NOT NULL,
   `pic` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=71 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `semester`, `course`, `created`, `pic`) VALUES
-(69, 'superadmin', 'king_Arthur2005@gmx.de', 'c1964296638534a0076b514cae6b0b8ab7bbf514', 'admin', '0', 'Keiner', '2013-05-05 18:50:27', 'uploads/1367776372326547.jpg'),
-(70, 'marc', 'marc@marc.de', '6703f76752a957217075d51e2d3b1fe23be921f6', 'author', '10', 'asdf', '2013-05-20 20:16:11', 'default.png');
+(71, 'DSchultes', 'nocheintragen@nichts.de', '679170e5845be412a4486a97f973d98111a2d33c', 'admin', '0', '0', '2013-06-10 18:57:31', 'default.png'),
+(72, 'SEuler', 'nocheintragen@nichts.de', '679170e5845be412a4486a97f973d98111a2d33c', 'admin', '0', '0', '2013-06-10 18:58:33', 'default.png'),
+(73, 'Superadmin', 'nichts@brauchkeins.de', '679170e5845be412a4486a97f973d98111a2d33c', 'admin', '0', '0', '2013-06-10 19:02:05', 'default.png');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
