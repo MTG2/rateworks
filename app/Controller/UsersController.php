@@ -144,7 +144,8 @@ class UsersController extends AppController {
 					}
 				}
 				else{
-					$this->Session->setFlash(__('Falschen Zugangsschl&uuml;ssel eingeben.'));
+					$this->Session->setFlash(__('Falschen Zugangsschl&uuml;ssel eingegeben.'));
+
 				}	
 			}
 		}
