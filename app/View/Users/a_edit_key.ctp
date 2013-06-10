@@ -6,7 +6,7 @@
 <div>
 	<?php 
 		echo "<div id='key'>";
-			echo "Aktueller Regestrationskey: ";
+			echo "Aktueller Registrationskey: ";
 			echo "<b>".$key['Registrationkey']['key']."</b><br><br><br><br>";
 			
 			echo $this->Form->create('Registrationkey');
