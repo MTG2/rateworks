@@ -325,9 +325,9 @@ class UsersController extends AppController {
 			}else{
 				$this->Session->setFlash(__('Falsche Bildgröße / Falscher Dateityp.'));
 			}
-				
+		
 			//passwort ändern
-			if($this->Auth->password($this->data['User']['oldpassword']) == $this->Auth->user('password'))
+			if($this->Auth->password($this->data['User']['oldpassword']) == $entry['User']['password'])
 			{
 				$this->request->data['User']['password'] = $this->data['User']['newpassword'];	
 			}
