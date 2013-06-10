@@ -422,39 +422,32 @@ class UsersController extends AppController {
 	}
 
 	public function restore_password(){
-
-	if ($this->request->is('post') || $this->request->is('put')) {
-
-			$Email = new CakeEmail('default');
-				
+		if ($this->request->is('post') || $this->request->is('put'))
+		{
+			$receiver = $this->request->data['User']['email'];
+			$user = $this->User->find('first', array('conditions' => array('User.email' => $receiver)));
 			
-			$Email->sender('pejujani@onlinehome.de', 'MyApp emailer');
-			$Email->from(array('pejujani@onlinehome.de' => 'My Site'));
-			$Email->to('jan46@onlinehome.de');
-			$Email->subject('About');
-			$Email->send('My message');
-			$this->Session->setFlash('Mail gesendet');
-			
-
-			
-			
-		/*	$email = new CakeEmail('default');
-		$email->from(array('dachsmensch@gmail.com' => __('Recruitment Job App')))
-      ->to('jan46@onlinehome.de')
-          ->subject(__('Recruitment Status Update'))
-          ->send(__('Dear, ReynierPM this is a testing email'));*/
-		  
-		
-		
-		
+			if($user != null)
+			{
+				$pw = substr(md5(rand().rand()), 0, 8);
+				$message = 'Ihr neues Passwort lautet: '.$pw.'  Sie können ihr Passwort in ihrem Profil ändern.';
+				$Email = new CakeEmail('gmail');
+				$Email->sender('rateworks@gmail.com', 'MyApp emailer');
+				$Email->from(array('rateworks@gmail.com' => 'Rateworks'));
+				$Email->to($receiver);
+				$Email->subject('Ihr neues Passwort');
+				$Email->send($message);
+				$this->Session->setFlash('E-Mail mit Passwort wurde gesendet');
+				$user['User']['password'] = $pw;
+				$this->User->save($user);
+			}
+			else
+			{
+				$this->Session->setFlash('E-Mail Adresse wurde nicht gefunden');
+			}	
+		}	
 	}
-	
-	
-	
-	}
-	
-	
+
 	
 }
-	
 ?>
